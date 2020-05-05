@@ -1,0 +1,147 @@
+import React, { Component, createContext } from 'react';
+import { ApolloClient } from 'apollo-boost';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import createAuth0Client from '@auth0/auth0-spa-js';
+import { createHttpLink } from 'apollo-link-http';
+import fetch from 'isomorphic-fetch';
+import { setContext } from 'apollo-link-context';
+
+
+const link = createHttpLink({
+  fetch,
+  uri: process.env.API_URL,
+  useGETForQueries: false,
+});
+
+export const publicClient = new ApolloClient({
+  cache: new InMemoryCache(),
+  link,
+});
+
+const initialState = {
+  apolloClient: publicClient,
+  auth0Client: null,
+  getIdTokenClaims: () => { return; },
+  getTokenSilently: () => { return; },
+  isAuthenticated: false,
+  isLoading: true,
+  login: () => { return; },
+  logout: () => { return; },
+  user: null,
+};
+
+export const AuthenticationContext = createContext(initialState);
+
+export class AuthenticationProvider extends Component {
+  state = initialState;
+  props: any;
+
+  config = {
+    audience: 'https://api.neonlaw.com',
+    /* eslint-disable @typescript-eslint/camelcase */
+    client_id: 'g1l74kxH9PzfQfD7QpZBslm3COnbGmMM',
+    domain: 'neon-law.auth0.com',
+    redirect_uri: process.env.AUTH0_CALLBACK,
+    /* eslint-enable @typescript-eslint/camelcase */
+    responseType: 'token id_token',
+    scope: 'openid profile email'
+  };
+
+  componentDidMount() {
+    this.initializeAuth0();
+  }
+
+  initializeAuth0 = async () => {
+    const auth0Client = await createAuth0Client(this.config);
+    this.setState({ auth0Client });
+
+    if (window.location.search.includes('code=')) {
+      return await this.handleCallback();
+    }
+
+    const isAuthenticated = await auth0Client.isAuthenticated();
+    const user = isAuthenticated ? await auth0Client.getUser() : null;
+    this.setState({ isAuthenticated, user });
+
+    await this.updateClient();
+
+    this.setState({ isLoading: false });
+  };
+
+  handleCallback = async () => {
+    this.setState({ isLoading: true });
+
+    try {
+      await (this.state.auth0Client as any).handleRedirectCallback();
+    }
+    catch {
+      (this.state.auth0Client as any).logout(
+        { returnTo: process.env.SITE_URL }
+      );
+    }
+    const user = await (this.state.auth0Client as any).getUser();
+
+    await this.updateClient();
+    this.setState({ isAuthenticated: true, isLoading: false, user });
+  };
+
+  updateClient = async () => {
+    if (!this.state.isAuthenticated) {
+      return;
+    }
+
+    const authLink = setContext(async () => {
+      const accessToken = await (
+        this.state.auth0Client as any
+      ).getTokenSilently();
+
+      return {
+        headers: {
+          authorization: `Bearer ${accessToken}`,
+        }
+      };
+    });
+
+    const authenticatedClient = new ApolloClient({
+      cache: new InMemoryCache(),
+      link: authLink.concat(link),
+    });
+
+    this.setState({ apolloClient: authenticatedClient });
+  }
+
+  render() {
+    const { children } = this.props;
+    const {
+      apolloClient,
+      auth0Client,
+      isAuthenticated,
+      isLoading,
+      user
+    } = this.state;
+
+    const configObject = {
+      apolloClient,
+      auth0Client,
+      getIdTokenClaims: () => (auth0Client as any).getIdTokenClaims(),
+      getTokenSilently: () => (auth0Client as any).getTokenSilently(),
+      isAuthenticated,
+      isLoading,
+      login: () => (auth0Client as any).loginWithRedirect(),
+      logout: () => {
+        this.setState({ apolloClient: publicClient });
+
+        (auth0Client as any).logout(
+          { returnTo: process.env.SITE_URL }
+        );
+      },
+      user,
+    };
+
+    return (
+      <AuthenticationContext.Provider value={configObject}>
+        {children}
+      </AuthenticationContext.Provider>
+    );
+  }
+}

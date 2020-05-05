@@ -1,0 +1,54 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "src",
+    "declaration": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react",
+    "lib": [
+      "es2017",
+      "dom",
+      "esnext",
+      "es6",
+      "es2015.promise"
+    ],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "build",
+    "skipLibCheck": true,
+    "sourceMap": false,
+    "noImplicitAny": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "strict": true,
+    "target": "esnext",
+    "paths": {
+      "@containers/*": [
+        "containers/*"
+      ],
+      "@components/*": [
+        "components/*"
+      ],
+      "@forms/*": [
+        "forms/*"
+      ],
+      "@layouts/*": [
+        "layouts/*"
+      ],
+      "@themes/*": [
+        "themes/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ]
+    }
+  },
+  "include": [
+    "src",
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
+}
