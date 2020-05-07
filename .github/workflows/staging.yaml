@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - development
+      - fix-staging-nginx
 
 jobs:
   deploy_staging:
@@ -12,6 +13,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: Create staging_htpasswd file
+        run: echo "$STAGING_HTPASSWD" > staging_htpasswd
+        env:
+          STAGING_HTPASSWD: ${{ secrets.STAGING_HTPASSWD }}
+
       - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
           project_id: neon-law-development
@@ -27,7 +34,6 @@ jobs:
 
       - name: Build the Docker image
         run: |-
-          echo ${{ secrets.STAGING_HTPASSWD }} > staging_htpasswd
           docker build \
             --tag "us.gcr.io/neon-law-development/interface:$GITHUB_SHA" \
             --tag "us.gcr.io/neon-law-development/interface:latest" \
