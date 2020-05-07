@@ -5,6 +5,7 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
+  Text,
   useColorMode,
 } from '@chakra-ui/core';
 import React from 'react';
@@ -16,13 +17,13 @@ export const LanguageDropdown = () => {
 
   return (
     <>
-      <Box display={['none', 'none', 'flex']}>
+      <Box display={['none', 'none', 'flex']} padding="7px 0">
         <Menu>
           <MenuButton>
             Language{' '}<Icon name="chevron-up" />
           </MenuButton>
           <MenuList
-            placement="top-end"
+            placement="top"
             bg={lighterBg[colorMode]}
           >
             <MenuItem _hover={{ backgroundColor: evenLighterBg[colorMode] }}>
@@ -34,10 +35,13 @@ export const LanguageDropdown = () => {
       <Box
         cursor="pointer"
         width="100%"
-        display={['flex', 'flex', 'none']}
-        textAlign="left"
+        display={['block', 'block', 'none']}
+        textAlign="center"
+        padding="7px 0"
       >
-        Currently viewing this site in English
+        <Text>
+          Currently viewing this site in English
+        </Text>
       </Box>
     </>
   );
