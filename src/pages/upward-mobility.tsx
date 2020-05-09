@@ -1,12 +1,13 @@
 import { Heading, Text } from '@chakra-ui/core';
 import { Button } from '@components/button';
+import { PublicLayout } from '@layouts/public';
 import React from 'react';
 import { Router } from '@reach/router';
 import { Seo } from '@components/seo';
 import {
   UpwardMobilityQuestionnaire
 } from '@components/upwardMobilityQuestionnaire';
-import { navigate } from 'gatsby';
+import { navigate } from 'gatsby-plugin-intl';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const UpwardMobilityHome = (props) => {
@@ -34,10 +35,20 @@ const UpwardMobilityHome = (props) => {
 
 const UpwardMobilityRouter = () => {
   return (
-    <Router>
-      <UpwardMobilityQuestionnaire path="/upward-mobility/:questionId" />
-      <UpwardMobilityHome path="/upward-mobility" />
-    </Router>
+    <PublicLayout>
+      <Router basepath="/upward-mobility">
+        <UpwardMobilityQuestionnaire path=":questionId" />
+        <UpwardMobilityHome path="/" />
+      </Router>
+      <Router basepath="/es/upward-mobility">
+        <UpwardMobilityQuestionnaire path=":questionId" />
+        <UpwardMobilityHome path="/" />
+      </Router>
+      <Router basepath="/en/upward-mobility">
+        <UpwardMobilityQuestionnaire path=":questionId" />
+        <UpwardMobilityHome path="/" />
+      </Router>
+    </PublicLayout>
   );
 };
 
