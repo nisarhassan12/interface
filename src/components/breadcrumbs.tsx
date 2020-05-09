@@ -6,7 +6,7 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
 } from '@chakra-ui/core';
-import { Link } from 'gatsby';
+import { Link } from '@components/link';
 import { Location } from '@reach/router';
 import React from 'react';
 
@@ -45,10 +45,14 @@ export const Breadcrumbs = () => {
 
         const firstPath = paths[0]?.toLowerCase();
 
+        if (firstPath === 'en' || firstPath === 'es') {
+          paths.shift();
+        }
+
         if (
           !firstPath ||
           firstPath === 'callback' ||
-          firstPath == 'upward-mobility'
+          firstPath === 'upward-mobility'
         ) {
           return null;
         }
