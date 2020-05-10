@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/core';
 import { LanguageDropdown } from '@components/languageDropdown';
 import { Link } from '@components/link';
+import { useIntl } from 'gatsby-plugin-intl';
 import React from 'react';
 import { SocialMediaIcons } from '@components/socialMediaIcons';
 
@@ -18,7 +19,7 @@ export const Footer = () => {
   const color = { dark: 'white', light: 'black' };
   const bg = { dark: 'black', light: 'gray.300' };
   const lighterBg = { dark: 'gray.700', light: 'gray.200' };
-
+  const intl = useIntl();
   return (
     <Box
       bg={lighterBg[colorMode]}
@@ -34,7 +35,7 @@ export const Footer = () => {
           textAlign="center"
           fontWeight="medium"
         >
-          The Upward Mobility Law Firm
+          {intl.formatMessage({ id: 'footer.heading' })} 
         </Heading>
         <Text
           padding="1em"
@@ -42,14 +43,7 @@ export const Footer = () => {
           margin="0 auto"
           textAlign="center"
         >
-          All content presented herein is for informational purposes only.
-          Nothing should be construed as legal advice. Transmission and receipt
-          of this information is not intended to create and does not
-          constitute, an attorney-client relationship with lawyers on this
-          platform. There is no expectation of attorney-client privilege or
-          confidentiality of anything you may communicate to us in this forum.
-          Do not act upon any information presented without seeking
-          professional counsel.
+          {intl.formatMessage({ id: 'footer.text' })}
         </Text>
       </Box>
       <Flex

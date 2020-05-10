@@ -6,5 +6,10 @@
         "language": "Idioma",
         "english": "Inglés",
         "spanish": "Español"
+    },
+    "footer": {
+        "heading": "Bufete de abogados de la movilidad ascendente",
+        "text": "El contenido que aquí se muestra es exclusivamente informativo. No se debe interpretar como asesoramiento legal. Esta información, aquí expuesta, no pretende crear (ni constituye) un vínculo abogado-cliente con los abogados de esta plataforma. Tampoco se crea el secreto profesional entre abogado-cliente de nada que nos haya comunicado a través de este foro. Antes de actuar en base a cualquier información aquí encontrada, busque asesoramiento legal"
+
     }
 }
