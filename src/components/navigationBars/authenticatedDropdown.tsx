@@ -14,8 +14,9 @@ import { AuthenticationContext } from '@utils/authenticationContext';
 import { Link } from '@components/link';
 import React from 'react';
 import gql from 'graphql-tag';
-import { useQuery } from '@apollo/react-hooks';
 import { useIntl } from 'gatsby-plugin-intl';
+import { useQuery } from '@apollo/react-hooks';
+
 
 
 const CURRENT_USER = gql`
@@ -31,8 +32,7 @@ const CURRENT_USER = gql`
 `;
 
 const UserAvatar = () => {
-  const intl = useIntl();
-  return (
+   return (
     <AuthenticationContext.Consumer>
       {({ user: { name, picture } }) => {
         return (
@@ -56,6 +56,7 @@ export const AuthenticatedDropdown = () => {
   const { data } = useQuery(CURRENT_USER);
 
   const role = data?.getCurrentUser?.role;
+  const intl = useIntl();
 
   return (
     <Box

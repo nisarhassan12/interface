@@ -34,20 +34,20 @@ const ContactRickiePage = () => {
           </Text>
           <Input
             name="email"
-            placeholder={`${intl.formatMessage({ id: 'pages_probono.form.email_placeholder' })}`}
+            placeholder={`${intl.formatMessage({ id: 'pages_pb.form.email_ph' })}`}
             borderColor="gray.300"
             _hover={{ borderColor: 'gray.500' }}
           />
           <Text>
-           {intl.formatMessage({ id: 'pages_probono.form.message' })}
+            {intl.formatMessage({ id: 'pages_probono.form.message' })}
           </Text>
           <Textarea name="message"
-            placeholder={`${intl.formatMessage({ id: 'pages_probono.form.message_placeholder' })}`}
+            placeholder={`${intl.formatMessage({ id: 'pages_pb.form.message_ph' })}`}
             borderColor="gray.300"
             _hover={{ borderColor: 'gray.500' }}
           />
           <Button color="black">
-            {intl.formatMessage({ id: 'pages_probono.form.send' })}
+            {intl.formatMessage({ id: 'pages_pb.form.send' })}
           </Button>
         </Stack>
       </form>

@@ -52,7 +52,7 @@ export const LanguageDropdown = () => {
         padding="7px 0"
       >
         <Text>
-        {intl.formatMessage({ id: 'languageDropdown.text' })}
+          {intl.formatMessage({ id: 'languageDropdown.text' })}
         </Text>
       </Box>
     </>

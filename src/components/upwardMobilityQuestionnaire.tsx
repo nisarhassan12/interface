@@ -11,8 +11,9 @@ import { Seo } from '@components/seo';
 import {
   SingleChoiceQuestion
 } from '@components/questions/singleChoiceQuestion';
-import { useParams } from '@reach/router';
 import { useIntl } from 'gatsby-plugin-intl';
+import { useParams } from '@reach/router';
+
 
 
 

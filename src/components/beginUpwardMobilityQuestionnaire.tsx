@@ -14,7 +14,9 @@ export const BeginUpwardMobilityQuestionnaire = () => {
     <>
       <Seo title="Upward Mobility Questionnaire" />
 
-      <Heading textAlign="center">{intl.formatMessage({ id: 'beginUpwardMQ.heading' })}</Heading>
+      <Heading textAlign="center">
+        {intl.formatMessage({ id: 'beginUpwardMQ.heading' })}
+      </Heading>
 
       <Text margin="2em 0">
         {intl.formatMessage({ id: 'beginUpwardMQ.text' })}

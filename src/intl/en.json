@@ -62,17 +62,17 @@
     "contactForm": {
         "name": {
             "label": "Your name",
-            "placeholder": "Enter your name",
+            "ph": "Enter your name",
             "required": "Name is required."
         },
         "email": {
             "label": "Your email",
-            "placeholder": "Enter your email",
+            "ph": "Enter your email",
             "required": "Email is required."
         },
         "message": {
             "label": "Your message",
-            "placeholder": "Enter your message",
+            "ph": "Enter your message",
             "required": "Message is required."
         },
         "send": "Send Message"
@@ -90,15 +90,15 @@
         "heading": "Your Legal Matters",
         "text": "You currently do not have any active matters with our firm or our network. Contact us if you are interested in retaining our services."
     },
-    "pages_probono": {
+    "pages_pb": {
         "heading": "Contact Rickie Slaughter",
         "text1": "You can send a letter to Rickie at Rickie Slaughter NV #85902 1250 E Arica Road Eloy, AZ 85131",
         "text2": "Or, if you fill out your info below, we will mail out a letter on your behalf.",
         "form": {
             "email": "Your email:",
-            "email_placeholder": "Enter Email",
+            "email_ph": "Enter Email",
             "message": "Your message:",
-            "message_placeholder": "Enter Message",
+            "message_ph": "Enter Message",
             "send": "Send Information"
         }
     },

@@ -2,10 +2,8 @@ import { Flex, Spinner, Text } from '@chakra-ui/core';
 import React from 'react';
 // import { useIntl } from 'gatsby-plugin-intl';
 
-// const intl = useIntl();
-
 export const LoadingPage = () => (
-  
+  // const intl = useIntl();
   <Flex alignItems="center" minHeight="100vh">
     <Flex justifyContent="center" width="100%">
       <Flex flexDirection="column" alignItems="center" justifyContent="center">

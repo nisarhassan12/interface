@@ -1,9 +1,10 @@
 import { ReCaptchaButton, StringInput, Textarea } from '@forms/base';
 import React, { useEffect, useState } from 'react';
 import gql from 'graphql-tag';
+import { useIntl } from 'gatsby-plugin-intl';
 import { useForm } from 'react-hook-form';
 import { useMutation } from '@apollo/react-hooks';
-import { useIntl } from 'gatsby-plugin-intl';
+
 
 const CONTACT_FORM = gql`
   mutation createContactForm(
@@ -81,23 +82,23 @@ export const ContactForm = () => {
         name="name"
         label={`${intl.formatMessage({ id: 'contactForm.name.label' })}`}
         errors={errors}
-        placeholder={`${intl.formatMessage({ id: 'contactForm.name.placeholder' })}`}
-        register={register({ required: "Name is required."  })}
+        placeholder={`${intl.formatMessage({ id: 'contactForm.name.ph' })}`}
+        register={register({ required: 'Name is required.'  })}
       />
       <StringInput
         name="email"
         errors={errors}
         label={`${intl.formatMessage({ id: 'contactForm.email.label' })}`}
-        placeholder={`${intl.formatMessage({ id: 'contactForm.email.placeholder' })}`}
-        register={register({ required: "Email is required."  })}
+        placeholder={`${intl.formatMessage({ id: 'contactForm.email.ph' })}`}
+        register={register({ required: 'Email is required.'  })}
         // register={`${register({ required: `${intl.formatMessage({ id: 'contactForm.email.required' })}` })}`}
       />
       <Textarea
         name="message"
         label={`${intl.formatMessage({ id: 'contactForm.message.label' })}`}
         errors={errors}
-        placeholder={`${intl.formatMessage({ id: 'contactForm.message.placeholder' })}`}
-        register={register({ required: "Message is required."  })}
+        placeholder={`${intl.formatMessage({ id: 'contactForm.message.ph' })}`}
+        register={register({ required: 'Message is required.'  })}
         // register={`${register({ required: `${intl.formatMessage({ id: 'contactForm.message.required' })}` })}`}
       />
       <ReCaptchaButton
