@@ -3,6 +3,7 @@ import { AuthenticationContext } from '@utils/authenticationContext';
 import { Link } from 'gatsby-plugin-intl';
 import React from 'react';
 import { navigate } from 'gatsby';
+import { useIntl } from 'gatsby-plugin-intl';
 
 export const SideNavContent = ({
   links
@@ -11,6 +12,7 @@ export const SideNavContent = ({
   const activeColor = { dark: 'cyan.500', light: 'cyan.800' };
   const bg = { dark: 'black', light: 'cyan.500' };
   const { colorMode } = useColorMode();
+  const intl = useIntl();
 
   return (
     <Box
@@ -58,7 +60,7 @@ export const SideNavContent = ({
                     activeStyle={{ color: activeColor[colorMode] }}
                     to="/portal"
                   >
-                    Portal
+                    {intl.formatMessage({ id: 'components_navbar.auth_portal' })}
                   </Link>
                 </Box>
               );
@@ -69,7 +71,7 @@ export const SideNavContent = ({
                 onClick={() => { login(); }}
                 cursor="pointer"
               >
-                Log in
+                {intl.formatMessage({ id: 'auth.login' })}
               </Box>
             );
           }}

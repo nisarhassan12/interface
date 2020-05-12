@@ -2,8 +2,10 @@ import { Box, Flex } from '@chakra-ui/core';
 import React, { useEffect, useState } from 'react';
 import { Button } from '@components/button';
 import { Link } from '@components/link';
+import { useIntl } from 'gatsby-plugin-intl';
 
 export const PrivacyDisclaimer = () => {
+  const intl = useIntl();
   const [disclaimerAcceptance, accept] = useState(false);
   useEffect(() => {
     accept(!!localStorage.getItem('acceptPrivacyDisclaimer'));
@@ -17,6 +19,7 @@ export const PrivacyDisclaimer = () => {
     localStorage.setItem('acceptPrivacyDisclaimer', 'true');
     accept(true);
   };
+  
 
   return (
     <Box
@@ -36,13 +39,11 @@ export const PrivacyDisclaimer = () => {
         align="center"
       >
         <Box marginRight="1em">
-          This website uses cookies and other information to provide you a
-          better customer service. You can read more about this in our{' '}
+          {intl.formatMessage({ id: 'privacyDisclaimer.text1' })}
           <Box as="span" textDecoration="underline">
-            <Link to="/privacy-policy">Privacy Policy</Link>
+            <Link to="/privacy-policy"> {intl.formatMessage({ id: 'footer.privacy_Policy' })}</Link>
           </Box>.
-          Your continued use of this website constitutes acceptance
-          of our privacy policy.
+          {intl.formatMessage({ id: 'privacyDisclaimer.text2' })}
         </Box>
 
         <Box>
@@ -50,7 +51,7 @@ export const PrivacyDisclaimer = () => {
             color="black"
             onClick={acceptPrivacyDisclaimer}
           >
-            I Accept
+            {intl.formatMessage({ id: 'privacyDisclaimer.accept' })}
           </Button>
         </Box>
         <Box width="250px" display={['none', 'none', 'block']} />

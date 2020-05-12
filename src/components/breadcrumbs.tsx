@@ -9,6 +9,7 @@ import {
 import { Link } from '@components/link';
 import { Location } from '@reach/router';
 import React from 'react';
+import { useIntl } from 'gatsby-plugin-intl';
 
 const getRouteFromPath = (
   path: string,
@@ -23,6 +24,7 @@ const getRouteFromPath = (
 };
 
 export const Breadcrumbs = () => {
+  const intl = useIntl();
   return (
     <Location>
       {({ location }) => {
@@ -61,7 +63,7 @@ export const Breadcrumbs = () => {
           <Breadcrumb mb="2em">
             <BreadcrumbItem cursor="pointer">
               <BreadcrumbLink as={Link} to='/'>
-                Home
+                {intl.formatMessage({ id: 'breadcrumbs.home' })}
               </BreadcrumbLink>
             </BreadcrumbItem>
             {paths.map((path, i) => {

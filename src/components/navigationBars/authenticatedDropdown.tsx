@@ -15,6 +15,8 @@ import { Link } from '@components/link';
 import React from 'react';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
+import { useIntl } from 'gatsby-plugin-intl';
+
 
 const CURRENT_USER = gql`
   {
@@ -29,6 +31,7 @@ const CURRENT_USER = gql`
 `;
 
 const UserAvatar = () => {
+  const intl = useIntl();
   return (
     <AuthenticationContext.Consumer>
       {({ user: { name, picture } }) => {
@@ -70,7 +73,7 @@ export const AuthenticatedDropdown = () => {
             to='/portal'
             _hover={{ backgroundColor: evenLighterBg[colorMode] }}
           >
-            Portal
+            {intl.formatMessage({ id: 'components_navbar.auth_portal' })}
           </MenuItem>
           {(role == 'lawyer' || role == 'admin') && (
             <MenuItem
@@ -78,7 +81,7 @@ export const AuthenticatedDropdown = () => {
               to='/lawyers'
               _hover={{ backgroundColor: evenLighterBg[colorMode] }}
             >
-              Lawyers
+              {intl.formatMessage({ id: 'components_navbar.auth_lawyers' })}
             </MenuItem>
           )}
           {(role == 'admin') && (
@@ -87,7 +90,7 @@ export const AuthenticatedDropdown = () => {
               to='/admin'
               _hover={{ backgroundColor: evenLighterBg[colorMode] }}
             >
-              Admin
+              {intl.formatMessage({ id: 'components_navbar.auth_admin' })}
             </MenuItem>
           )}
           <AuthenticationContext.Consumer>
@@ -100,7 +103,7 @@ export const AuthenticatedDropdown = () => {
                   onClick={() => logout()}
                   _hover={{ backgroundColor: evenLighterBg[colorMode] }}
                 >
-                  Log out
+                  {intl.formatMessage({ id: 'components_navbar.auth_logout' })}
                 </MenuItem>
               );
             }}

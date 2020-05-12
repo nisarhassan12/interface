@@ -16,11 +16,96 @@
         "practice_areas": "Practice Areas",
         "privacy_Policy": "Privacy Policy",
         "terms": "Terms of Service",
-        "switch":"Switch to",
-        "mode":"Mode",
-        "dark":"Dark",
-        "light":"Light"
+        "switch": "Switch to",
+        "mode": "Mode",
+        "dark": "Dark",
+        "light": "Light"
 
+    },
+    "languageDropdown": {
+        "text": "Currently viewing this site in English"
+    },
+    "loadingPage":{
+        "loading": "Loading"
+    },
+    "privacyDisclaimer": {
+        "text1": "This website uses cookies and other information to provide you a better customer service. You can read more about this in our ",
+        "text2": " Your continued use of this website constitutes acceptance of our privacy policy.",
+        "accept": "I Accept"
+    },
+    "beginUpwardMQ":{
+        "heading": "Upward Mobility Questionnaire",
+        "text": "Thanks for expressing your interest in Neon Law and our commitment to Upward Mobility. Please note that taking this questionnaire does not constitute an attorney-client relationship. An attorney-client relationship only exists if you have a signed retainer with our firm. Please contact us if you are interested in attaining our services.",
+        "beginButton": "Begin Questionnaire"
+    },
+    "breadcrumbs" : {
+        "home": "Home"
+    },
+    "finishUpwardMQ":{
+        "heading": "Thank You for Taking the Upward Mobility Questionnaire",
+        "text": "You have completed the questionnaire. Your answers are:"
+    },
+    "upwardMQ": {
+        "missing_question": "A question is missing from the questionnaire. Please contact support."
+    },
+    "components_questions": {
+        "submit": "Submit"
+    },
+    "components_navbar": {
+        "auth_portal": "Portal",
+        "auth_lawyers": "Lawyers",
+        "auth_admin": "Admin",
+        "auth_logout": "Log out",
+        "base_": ""
+        
+    },
+    "contactForm": {
+        "name": {
+            "label": "Your name",
+            "placeholder": "Enter your name",
+            "required": "Name is required."
+        },
+        "email": {
+            "label": "Your email",
+            "placeholder": "Enter your email",
+            "required": "Email is required."
+        },
+        "message": {
+            "label": "Your message",
+            "placeholder": "Enter your message",
+            "required": "Message is required."
+        },
+        "send": "Send Message"
+    },
+    "pages_admin": {
+        "heading": "Admin Portal",
+        "text": "Choose an Option on your Left."
+    },
+    "pages_lawyers":{
+        "settings": "Lawyer Firm Settings",
+        "heading": " Lawyer Portal",
+        "text": "Create a new Wills Packet"
+    },
+    "pages_portal": {
+        "heading": "Your Legal Matters",
+        "text": "You currently do not have any active matters with our firm or our network. Contact us if you are interested in retaining our services."
+    },
+    "pages_probono": {
+        "heading": "Contact Rickie Slaughter",
+        "text1": "You can send a letter to Rickie at Rickie Slaughter NV #85902 1250 E Arica Road Eloy, AZ 85131",
+        "text2": "Or, if you fill out your info below, we will mail out a letter on your behalf.",
+        "form": {
+            "email": "Your email:",
+            "email_placeholder": "Enter Email",
+            "message": "Your message:",
+            "message_placeholder": "Enter Message",
+            "send": "Send Information"
+        }
+    },
+    "pages_upward_mobility": {
+        "heading": "Upward Mobility",
+        "text": "Upward mobility refers to the come up, or improving your socio-economic situation to a point where you can provide for others. No matter where you are today, we can help you take care of those you love.",
+        "button_takeQ" : "Take Questionnaire"
     }
 
 }

@@ -12,12 +12,16 @@ import {
   SingleChoiceQuestion
 } from '@components/questions/singleChoiceQuestion';
 import { useParams } from '@reach/router';
+import { useIntl } from 'gatsby-plugin-intl';
+
 
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 export const UpwardMobilityQuestionnaire = (props: any) => {
   /* eslint-enable @typescript-eslint/no-unused-vars */
   alert('rar');
+
+  const intl = useIntl();
 
   const updateAnswers = (questionId, answer) => {
     const answers = JSON.parse(
@@ -47,7 +51,7 @@ export const UpwardMobilityQuestionnaire = (props: any) => {
   if (!question || !question.prompt) {
     return (
       <span>
-        A question is missing from the questionnaire. Please contact support.
+        {intl.formatMessage({ id: 'upwardMQ.missing_question' })}
       </span>
     );
   }

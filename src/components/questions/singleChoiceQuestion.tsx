@@ -2,6 +2,7 @@ import { Heading, Radio, RadioGroup } from '@chakra-ui/core';
 import React, { useState } from 'react';
 import { Button } from '@components/button';
 import { navigate } from 'gatsby';
+import { useIntl } from 'gatsby-plugin-intl';
 
 interface SingleChoiceQuestionInterface {
   prompt: string;
@@ -36,6 +37,8 @@ export const SingleChoiceQuestion = (
 
   const [value, setValue] = useState('0');
 
+  const intl = useIntl();
+
   return (
     <>
       <Heading size="md" textAlign="center" margin="1em 0">{prompt}</Heading>
@@ -59,7 +62,7 @@ export const SingleChoiceQuestion = (
           navigate(nextStepPath(chosenChoice));
         }}
       >
-        Submit
+        {intl.formatMessage({ id: 'components_questions.submit' })}
       </Button>
     </>
   );

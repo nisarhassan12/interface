@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import gql from 'graphql-tag';
 import { useForm } from 'react-hook-form';
 import { useMutation } from '@apollo/react-hooks';
+import { useIntl } from 'gatsby-plugin-intl';
 
 const CONTACT_FORM = gql`
   mutation createContactForm(
@@ -29,6 +30,8 @@ const CONTACT_FORM = gql`
 `;
 
 export const ContactForm = () => {
+  const intl = useIntl();
+
   const [
     contactForm,
     { loading: mutationLoading }
@@ -71,28 +74,31 @@ export const ContactForm = () => {
     );
   }, [register]);
 
+  
   return (
     <form onSubmit={handleSubmit(onSubmit as any)}>
       <StringInput
         name="name"
-        label="Your name"
+        label={`${intl.formatMessage({ id: 'contactForm.name.label' })}`}
         errors={errors}
-        placeholder="Enter your name"
-        register={register({ required: 'Name is required.' })}
+        placeholder={`${intl.formatMessage({ id: 'contactForm.name.placeholder' })}`}
+        register={register({ required: "Name is required."  })}
       />
       <StringInput
         name="email"
         errors={errors}
-        label="Your email"
-        placeholder="Enter your email"
-        register={register({ required: 'Email is required.' })}
+        label={`${intl.formatMessage({ id: 'contactForm.email.label' })}`}
+        placeholder={`${intl.formatMessage({ id: 'contactForm.email.placeholder' })}`}
+        register={register({ required: "Email is required."  })}
+        // register={`${register({ required: `${intl.formatMessage({ id: 'contactForm.email.required' })}` })}`}
       />
       <Textarea
         name="message"
-        label="Message"
+        label={`${intl.formatMessage({ id: 'contactForm.message.label' })}`}
         errors={errors}
-        placeholder="Enter your message"
-        register={register({ required: 'Message is required.' })}
+        placeholder={`${intl.formatMessage({ id: 'contactForm.message.placeholder' })}`}
+        register={register({ required: "Message is required."  })}
+        // register={`${register({ required: `${intl.formatMessage({ id: 'contactForm.message.required' })}` })}`}
       />
       <ReCaptchaButton
         onVerifyCaptcha={onVerifyCaptcha}
@@ -102,7 +108,7 @@ export const ContactForm = () => {
         loadingText="submitting"
         type="submit"
       >
-        Send Message
+        {intl.formatMessage({ id: 'contactForm.send' })}
       </ReCaptchaButton>
     </form>
   );
