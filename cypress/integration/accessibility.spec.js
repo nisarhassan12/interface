@@ -10,7 +10,7 @@ describe('Accessibility tests', () => {
   it('Has no detectable accessibility violations on load', () => {
     cy.checkA11y();
     cy.contains('I Accept').click();
-    cy.contains('Switch to ').click();
+    cy.contains('Switch to').click();
     cy.checkA11y();
   });
 });
