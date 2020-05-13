@@ -8,23 +8,21 @@ import {
 import { Button } from '@components/button';
 import { PublicLayout } from '@layouts/public';
 import React from 'react';
+import { useIntl } from 'gatsby-plugin-intl';
 
 const ContactRickiePage = () => {
+  const intl = useIntl();
   return (
     <PublicLayout>
       <Heading textAlign="center" marginTop="20px">
-        Contact Rickie Slaughter
+        {intl.formatMessage({ id: 'pages_probono.heading' })}
       </Heading>
 
       <Text>
-        You can send a letter to Rickie at
-        Rickie Slaughter NV #85902
-        1250 E Arica Road
-        Eloy, AZ 85131
+        {intl.formatMessage({ id: 'pages_probono.text1' })}
       </Text>
       <Text>
-        Or, if you fill out your info below, we will mail out a letter on
-        your behalf.
+        {intl.formatMessage({ id: 'pages_probono.text2' })}
       </Text>
       <form
         action="https://formspree.io/moqdvlav"
@@ -32,23 +30,27 @@ const ContactRickiePage = () => {
       >
         <Stack spacing={3}>
           <Text>
-            Your email:
+            {intl.formatMessage({ id: 'pages_probono.form.email' })}
           </Text>
           <Input
             name="email"
-            placeholder="Enter Email"
+            placeholder={`${intl.formatMessage({ 
+              id: 'pages_pb.form.email_ph' })}`}
             borderColor="gray.300"
             _hover={{ borderColor: 'gray.500' }}
           />
           <Text>
-            Your message:
+            {intl.formatMessage({ id: 'pages_probono.form.message' })}
           </Text>
           <Textarea name="message"
-            placeholder="Enter Email"
+            placeholder={`${intl.formatMessage({ 
+              id: 'pages_pb.form.message_ph' })}`}
             borderColor="gray.300"
             _hover={{ borderColor: 'gray.500' }}
           />
-          <Button color="black">Send Information</Button>
+          <Button color="black">
+            {intl.formatMessage({ id: 'pages_pb.form.send' })}
+          </Button>
         </Stack>
       </form>
     </PublicLayout>

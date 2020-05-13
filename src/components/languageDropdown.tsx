@@ -52,7 +52,7 @@ export const LanguageDropdown = () => {
         padding="7px 0"
       >
         <Text>
-          Currently viewing this site in English
+          {intl.formatMessage({ id: 'languageDropdown.text' })}
         </Text>
       </Box>
     </>

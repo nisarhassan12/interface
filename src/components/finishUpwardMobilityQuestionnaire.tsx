@@ -2,8 +2,10 @@ import { Heading, List, ListItem, Text } from '@chakra-ui/core';
 import React from 'react';
 import { Seo } from '@components/seo';
 import { questions } from '@components/upwardMobilityQuestions';
+import { useIntl } from 'gatsby-plugin-intl';
 
 export const FinishUpwardMobilityQuestionnaire = () => {
+  const intl = useIntl();
   const savedAnswers: any = JSON.parse(
     localStorage.getItem('upwardMobility.answers') as any || {}
   );
@@ -26,11 +28,11 @@ export const FinishUpwardMobilityQuestionnaire = () => {
       <Seo title="Upward Mobility Questionnaire" />
 
       <Heading textAlign="center">
-        Thank You for Taking the Upward Mobility Questionnaire
+        {intl.formatMessage({ id: 'finishUpwardMQ.heading' })}
       </Heading>
 
       <Text margin="2em 0">
-        You have completed the questionnaire. Your answers are:
+        {intl.formatMessage({ id: 'finishUpwardMQ.text' })}
       </Text>
 
       <List marginLeft="2em">

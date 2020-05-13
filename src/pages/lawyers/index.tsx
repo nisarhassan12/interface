@@ -5,18 +5,19 @@ import {
 } from '@chakra-ui/core';
 import { LawyersLayout } from '@layouts/lawyers';
 import React from 'react';
+import { useIntl } from 'gatsby-plugin-intl';
 
 const LawyersPage = () => {
-
+  const intl = useIntl();
   return (
     <LawyersLayout>
       <Box>
         <Heading>
-          Lawyer Portal
+          {intl.formatMessage({ id: 'pages_lawyers.heading' })}
         </Heading>
 
         <Text>
-          Create a new Wills Packet
+          {intl.formatMessage({ id: 'pages_lawyers.text' })}
         </Text>
       </Box>
     </LawyersLayout>
