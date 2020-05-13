@@ -32,7 +32,7 @@ const CURRENT_USER = gql`
 `;
 
 const UserAvatar = () => {
-   return (
+  return (
     <AuthenticationContext.Consumer>
       {({ user: { name, picture } }) => {
         return (

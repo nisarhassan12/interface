@@ -57,10 +57,10 @@ export const Footer = () => {
         <Flex direction="column">
           <SocialMediaIcons display={['block', 'block', 'none']} mb="7px" />
           <Box as={Link} to="/about-us" padding="7px 0">
-          {intl.formatMessage({ id: 'footer.about' })}
+            {intl.formatMessage({ id: 'footer.about' })}
           </Box>
           <Box as={Link} to="/pro-bono" padding="7px 0">
-          {intl.formatMessage({ id: 'footer.probono' })}
+            {intl.formatMessage({ id: 'footer.probono' })}
           </Box>
           <Box
             as="a"
@@ -85,7 +85,7 @@ export const Footer = () => {
             {intl.formatMessage({ id: 'footer.practice_areas' })}
           </Box>
           <Box as={Link} to="/privacy-policy" padding="7px 0">
-           {intl.formatMessage({ id: 'footer.privacy_Policy' })}
+            {intl.formatMessage({ id: 'footer.privacy_Policy' })}
           </Box>
           <Box as={Link} to="/terms-of-service" padding="7px 0">
             {intl.formatMessage({ id: 'footer.terms' })}
@@ -94,7 +94,9 @@ export const Footer = () => {
         <Flex direction="column">
           <LanguageDropdown />
           <Text onClick={toggleColorMode} cursor="pointer" padding="7px 0">
-            {intl.formatMessage({ id: 'footer.switch' })} {`${colorMode=== 'dark' ? intl.formatMessage({ id: 'footer.light' })  : intl.formatMessage({ id: 'footer.dark' }) }`} {intl.formatMessage({ id: 'footer.mode' })}
+            {intl.formatMessage({ id: 'footer.switch' })} {`${colorMode=== 'dark' ? 
+            intl.formatMessage({ id: 'footer.light' })  : 
+            intl.formatMessage({ id: 'footer.dark' }) }`} {intl.formatMessage({ id: 'footer.mode' })}
           </Text>
           <SocialMediaIcons display={['none', 'none', 'block']} />
           <Box

@@ -91,7 +91,6 @@ export const ContactForm = () => {
         label={`${intl.formatMessage({ id: 'contactForm.email.label' })}`}
         placeholder={`${intl.formatMessage({ id: 'contactForm.email.ph' })}`}
         register={register({ required: 'Email is required.'  })}
-        // register={`${register({ required: `${intl.formatMessage({ id: 'contactForm.email.required' })}` })}`}
       />
       <Textarea
         name="message"
@@ -99,7 +98,6 @@ export const ContactForm = () => {
         errors={errors}
         placeholder={`${intl.formatMessage({ id: 'contactForm.message.ph' })}`}
         register={register({ required: 'Message is required.'  })}
-        // register={`${register({ required: `${intl.formatMessage({ id: 'contactForm.message.required' })}` })}`}
       />
       <ReCaptchaButton
         onVerifyCaptcha={onVerifyCaptcha}

@@ -60,7 +60,8 @@ export const SideNavContent = ({
                     activeStyle={{ color: activeColor[colorMode] }}
                     to="/portal"
                   >
-                    {intl.formatMessage({ id: 'components_navbar.auth_portal' })}
+                    {intl.formatMessage({ 
+                      id: 'components_navbar.auth_portal' })}
                   </Link>
                 </Box>
               );
