@@ -4,18 +4,19 @@ import {
 } from '@chakra-ui/core';
 import { PortalLayout } from '@layouts/portal';
 import React from 'react';
+import { useIntl } from 'gatsby-plugin-intl';
 
 const PortalPage = () => {
+  const intl = useIntl();
   return (
     <PortalLayout>
       <Heading textAlign="center" marginBottom="20px">
-        Your Legal Matters
+        {intl.formatMessage({ id: 'pages_portal.heading' })}
       </Heading>
 
 
       <Text>
-        You currently do not have any active matters with our firm or our
-        network. Contact us if you are interested in retaining our services.
+        {intl.formatMessage({ id: 'pages_portal.text' })}
       </Text>
     </PortalLayout>
   );

@@ -5,17 +5,19 @@ import {
 } from '@chakra-ui/core';
 import { AdminLayout } from '@layouts/admin';
 import React from 'react';
+import { useIntl } from 'gatsby-plugin-intl';
 
 const PortalPage = () => {
+  const intl = useIntl();
   return (
     <AdminLayout>
       <Box>
         <Heading>
-          Admin Portal
+          {intl.formatMessage({ id: 'pages_admin.heading' })}
         </Heading>
 
         <Text>
-          Choose an Option on your Left.
+          {intl.formatMessage({ id: 'pages_admin.text' })}
         </Text>
       </Box>
     </AdminLayout>
