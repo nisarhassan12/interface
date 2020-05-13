@@ -1,8 +1,8 @@
 import { ReCaptchaButton, StringInput, Textarea } from '@forms/base';
 import React, { useEffect, useState } from 'react';
 import gql from 'graphql-tag';
-import { useIntl } from 'gatsby-plugin-intl';
 import { useForm } from 'react-hook-form';
+import { useIntl } from 'gatsby-plugin-intl';
 import { useMutation } from '@apollo/react-hooks';
 
 

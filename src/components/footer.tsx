@@ -94,9 +94,11 @@ export const Footer = () => {
         <Flex direction="column">
           <LanguageDropdown />
           <Text onClick={toggleColorMode} cursor="pointer" padding="7px 0">
-            {intl.formatMessage({ id: 'footer.switch' })} {`${colorMode=== 'dark' ? 
-            intl.formatMessage({ id: 'footer.light' })  : 
-            intl.formatMessage({ id: 'footer.dark' }) }`} {intl.formatMessage({ id: 'footer.mode' })}
+            {intl.formatMessage({ id: 'footer.switch' })}
+            {`${colorMode=== 'dark' ? 
+              intl.formatMessage({ id: 'footer.light' })  : 
+              intl.formatMessage({ id: 'footer.dark' }) }`} 
+            {intl.formatMessage({ id: 'footer.mode' })}
           </Text>
           <SocialMediaIcons display={['none', 'none', 'block']} />
           <Box
