@@ -16,10 +16,10 @@
         "practice_areas": "Practice Areas",
         "privacy_Policy": "Privacy Policy",
         "terms": "Terms of Service",
-        "switch": "Switch to",
+        "switch": "Switch to ",
         "mode": "Mode",
-        "dark": "Dark",
-        "light": "Light"
+        "dark": "Dark ",
+        "light": "Light "
 
     },
     "languageDropdown": {
