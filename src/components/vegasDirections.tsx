@@ -26,7 +26,7 @@ export const VegasDirections = () => {
     <div style={{ height: '35vh', width: '100%' }}>
       <GoogleMapReact
         bootstrapURLKeys={
-          { key: 'AIzaSyBWxquloo2cs9BJ4NXC7I2oBygORWl0gSc' }
+          { key: 'AIzaSyASkBFrDgag9OT2EXW8rVvNQ2WMgLTpWDA' }
         }
         defaultCenter={{ lat: 36.187, lng: -115.137 }}
         defaultZoom={13}
