@@ -37,8 +37,11 @@ under the same Apache License Version 2.0 that this repo is.
 
 ## Third Party SaaS Services
 
-This application uses Zendesk Chat to host chat with visitors and Google
-Analytics for data collection.
+This application uses:
+
+* Zendesk Chat to host chat with visitors
+* Google Analytics for data collection
+* Maps JavaScript API
 
 ## Staging Environment
 

@@ -14,8 +14,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
-          project_id: neon-law
-          service_account_email: github-actions@neon-law.iam.gserviceaccount.com
+          project_id: neon-law-production
+          service_account_email: github-actions@neon-law-production.iam.gserviceaccount.com
           service_account_key: ${{ secrets.PRODUCTION_GCP_CREDENTIALS }}
           export_default_credentials: true
 
@@ -28,8 +28,8 @@ jobs:
       - name: Build the Docker image
         run: |-
           docker build \
-            --tag "us.gcr.io/neon-law/interface:$GITHUB_SHA" \
-            --tag "us.gcr.io/neon-law/interface:latest" \
+            --tag "us.gcr.io/neon-law-production/interface:$GITHUB_SHA" \
+            --tag "us.gcr.io/neon-law-production/interface:latest" \
             --build-arg GITHUB_SHA="$GITHUB_SHA" \
             --build-arg GITHUB_REF="$GITHUB_REF" \
             -f Dockerfile \
@@ -37,14 +37,14 @@ jobs:
 
       - name: Push the Docker image to Google Container Registry
         run: |-
-          docker push "us.gcr.io/neon-law/interface:$GITHUB_SHA"
-          docker push "us.gcr.io/neon-law/interface:latest"
+          docker push "us.gcr.io/neon-law-production/interface:$GITHUB_SHA"
+          docker push "us.gcr.io/neon-law-production/interface:latest"
 
       - name: Get the GKE credentials so we can deploy to the cluster
         run: |-
-          gcloud container clusters get-credentials production --region us-west4
+          gcloud container clusters get-credentials neon-law --region us-west4
 
       - name: Deploy latest container with kubectl
         run: |-
           kubectl set image deployment interface \
-             interface=us.gcr.io/neon-law/interface:$GITHUB_SHA
+             interface=us.gcr.io/neon-law-production/interface:$GITHUB_SHA
