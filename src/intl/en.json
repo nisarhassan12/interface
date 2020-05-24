@@ -106,6 +106,12 @@
         "heading": "Upward Mobility",
         "text": "Upward mobility refers to the come up, or improving your socio-economic situation to a point where you can provide for others. No matter where you are today, we can help you take care of those you love.",
         "button_takeQ" : "Take Questionnaire"
+    },
+    "navigation_publicL":{
+        "upward": "Upward Mobility",
+        "practiceAreas":"Practice Areas",
+        "blog":"Blog",
+        "contact":"Contact"
     }
 
 }
