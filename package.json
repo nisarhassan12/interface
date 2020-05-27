@@ -15,7 +15,7 @@
     "@reach/router": "^1.3.3",
     "apollo-boost": "^0.4.9",
     "apollo-link-context": "^1.0.20",
-    "array-move": "^2.2.1",
+    "array-move": "^2.2.2",
     "await-timeout": "^1.1.1",
     "emotion-theming": "^10.0.27",
     "eslint-plugin-jsdoc": "^25.4.2",
