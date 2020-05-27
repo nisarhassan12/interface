@@ -43,7 +43,7 @@
     "graphql-tag": "^2.10.3",
     "isomorphic-fetch": "^2.2.1",
     "namor": "^2.0.2",
-    "prism-react-renderer": "^1.1.0",
+    "prism-react-renderer": "^1.1.1",
     "qs": "^6.9.4",
     "query-string": "^6.12.1",
     "react": "^16.13.1",
