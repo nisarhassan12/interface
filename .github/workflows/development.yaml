@@ -26,5 +26,5 @@ jobs:
             -u ${{ secrets.DOCKER_HUB_USERNAME }} \
             -p ${{ secrets.DOCKER_HUB_TOKEN }}
 
-      - name: Build the development Docker image to Docker hub
+      - name: Push Image to Docker Hub
         run: docker push neonlaw/interface
