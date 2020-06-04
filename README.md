@@ -23,6 +23,17 @@ Then navigate to `http://127.0.0.1:8000` to see the website ran on your machine.
 
 > You must be connected to the Internet to work on this application.
 
+## Authentication
+
+This application uses Auth0 with two tenants, one for staging/testing, and
+one for our production account. The staging account has the following
+accounts, please contact someone on our development team should you need to
+access Neon Law as a user.
+
+* portal@neonlaw.com, a user with portal permissions
+* lawyer@neonlaw.com, a user with lawyer permissions
+* admin@neonlaw.com, a user with admin permissions
+
 ## Working on this Repo
 
 We welcome any contributions to this repo and are humbled you would dedicate
@@ -41,7 +52,7 @@ This application uses:
 
 * Zendesk Chat to host chat with visitors
 * Google Analytics for data collection
-* Maps JavaScript API
+* Google Maps JavaScript API
 
 ## Staging Environment
 
