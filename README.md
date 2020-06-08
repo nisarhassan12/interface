@@ -29,7 +29,7 @@ all actions should have a corresponding Cypress test.
 
 This application uses Auth0 with two tenants, one for staging/testing, and
 one for our production account. The staging account has the following
-accounts, please contact someone on our development team should you need to
+accounts, please contact us at engineering@neonlaw.com should you need to
 access Neon Law as a user.
 
 * portal@neonlaw.com, a user with portal permissions
