@@ -1,15 +1,14 @@
-ARG GATSBY_ACTIVE_ENV=production
-
 FROM node:12-buster AS build
 
 ARG GATSBY_ACTIVE_ENV
-ENV GATSBY_ACTIVE_ENV=$GATSBY_ACTIVE_ENV
+ARG GATSBY_AUTH0_CALLBACK
+ARG GATSBY_AUTH0_DOMAIN
+ARG GATSBY_AUTH0_CLIENT_ID
 
 WORKDIR /app
 ADD . ./
-RUN yarn install --ignore-optional
+RUN yarn install --ignore-optional --silent
 RUN yarn build
-RUN ls -la **/*
 
 FROM nginx
 COPY --from=build /app/public /usr/share/nginx/html
