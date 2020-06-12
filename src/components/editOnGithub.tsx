@@ -11,16 +11,18 @@ export const EditOnGithub = ({ path }: EditOnGithubInterface) => {
     `https://github.com/NeonLaw/interface/edit/development/src/pages/${path}`;
 
   return (
-    <Tooltip
-      hasArrow={true}
-      label="Edit on GitHub"
-      aria-label="Edit on GitHub"
+    <Box
+      cursor="pointer"
+      onClick={() => window.open(githubPath, '_blank')}
+      data-cy="edit-on-github"
     >
-      <Box
-        cursor="pointer"
-        as={FaPencilAlt}
-        onClick={() => window.open(githubPath, '_blank')}
-      />
-    </Tooltip >
+      <Tooltip
+        hasArrow={true}
+        label="Edit on GitHub"
+        aria-label="Edit on GitHub"
+      >
+        <Box as={FaPencilAlt} />
+      </Tooltip >
+    </Box>
   );
 };
