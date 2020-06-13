@@ -1,6 +1,13 @@
+import { Seo } from '@components/seo';
+import { EditOnGithub } from '@components/editOnGithub';
+
 <PublicLayout>
 
-# Setting up Shop
+<EditOnGithub path="blog/setting-up-shop/index.mdx" />
+
+<Seo title="Blog | Setting Up Shop" />
+
+# Setting Up Shop
 
 While we are a law firm, we prefer to write our own in-house software to
 better serve our clients. What follows is a series of articles about SaaS
@@ -29,8 +36,8 @@ possible.
 * Setting up Clio
 * Setting up Zendesk
 * [Setting up GitHub](/blog/setting-up-shop/setting-up-github)
-* Setting up Google Cloud
-* Setting up Terraform Cloud
+* [Setting up Google Cloud](/blog/setting-up-shop/google-cloud)
+* [Setting up Terraform Cloud](/blog/setting-up-shop/terraform-cloud)
 * Setting up Code Climate
 * Setting up Auth0
 * Setting up Pivotal Tracker
@@ -46,28 +53,13 @@ possible.
 * Setting up Twitter
 * Setting up LinkedIn
 * Setting up Facebook
+* Setting up Mailchimp
 
 ## Writing Custom Software
 
 * Writing a front-end with Gatsby.JS
-* Managing a PostgreSQL database with SQLAlchemy and Alembic
-* Writing an API with Postgraphile and Auth0
-* Handling background jobs with SQLAlchemy models and Python
-* Writing cron jobs to run every day
-* [Writing infrastructure with Terraform & Terraform Cloud](/blog/setting-up-shop/setting-up-terraform-cloud)
-* Writing policy with Sentinel
+* Writing an API with Postgraphile
+* Auth0, Authentication, and Authorization
 * Security, Kaizen and Continuous Improvement.
-
-## Deploying on Google Cloud
-
-* Overview and technical diagrams
-* DNS with Google Domains and Google Cloud DNS
-* Creating a Kubernetes Cluster
-* Turning our GitHub repos into Docker images.
-* Deploying static websites with Nginx
-* Deploying PostgreSQL with Google Cloud SQL
-* Deploy the front-end using Nginx
-* Deploy the worker service
-* Deploy the cron jobs
 
 </PublicLayout>
