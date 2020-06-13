@@ -24,7 +24,7 @@ export const SideNavContent = ({
     >
       <Box
         as="nav"
-        height={'calc(100vh - 4em)'}
+        height={'calc(100vh - 6em)'}
         aria-label="Main navigation"
         p="6"
       >
@@ -60,8 +60,9 @@ export const SideNavContent = ({
                     activeStyle={{ color: activeColor[colorMode] }}
                     to="/portal"
                   >
-                    {intl.formatMessage({ 
-                      id: 'components_navbar.auth_portal' })}
+                    {intl.formatMessage({
+                      id: 'components_navbar.auth_portal'
+                    })}
                   </Link>
                 </Box>
               );

@@ -9,7 +9,7 @@ export const SideNavContainer = ({ children }) => (
     top="0"
     right="0"
     display={['none', 'none', 'block']}
-    paddingTop={['0', '0', '4em']}
+    paddingTop={['0', '0', '6em']}
     maxWidth="10em"
   >
     {children}

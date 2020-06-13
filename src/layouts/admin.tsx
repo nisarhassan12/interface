@@ -36,7 +36,7 @@ export const AdminLayout: React.FC = ({ children }) => {
                 >
                   <Box
                     flex="1"
-                    paddingTop="4em"
+                    paddingTop="6em"
                   >
                     <Container>
                       {children}
