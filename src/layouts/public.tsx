@@ -28,7 +28,7 @@ export const PublicLayout: React.FC = ({ children }) => {
                   <PublicNavigationBar />
                   <Box
                     flex={1}
-                    padding="6em 0 4em 0"
+                    padding="8em 0 4em 0"
                   >
                     <Container>
                       <Breadcrumbs />
@@ -45,7 +45,7 @@ export const PublicLayout: React.FC = ({ children }) => {
                 <PublicNavigationBar />
                 <Box
                   flex={1}
-                  padding="6em 0 4em 0"
+                  padding="8em 0 4em 0"
                 >
                   <Container>
                     <Breadcrumbs />
