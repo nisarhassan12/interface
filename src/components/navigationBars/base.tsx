@@ -14,6 +14,7 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
+  Text,
   useDisclosure
 } from '@chakra-ui/core';
 import React, { useState } from 'react';
@@ -35,9 +36,21 @@ export const BaseNavigationBar = ({
 
   return (
     <>
+      <Flex
+        position="fixed"
+        bg="black"
+        color="white"
+        height="2em"
+        width="full"
+        alignItems="center"
+      >
+        <Text flex="1" textAlign='center'>
+          #BlackLivesMatter
+        </Text>
+      </Flex>
       <Box
         as="header"
-        top="0"
+        top="2em"
         position="fixed"
         zIndex={4}
         bg="black"
