@@ -1,4 +1,3 @@
-/// <reference types="cypress" />
 /* eslint-disable no-undef */
 
 describe('Blog page', () => {
