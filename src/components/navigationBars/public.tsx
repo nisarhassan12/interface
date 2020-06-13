@@ -4,10 +4,10 @@ import { PublicSideNavContent } from '@components/sideNavigation/public';
 import React from 'react';
 
 export const PublicNavigationBar = () => {
-  const publicLinks1 = PublicLinks(); //Ai
+  const publicLinks = PublicLinks();
   return (
     <BaseNavigationBar
-      links={publicLinks1}
+      links={publicLinks}
       sideNavigationDrawer={<PublicSideNavContent />}
     />
   );

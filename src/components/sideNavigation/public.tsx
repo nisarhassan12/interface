@@ -4,9 +4,10 @@ import { SideNavContainer } from '@components/sideNavigation/sideNavContainer';
 import { SideNavContent } from '@components/sideNavigation/base';
 
 export const PublicSideNavContent = () => {
-  const publicLinks1 = PublicLinks(); //Ai
+  const publicLinks = PublicLinks();
+
   return (
-    <SideNavContent links={publicLinks1} />
+    <SideNavContent links={publicLinks} />
   );
 };
 
