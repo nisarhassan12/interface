@@ -5,6 +5,8 @@
   "author": "@neonlaw",
   "license": "Apache-2.0",
   "dependencies": {
+    "@apollo/react-components": "^3.1.5",
+    "@apollo/react-hoc": "^3.1.5",
     "@apollo/react-hooks": "^3.1.5",
     "@auth0/auth0-spa-js": "^1.9.0",
     "@chakra-ui/core": "^0.8.0",

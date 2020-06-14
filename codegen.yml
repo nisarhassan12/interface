@@ -1,6 +1,16 @@
+overwrite: true
 schema: https://api.neonlaw.com/graphql
+config:
+  scalars:
+    Datetime: "string"
+    JSON: "{ [key: string]: any }"
+  noGraphQLTag: false
+  withComponent: true
+  withHooks: true
 generates:
-  src/apiTypes.tsx:
-    - typescript
-    - typescript-operations
-    - typescript-react-apollo
+  src/api.tsx:
+    documents: src/graphql/*.graphql
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
