@@ -3,8 +3,8 @@
 
 describe('Visiting /portal', function () {
   context('as an anonymous user', function () {
-    it.only('redirects the user back to the home screen', function () {
-      cy.visit('/portal/');
+    it('redirects the user back to the home screen', function () {
+      cy.visit('/portal');
       cy.url().should('not.include', '/portal');
     });
   });
