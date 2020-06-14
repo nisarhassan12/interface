@@ -10,13 +10,17 @@ import { Container } from '@components/container';
 import { Footer } from '@components/footer';
 import { LoadingPage } from '@components/loadingPage';
 import React from 'react';
+import { Redirect } from '@reach/router';
 
 export const AdminLayout: React.FC = ({ children }) => {
   return (
     <AuthenticationContext.Consumer>
-      {({ isLoading, apolloClient }) => {
+      {({ isLoading, isAuthenticated, apolloClient }) => {
         if (isLoading) {
           return <LoadingPage />;
+        }
+        if (!isAuthenticated) {
+          return <Redirect noThrow={true} to="/" />;
         }
         return (
           <ApolloProvider client={apolloClient}>

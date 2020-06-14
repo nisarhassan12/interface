@@ -1,0 +1,6 @@
+schema: https://api.neonlaw.com/graphql
+generates:
+  src/apiTypes.tsx:
+    - typescript
+    - typescript-operations
+    - typescript-react-apollo

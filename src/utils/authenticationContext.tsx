@@ -38,6 +38,7 @@ export class AuthenticationProvider extends Component {
 
   config = {
     audience: 'https://api.neonlaw.com',
+    cacheLocation: 'localstorage' as 'localstorage',
     /* eslint-disable @typescript-eslint/camelcase */
     client_id: process.env.GATSBY_AUTH0_CLIENT_ID as string,
     domain: process.env.GATSBY_AUTH0_DOMAIN as string,
