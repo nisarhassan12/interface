@@ -12,7 +12,13 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:jsdoc/recommended',
   ],
-  ignorePatterns: ['.cache/', 'build/', 'node_modules/', 'public/'],
+  ignorePatterns: [
+    '.cache/',
+    'build/',
+    'node_modules/',
+    'public/',
+    'src/apiTypes.tsx'
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2018,

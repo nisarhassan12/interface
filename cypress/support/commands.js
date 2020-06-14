@@ -33,15 +33,21 @@ Cypress.Commands.add(
   'loginAsPortalUser',
   () => {
     cy.log('Logging in as portal@neonlaw.com');
+    const clientId = Cypress.env('AUTH_CLIENT_ID');
+    const audience = 'https://api.neonlaw.com';
+    const scope = 'openid profile email';
+    const jwt_decode = require('jwt-decode');
+
+
     const options = {
       body: {
-        'audience': 'https://api.neonlaw.com',
-        'client_id': Cypress.env('AUTH_CLIENT_ID'),
+        'audience': audience,
+        'client_id': clientId,
         'client_secret': Cypress.env('AUTH_CLIENT_SECRET'),
         'grant_type': 'http://auth0.com/oauth/grant-type/password-realm',
         'password': Cypress.env('PORTAL_USER_PASSWORD'),
         realm: 'Username-Password-Authentication',
-        'scope': 'openid profile email',
+        'scope': scope,
         'username': 'portal@neonlaw.com',
       },
       method: 'POST',
@@ -49,35 +55,24 @@ Cypress.Commands.add(
     };
     cy.request(options).then(({ body }) => {
       const { access_token, expires_in, id_token } = body;
+      const key = `@@auth0spajs@@::${clientId}::${audience}::${scope}`;
 
       cy.server();
 
-      // intercept Auth0 request for token and return what we have
-      cy.route({
-        method: 'POST',
-        response: {
-          access_token: access_token,
-          expires_in: expires_in,
-          id_token: id_token,
-          scope: 'openid profile email',
-          token_type: 'Bearer',
+      const auth0Cache = {
+        body: {
+          access_token,
+          client_id: clientId,
+          decodedToken: {
+            user: jwt_decode(id_token),
+          },
+          expires_in,
+          id_token,
+          scope,
         },
-        url: 'oauth/token',
-      });
-      // Auth0 SPA SDK will check for value in cookie to get appState
-      // add validate nonce (which has been removed for simplicity)
-      const stateId = 'test';
-      cy.setCookie(
-        `a0.spajs.txs.${stateId}`,
-        encodeURIComponent(JSON.stringify({
-          'appState': { targetUrl: '/' },
-          'audience': 'default',
-          'redirect_uri': 'http://127.0.0.1:8000',
-          'scope': 'openid profile email',
-        }))
-      ).then(() => {
-        cy.visit(`/?code=test&state=${stateId}`);
-      });
+        expiresAt: Math.floor(Date.now() / 1000) + expires_in,
+      };
+      window.localStorage.setItem(key, JSON.stringify(auth0Cache));
     });
   }
 );
