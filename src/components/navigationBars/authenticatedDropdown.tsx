@@ -13,23 +13,9 @@ import {
 import { AuthenticationContext } from '@utils/authenticationContext';
 import { Link } from '@components/link';
 import React from 'react';
-import gql from 'graphql-tag';
+import { useCurrentUserQuery } from '@utils/api';
 import { useIntl } from 'gatsby-plugin-intl';
-import { useQuery } from '@apollo/react-hooks';
 
-
-
-const CURRENT_USER = gql`
-  {
-    getCurrentUser {
-      id
-      name
-      email
-      picture
-      role
-    }
-  }
-`;
 
 const UserAvatar = () => {
   return (
@@ -53,7 +39,7 @@ export const AuthenticatedDropdown = () => {
   const lighterBg = { dark: 'gray.700', light: 'gray.200' };
   const evenLighterBg = { dark: 'gray.600', light: 'gray.100' };
   const color = { dark: 'white', light: 'black' };
-  const { data } = useQuery(CURRENT_USER);
+  const { data } = useCurrentUserQuery();
 
   const role = data?.getCurrentUser?.role;
   const intl = useIntl();
