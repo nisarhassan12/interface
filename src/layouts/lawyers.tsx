@@ -10,13 +10,17 @@ import { LawyersNavigationBar } from '@components/navigationBars/lawyers';
 import { LawyersSideNav } from '@components/sideNavigation/lawyers';
 import { LoadingPage } from '@components/loadingPage';
 import React from 'react';
+import { Redirect } from '@reach/router';
 
 export const LawyersLayout: React.FC = ({ children }) => {
   return (
     <AuthenticationContext.Consumer>
-      {({ isLoading, apolloClient }) => {
+      {({ isLoading, isAuthenticated, apolloClient }) => {
         if (isLoading) {
           return <LoadingPage />;
+        }
+        if (!isAuthenticated) {
+          return <Redirect noThrow={true} to="/" />;
         }
         return (
           <ApolloProvider client={apolloClient}>
