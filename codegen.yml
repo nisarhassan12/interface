@@ -8,7 +8,7 @@ config:
   withComponent: true
   withHooks: true
 generates:
-  src/api.tsx:
+  src/utils/api.tsx:
     documents: src/graphql/*.graphql
     plugins:
       - typescript
