@@ -48,6 +48,18 @@ following:
 By making a PR, you consent that all resultant code shall be open sourced
 under the same Apache License Version 2.0 that this repo is.
 
+## Autogenerating server methods
+
+We use `graphql-codegen` to generate automatic functions for I/O to our
+backend, api.neonlaw.com (or api.neonlaw.net) for Apollo Client.
+
+To update the latest API methods based off the server you can run this from
+the terminal.
+
+```
+yarn graphql-codegen
+```
+
 ## Third Party SaaS Services
 
 This application uses:

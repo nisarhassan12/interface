@@ -24,7 +24,7 @@
     "languageDropdown": {
         "text": "Currently viewing this site in English"
     },
-    "loadingPage":{
+    "loadingPage": {
         "loading": "Loading"
     },
     "privacyDisclaimer": {
@@ -32,15 +32,15 @@
         "text2": " Your continued use of this website constitutes acceptance of our privacy policy.",
         "accept": "I Accept"
     },
-    "beginUpwardMQ":{
+    "beginUpwardMQ": {
         "heading": "Upward Mobility Questionnaire",
         "text": "Thanks for expressing your interest in Neon Law and our commitment to Upward Mobility. Please note that taking this questionnaire does not constitute an attorney-client relationship. An attorney-client relationship only exists if you have a signed retainer with our firm. Please contact us if you are interested in attaining our services.",
         "beginButton": "Begin Questionnaire"
     },
-    "breadcrumbs" : {
+    "breadcrumbs": {
         "home": "Home"
     },
-    "finishUpwardMQ":{
+    "finishUpwardMQ": {
         "heading": "Thank You for Taking the Upward Mobility Questionnaire",
         "text": "You have completed the questionnaire. Your answers are:"
     },
@@ -56,7 +56,13 @@
         "auth_admin": "Admin",
         "auth_logout": "Log out",
         "base_": ""
-        
+    },
+    "forms": {
+        "name": {
+            "label": "Your name",
+            "placeholder": "Enter your name",
+            "required": "Name is required."
+        }
     },
     "contactForm": {
         "name": {
@@ -80,7 +86,7 @@
         "heading": "Admin Portal",
         "text": "Choose an Option on your Left."
     },
-    "pages_lawyers":{
+    "pages_lawyers": {
         "settings": "Lawyer Firm Settings",
         "heading": " Lawyer Portal",
         "text": "Create a new Wills Packet"
@@ -104,13 +110,12 @@
     "pages_upward_mobility": {
         "heading": "Upward Mobility",
         "text": "Upward mobility refers to the come up, or improving your socio-economic situation to a point where you can provide for others. No matter where you are today, we can help you take care of those you love.",
-        "button_takeQ" : "Take Questionnaire"
+        "button_takeQ": "Take Questionnaire"
     },
-    "navigation_publicL":{
+    "navigation_publicL": {
         "upward": "Upward Mobility",
-        "practiceAreas":"Practice Areas",
-        "blog":"Blog",
-        "contact":"Contact"
+        "practiceAreas": "Practice Areas",
+        "blog": "Blog",
+        "contact": "Contact"
     }
-
 }
