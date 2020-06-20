@@ -1,25 +1,23 @@
-import {
-  Heading,
-  Text,
-} from '@chakra-ui/core';
+import { Box, Heading } from '@chakra-ui/core';
 import { PortalLayout } from '@layouts/portal';
+import { PortalProfileCard } from '@components/cards/portalProfileCard';
+import { PortalProfileForm } from '@forms/portalProfileForm';
 import React from 'react';
-import { useIntl } from 'gatsby-plugin-intl';
 
-const PortalPage = () => {
-  const intl = useIntl();
+const PortalProfilePage = () => {
   return (
     <PortalLayout>
-      <Heading textAlign="center" marginBottom="20px">
-        {intl.formatMessage({ id: 'pages_portal.heading' })}
-      </Heading>
-
-
-      <Text>
-        {intl.formatMessage({ id: 'pages_portal.text' })}
-      </Text>
+      <Box margin="1rem 0">
+        <Heading textAlign="center">Your Profile</Heading>
+      </Box>
+      <Box margin="1rem 0">
+        <PortalProfileCard />
+      </Box>
+      <Box margin="1rem 0">
+        <PortalProfileForm />
+      </Box>
     </PortalLayout>
   );
 };
 
-export default PortalPage;
+export default PortalProfilePage;
