@@ -13,7 +13,9 @@ on:
 jobs:
   test_suite:
     runs-on: ubuntu-latest
-
+    env:
+      AUTH0_CLIENT_ID: ${{ secrets.LOGIC_AUTH0_CLIENT_ID }}
+      AUTH0_CLIENT_SECRET: ${{ secrets.LOGIC_AUTH0_CLIENT_SECRET }}
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python 3.x
@@ -40,17 +42,6 @@ jobs:
           CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
         with:
           coverageCommand: yarn test
-      - name: Cypress run
-        uses: cypress-io/github-action@v1
-        with:
-          start: yarn develop --verbose
-          wait-on: "http://127.0.0.1:8000"
-          wait-on-timeout: 180
-        env:
-          CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
-          CYPRESS_AUTH_CLIENT_ID: ${{ secrets.CYPRESS_AUTH_CLIENT_ID }}
-          CYPRESS_AUTH_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH_CLIENT_SECRET }}
-          CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
       - name: Run Yarn Build.
         run: yarn build
         env:
@@ -60,3 +51,16 @@ jobs:
         with:
           configPath: "./.lighthouserc.json"
           uploadArtifacts: true
+      - name: Docker Sanity Check
+        run: docker ps
+      - name: Cypress run
+        uses: cypress-io/github-action@v1
+        with:
+          start: docker-compose up
+          wait-on: "http://127.0.0.1:8000"
+          wait-on-timeout: 900
+        env:
+          CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
+          CYPRESS_AUTH_CLIENT_ID: ${{ secrets.CYPRESS_AUTH_CLIENT_ID }}
+          CYPRESS_AUTH_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH_CLIENT_SECRET }}
+          CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
