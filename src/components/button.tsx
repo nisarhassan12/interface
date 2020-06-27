@@ -10,6 +10,11 @@ export const Button = ({ children, ...props }) => {
       {...props}
       bg={colors.primaryButtonBg[colorMode]}
       _hover={{ backgroundColor: colors.primaryButtonBgOnHover[colorMode] }}
+      _focus={{
+        backgroundColor: colors.primaryButtonBg.lightBlue,
+        color: colors.primaryButtonColor.light,
+        outline: 'none',
+      }}
       color={colors.primaryButtonColor[colorMode]}
     >
       {children}

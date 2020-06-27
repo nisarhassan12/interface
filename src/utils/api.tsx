@@ -14,12 +14,45 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  /** A location in a connection that can be used for resuming pagination. */
+  Cursor: any;
   /** A universally unique identifier as defined by [RFC 4122](https://tools.ietf.org/html/rfc4122). */
   UUID: any;
   /** A point in time as described by the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard. May or may not include a timezone. */
   Datetime: string;
-  /** A location in a connection that can be used for resuming pagination. */
-  Cursor: any;
+};
+
+/** All input for the create `Flashcard` mutation. */
+export type CreateFlashcardInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Flashcard` to be created by this mutation. */
+  flashcard: FlashcardInput;
+};
+
+/** The output of our create `Flashcard` mutation. */
+export type CreateFlashcardPayload = {
+  __typename?: 'CreateFlashcardPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Flashcard` that was created by this mutation. */
+  flashcard?: Maybe<Flashcard>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Flashcard`. May be used by Relay 1. */
+  flashcardEdge?: Maybe<FlashcardsEdge>;
+};
+
+
+/** The output of our create `Flashcard` mutation. */
+export type CreateFlashcardPayloadFlashcardEdgeArgs = {
+  orderBy?: Maybe<Array<FlashcardsOrderBy>>;
 };
 
 /** All input for the `createPrimaryKeyIdIfNotExists` mutation. */
@@ -157,6 +190,7 @@ export type DeletePersonPayloadPersonEdgeArgs = {
   orderBy?: Maybe<Array<PeopleOrderBy>>;
 };
 
+/** A flashcard used for studying */
 export type Flashcard = Node & {
   __typename?: 'Flashcard';
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
@@ -165,11 +199,60 @@ export type Flashcard = Node & {
   id: Scalars['UUID'];
   /** The prompt or sideA of a flashcard */
   prompt: Scalars['String'];
-  /** The answer of the flashcard */
+  /** The answer or SideB of the flashcard */
   answer: Scalars['String'];
+  /** The topic of the flashcard. This maps to a topic administered on the California Bar exam. */
   topic: Scalars['String'];
   createdAt: Scalars['Datetime'];
   updatedAt: Scalars['Datetime'];
+};
+
+/**
+ * A condition to be used against `Flashcard` object types. All fields are tested
+ * for equality and combined with a logical ‘and.’
+ */
+export type FlashcardCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `topic` field. */
+  topic?: Maybe<Scalars['String']>;
+};
+
+/** An input for mutations affecting `Flashcard` */
+export type FlashcardInput = {
+  /** The unique ID of a flashcard */
+  id?: Maybe<Scalars['UUID']>;
+  /** The prompt or sideA of a flashcard */
+  prompt: Scalars['String'];
+  /** The answer or SideB of the flashcard */
+  answer: Scalars['String'];
+  /** The topic of the flashcard. This maps to a topic administered on the California Bar exam. */
+  topic: Scalars['String'];
+};
+
+/** Represents an update to a `Flashcard`. Fields that are set will be updated. */
+export type FlashcardPatch = {
+  /** The unique ID of a flashcard */
+  id?: Maybe<Scalars['UUID']>;
+  /** The prompt or sideA of a flashcard */
+  prompt?: Maybe<Scalars['String']>;
+  /** The answer or SideB of the flashcard */
+  answer?: Maybe<Scalars['String']>;
+  /** The topic of the flashcard. This maps to a topic administered on the California Bar exam. */
+  topic?: Maybe<Scalars['String']>;
+};
+
+/** A connection to a list of `Flashcard` values. */
+export type FlashcardsConnection = {
+  __typename?: 'FlashcardsConnection';
+  /** A list of `Flashcard` objects. */
+  nodes: Array<Flashcard>;
+  /** A list of edges which contains the `Flashcard` and cursor to aid in pagination. */
+  edges: Array<FlashcardsEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `Flashcard` you could get from the connection. */
+  totalCount: Scalars['Int'];
 };
 
 /** A `Flashcard` edge in the connection. */
@@ -186,6 +269,8 @@ export enum FlashcardsOrderBy {
   Natural = 'NATURAL',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
+  TopicAsc = 'TOPIC_ASC',
+  TopicDesc = 'TOPIC_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -193,6 +278,12 @@ export enum FlashcardsOrderBy {
 /** The root mutation type which contains root level fields which mutate data. */
 export type Mutation = {
   __typename?: 'Mutation';
+  /** Creates a single `Flashcard`. */
+  createFlashcard?: Maybe<CreateFlashcardPayload>;
+  /** Updates a single `Flashcard` using its globally unique id and a patch. */
+  updateFlashcard?: Maybe<UpdateFlashcardPayload>;
+  /** Updates a single `Flashcard` using a unique key and a patch. */
+  updateFlashcardById?: Maybe<UpdateFlashcardPayload>;
   /** Updates a single `Person` using its globally unique id and a patch. */
   updatePerson?: Maybe<UpdatePersonPayload>;
   /** Updates a single `Person` using a unique key and a patch. */
@@ -207,6 +298,24 @@ export type Mutation = {
   deletePersonById?: Maybe<DeletePersonPayload>;
   createPrimaryKeyIdIfNotExists?: Maybe<CreatePrimaryKeyIdIfNotExistsPayload>;
   createRoleIfNotExists?: Maybe<CreateRoleIfNotExistsPayload>;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateFlashcardArgs = {
+  input: CreateFlashcardInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateFlashcardArgs = {
+  input: UpdateFlashcardInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateFlashcardByIdArgs = {
+  input: UpdateFlashcardByIdInput;
 };
 
 
@@ -263,6 +372,19 @@ export type Node = {
   nodeId: Scalars['ID'];
 };
 
+/** Information about pagination in a connection. */
+export type PageInfo = {
+  __typename?: 'PageInfo';
+  /** When paginating forwards, are there more items? */
+  hasNextPage: Scalars['Boolean'];
+  /** When paginating backwards, are there more items? */
+  hasPreviousPage: Scalars['Boolean'];
+  /** When paginating backwards, the cursor to continue. */
+  startCursor?: Maybe<Scalars['Cursor']>;
+  /** When paginating forwards, the cursor to continue. */
+  endCursor?: Maybe<Scalars['Cursor']>;
+};
+
 /** A `Person` edge in the connection. */
 export type PeopleEdge = {
   __typename?: 'PeopleEdge';
@@ -315,6 +437,8 @@ export type Query = Node & {
   nodeId: Scalars['ID'];
   /** Fetches an object given its globally unique `ID`. */
   node?: Maybe<Node>;
+  /** Reads and enables pagination through a set of `Flashcard`. */
+  allFlashcards?: Maybe<FlashcardsConnection>;
   flashcardById?: Maybe<Flashcard>;
   personById?: Maybe<Person>;
   getCurrentUser?: Maybe<Person>;
@@ -328,6 +452,18 @@ export type Query = Node & {
 /** The root query type which gives access points into the data universe. */
 export type QueryNodeArgs = {
   nodeId: Scalars['ID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAllFlashcardsArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<FlashcardsOrderBy>>;
+  condition?: Maybe<FlashcardCondition>;
 };
 
 
@@ -352,6 +488,54 @@ export type QueryFlashcardArgs = {
 /** The root query type which gives access points into the data universe. */
 export type QueryPersonArgs = {
   nodeId: Scalars['ID'];
+};
+
+/** All input for the `updateFlashcardById` mutation. */
+export type UpdateFlashcardByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `Flashcard` being updated. */
+  flashcardPatch: FlashcardPatch;
+  /** The unique ID of a flashcard */
+  id: Scalars['UUID'];
+};
+
+/** All input for the `updateFlashcard` mutation. */
+export type UpdateFlashcardInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `Flashcard` to be updated. */
+  nodeId: Scalars['ID'];
+  /** An object where the defined keys will be set on the `Flashcard` being updated. */
+  flashcardPatch: FlashcardPatch;
+};
+
+/** The output of our update `Flashcard` mutation. */
+export type UpdateFlashcardPayload = {
+  __typename?: 'UpdateFlashcardPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Flashcard` that was updated by this mutation. */
+  flashcard?: Maybe<Flashcard>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Flashcard`. May be used by Relay 1. */
+  flashcardEdge?: Maybe<FlashcardsEdge>;
+};
+
+
+/** The output of our update `Flashcard` mutation. */
+export type UpdateFlashcardPayloadFlashcardEdgeArgs = {
+  orderBy?: Maybe<Array<FlashcardsOrderBy>>;
 };
 
 /** All input for the `updatePersonById` mutation. */

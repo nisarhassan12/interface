@@ -85,6 +85,7 @@
     "babel-jest": "^26.1.0",
     "babel-preset-gatsby": "^0.4.12",
     "cypress-axe": "^0.8.1",
+    "cypress-plugin-tab": "^1.0.5",
     "eslint": "^7.3.1",
     "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-jest": "^23.17.1",

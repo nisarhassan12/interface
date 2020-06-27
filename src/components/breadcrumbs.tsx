@@ -1,11 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
 /* eslint-enable */
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-} from '@chakra-ui/core';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/core';
 import { Link } from '@components/link';
 import { Location } from '@reach/router';
 import React from 'react';
@@ -62,7 +58,11 @@ export const Breadcrumbs = () => {
         return (
           <Breadcrumb mb="2em">
             <BreadcrumbItem cursor="pointer">
-              <BreadcrumbLink as={Link} to='/'>
+              <BreadcrumbLink
+                className="breadcrumb outline-bordered"
+                as={Link}
+                to="/"
+              >
                 {intl.formatMessage({ id: 'breadcrumbs.home' })}
               </BreadcrumbLink>
             </BreadcrumbItem>
@@ -72,6 +72,7 @@ export const Breadcrumbs = () => {
               return (
                 <BreadcrumbItem key={i} cursor="pointer">
                   <BreadcrumbLink
+                    className="breadcrumb outline-bordered"
                     as={Link}
                     to={route}
                     textTransform="capitalize"
@@ -81,11 +82,8 @@ export const Breadcrumbs = () => {
                 </BreadcrumbItem>
               );
             })}
-            <BreadcrumbItem
-              isCurrentPage={true}
-              textTransform="capitalize"
-            >
-              <BreadcrumbLink>
+            <BreadcrumbItem isCurrentPage={true} textTransform="capitalize">
+              <BreadcrumbLink className="breadcrumb outline-bordered">
                 {currentPath.replace(/-/g, ' ')}
               </BreadcrumbLink>
             </BreadcrumbItem>

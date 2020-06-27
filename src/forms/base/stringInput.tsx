@@ -24,6 +24,7 @@ export const StringInput = ({
         placeholder={placeholder}
         borderColor="gray.300"
         _hover={{ borderColor: 'gray.500' }}
+        className="outline-bordered"
       />
       <FormErrorMessage>
         {errors && errors[name] && errors[name].message}

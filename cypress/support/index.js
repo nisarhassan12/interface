@@ -18,6 +18,7 @@ import './commands';
 import 'cypress-axe';
 import '@testing-library/cypress/add-commands';
 import 'gatsby-cypress';
+import 'cypress-plugin-tab';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
