@@ -1,7 +1,4 @@
-import {
-  Box,
-  Flex,
-} from '@chakra-ui/core';
+import { Box, Flex } from '@chakra-ui/core';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { AuthenticationContext } from '@utils/authenticationContext';
 import { Breadcrumbs } from '@components/breadcrumbs';
@@ -12,13 +9,9 @@ import { PublicNavigationBar } from '@components/navigationBars/public';
 import React from 'react';
 import { publicClient } from '@utils/authenticationContext';
 
-
 export const PublicLayout: React.FC = ({ children }) => {
   return (
-    <Flex
-      minHeight="100vh"
-      direction="column"
-    >
+    <Flex minHeight="100vh" direction="column">
       <AuthenticationContext.Consumer>
         {({ isLoading, apolloClient }) => {
           if (isLoading) {
@@ -26,10 +19,7 @@ export const PublicLayout: React.FC = ({ children }) => {
               <ApolloProvider client={publicClient}>
                 <>
                   <PublicNavigationBar />
-                  <Box
-                    flex={1}
-                    padding="8em 0 4em 0"
-                  >
+                  <Box flex={1} padding="8em 0 4em 0">
                     <Container>
                       <Breadcrumbs />
                       {children}
@@ -43,10 +33,7 @@ export const PublicLayout: React.FC = ({ children }) => {
             <ApolloProvider client={apolloClient}>
               <>
                 <PublicNavigationBar />
-                <Box
-                  flex={1}
-                  padding="8em 0 4em 0"
-                >
+                <Box flex={1} padding="8em 0 4em 0">
                   <Container>
                     <Breadcrumbs />
                     {children}

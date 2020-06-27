@@ -15,14 +15,14 @@ import {
   MenuItem,
   MenuList,
   Text,
-  useDisclosure
+  useDisclosure,
 } from '@chakra-ui/core';
 import React, { useState } from 'react';
-import { navigate, useIntl } from 'gatsby-plugin-intl';
 import { AuthenticatedDropdown } from './authenticatedDropdown';
 import { AuthenticationContext } from '@utils/authenticationContext';
 import { Link } from '@components/link';
 import { MdDehaze } from 'react-icons/md';
+import { useIntl } from 'gatsby-plugin-intl';
 
 export const BaseNavigationBar = ({
   links = [] as any[],
@@ -45,7 +45,7 @@ export const BaseNavigationBar = ({
         zIndex={4}
         alignItems="center"
       >
-        <Text flex="1" textAlign='center'>
+        <Text flex="1" textAlign="center">
           Black Lives Matter
         </Text>
       </Flex>
@@ -64,28 +64,20 @@ export const BaseNavigationBar = ({
         <Flex size="100%" px="6" align="center">
           <Box
             mr={5}
-            as="a"
+            as={Link}
             cursor="pointer"
-            style={{ display: 'block' }}
-            onClick={() => { navigate('/'); }}
+            display="block"
+            to="/"
             aria-label="Neon Law, Back to homepage"
             minWidth="3em"
           >
             <img src="/images/logo.svg" alt="Neon Law" />
           </Box>
 
-          <Flex
-            flexGrow={1}
-            align="center"
-            justify="flex-end"
-          >
+          <Flex flexGrow={1} align="center" justify="flex-end">
             {links.map((link, i) => (
               <Box display={['none', 'none', 'flex']} key={i} mr="0.5em">
-                <Box
-                  as="a"
-                  cursor="pointer"
-                  margin="0 10px"
-                  onClick={() => { navigate(link.route); }}>
+                <Box as={Link} cursor="pointer" margin="0 10px" to={link.route}>
                   {link.label}
                 </Box>
               </Box>
@@ -141,20 +133,12 @@ export const BaseNavigationBar = ({
           </Flex>
         </Flex>
       </Box>
-      <Drawer
-        isOpen={isOpen}
-        placement="left"
-        size="xs"
-        onClose={onClose}
-      >
+      <Drawer isOpen={isOpen} placement="left" size="xs" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerBody padding="0">
-            {sideNavigationDrawer}
-          </DrawerBody>
+          <DrawerBody padding="0">{sideNavigationDrawer}</DrawerBody>
         </DrawerContent>
       </Drawer>
     </>
   );
-
 };
