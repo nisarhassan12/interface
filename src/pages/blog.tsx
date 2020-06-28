@@ -16,10 +16,7 @@ const BlogIndex = ({ data }) => {
           {edges.map(({ node: post }) => (
             <ListItem key={post.id}>
               <Link to={'/blog' + post.frontmatter.slug}>
-                <Flex
-                  alignItems="center"
-                  justifyContent="space-between"
-                >
+                <Flex alignItems="center" justifyContent="space-between">
                   <Heading size="md">{post.frontmatter.title}</Heading>
                   <Text>
                     <FormattedDate
@@ -39,15 +36,8 @@ const BlogIndex = ({ data }) => {
 export const pageQuery = graphql`
   query blogIndex {
     allMdx(
-      filter: {
-        fileAbsolutePath: {
-          regex: "/posts/"
-        }
-      },
-      sort: {
-        fields: frontmatter___updatedAt,
-        order: DESC
-      }
+      filter: { fileAbsolutePath: { regex: "/posts/" } }
+      sort: { fields: frontmatter___updatedAt, order: DESC }
     ) {
       edges {
         node {

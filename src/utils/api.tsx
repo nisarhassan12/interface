@@ -14,12 +14,45 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  /** A location in a connection that can be used for resuming pagination. */
+  Cursor: any;
   /** A universally unique identifier as defined by [RFC 4122](https://tools.ietf.org/html/rfc4122). */
   UUID: any;
   /** A point in time as described by the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard. May or may not include a timezone. */
   Datetime: string;
-  /** A location in a connection that can be used for resuming pagination. */
-  Cursor: any;
+};
+
+/** All input for the create `Flashcard` mutation. */
+export type CreateFlashcardInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Flashcard` to be created by this mutation. */
+  flashcard: FlashcardInput;
+};
+
+/** The output of our create `Flashcard` mutation. */
+export type CreateFlashcardPayload = {
+  __typename?: 'CreateFlashcardPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Flashcard` that was created by this mutation. */
+  flashcard?: Maybe<Flashcard>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Flashcard`. May be used by Relay 1. */
+  flashcardEdge?: Maybe<FlashcardsEdge>;
+};
+
+
+/** The output of our create `Flashcard` mutation. */
+export type CreateFlashcardPayloadFlashcardEdgeArgs = {
+  orderBy?: Maybe<Array<FlashcardsOrderBy>>;
 };
 
 /** All input for the `createPrimaryKeyIdIfNotExists` mutation. */
@@ -75,7 +108,6 @@ export type DeleteFlashcardByIdInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars['String']>;
-  /** The unique ID of a flashcard */
   id: Scalars['UUID'];
 };
 
@@ -157,19 +189,65 @@ export type DeletePersonPayloadPersonEdgeArgs = {
   orderBy?: Maybe<Array<PeopleOrderBy>>;
 };
 
+/** A flashcard used for studying */
 export type Flashcard = Node & {
   __typename?: 'Flashcard';
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID'];
-  /** The unique ID of a flashcard */
   id: Scalars['UUID'];
   /** The prompt or sideA of a flashcard */
   prompt: Scalars['String'];
-  /** The answer of the flashcard */
+  /** The answer or SideB of the flashcard */
   answer: Scalars['String'];
+  /** The topic of the flashcard. This maps to a topic administered on the California Bar exam. */
   topic: Scalars['String'];
   createdAt: Scalars['Datetime'];
   updatedAt: Scalars['Datetime'];
+};
+
+/**
+ * A condition to be used against `Flashcard` object types. All fields are tested
+ * for equality and combined with a logical ‘and.’
+ */
+export type FlashcardCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `topic` field. */
+  topic?: Maybe<Scalars['String']>;
+};
+
+/** An input for mutations affecting `Flashcard` */
+export type FlashcardInput = {
+  /** The prompt or sideA of a flashcard */
+  prompt: Scalars['String'];
+  /** The answer or SideB of the flashcard */
+  answer: Scalars['String'];
+  /** The topic of the flashcard. This maps to a topic administered on the California Bar exam. */
+  topic: Scalars['String'];
+};
+
+/** Represents an update to a `Flashcard`. Fields that are set will be updated. */
+export type FlashcardPatch = {
+  id?: Maybe<Scalars['UUID']>;
+  /** The prompt or sideA of a flashcard */
+  prompt?: Maybe<Scalars['String']>;
+  /** The answer or SideB of the flashcard */
+  answer?: Maybe<Scalars['String']>;
+  /** The topic of the flashcard. This maps to a topic administered on the California Bar exam. */
+  topic?: Maybe<Scalars['String']>;
+};
+
+/** A connection to a list of `Flashcard` values. */
+export type FlashcardsConnection = {
+  __typename?: 'FlashcardsConnection';
+  /** A list of `Flashcard` objects. */
+  nodes: Array<Flashcard>;
+  /** A list of edges which contains the `Flashcard` and cursor to aid in pagination. */
+  edges: Array<FlashcardsEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `Flashcard` you could get from the connection. */
+  totalCount: Scalars['Int'];
 };
 
 /** A `Flashcard` edge in the connection. */
@@ -186,6 +264,8 @@ export enum FlashcardsOrderBy {
   Natural = 'NATURAL',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
+  TopicAsc = 'TOPIC_ASC',
+  TopicDesc = 'TOPIC_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -193,6 +273,12 @@ export enum FlashcardsOrderBy {
 /** The root mutation type which contains root level fields which mutate data. */
 export type Mutation = {
   __typename?: 'Mutation';
+  /** Creates a single `Flashcard`. */
+  createFlashcard?: Maybe<CreateFlashcardPayload>;
+  /** Updates a single `Flashcard` using its globally unique id and a patch. */
+  updateFlashcard?: Maybe<UpdateFlashcardPayload>;
+  /** Updates a single `Flashcard` using a unique key and a patch. */
+  updateFlashcardById?: Maybe<UpdateFlashcardPayload>;
   /** Updates a single `Person` using its globally unique id and a patch. */
   updatePerson?: Maybe<UpdatePersonPayload>;
   /** Updates a single `Person` using a unique key and a patch. */
@@ -207,6 +293,24 @@ export type Mutation = {
   deletePersonById?: Maybe<DeletePersonPayload>;
   createPrimaryKeyIdIfNotExists?: Maybe<CreatePrimaryKeyIdIfNotExistsPayload>;
   createRoleIfNotExists?: Maybe<CreateRoleIfNotExistsPayload>;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateFlashcardArgs = {
+  input: CreateFlashcardInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateFlashcardArgs = {
+  input: UpdateFlashcardInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateFlashcardByIdArgs = {
+  input: UpdateFlashcardByIdInput;
 };
 
 
@@ -263,6 +367,19 @@ export type Node = {
   nodeId: Scalars['ID'];
 };
 
+/** Information about pagination in a connection. */
+export type PageInfo = {
+  __typename?: 'PageInfo';
+  /** When paginating forwards, are there more items? */
+  hasNextPage: Scalars['Boolean'];
+  /** When paginating backwards, are there more items? */
+  hasPreviousPage: Scalars['Boolean'];
+  /** When paginating backwards, the cursor to continue. */
+  startCursor?: Maybe<Scalars['Cursor']>;
+  /** When paginating forwards, the cursor to continue. */
+  endCursor?: Maybe<Scalars['Cursor']>;
+};
+
 /** A `Person` edge in the connection. */
 export type PeopleEdge = {
   __typename?: 'PeopleEdge';
@@ -315,6 +432,8 @@ export type Query = Node & {
   nodeId: Scalars['ID'];
   /** Fetches an object given its globally unique `ID`. */
   node?: Maybe<Node>;
+  /** Reads and enables pagination through a set of `Flashcard`. */
+  allFlashcards?: Maybe<FlashcardsConnection>;
   flashcardById?: Maybe<Flashcard>;
   personById?: Maybe<Person>;
   getCurrentUser?: Maybe<Person>;
@@ -328,6 +447,18 @@ export type Query = Node & {
 /** The root query type which gives access points into the data universe. */
 export type QueryNodeArgs = {
   nodeId: Scalars['ID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAllFlashcardsArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<FlashcardsOrderBy>>;
+  condition?: Maybe<FlashcardCondition>;
 };
 
 
@@ -352,6 +483,53 @@ export type QueryFlashcardArgs = {
 /** The root query type which gives access points into the data universe. */
 export type QueryPersonArgs = {
   nodeId: Scalars['ID'];
+};
+
+/** All input for the `updateFlashcardById` mutation. */
+export type UpdateFlashcardByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `Flashcard` being updated. */
+  flashcardPatch: FlashcardPatch;
+  id: Scalars['UUID'];
+};
+
+/** All input for the `updateFlashcard` mutation. */
+export type UpdateFlashcardInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `Flashcard` to be updated. */
+  nodeId: Scalars['ID'];
+  /** An object where the defined keys will be set on the `Flashcard` being updated. */
+  flashcardPatch: FlashcardPatch;
+};
+
+/** The output of our update `Flashcard` mutation. */
+export type UpdateFlashcardPayload = {
+  __typename?: 'UpdateFlashcardPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Flashcard` that was updated by this mutation. */
+  flashcard?: Maybe<Flashcard>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Flashcard`. May be used by Relay 1. */
+  flashcardEdge?: Maybe<FlashcardsEdge>;
+};
+
+
+/** The output of our update `Flashcard` mutation. */
+export type UpdateFlashcardPayloadFlashcardEdgeArgs = {
+  orderBy?: Maybe<Array<FlashcardsOrderBy>>;
 };
 
 /** All input for the `updatePersonById` mutation. */
@@ -402,6 +580,40 @@ export type UpdatePersonPayloadPersonEdgeArgs = {
 };
 
 
+export type AllFlashcardsQueryVariables = Exact<{
+  topic?: Maybe<Scalars['String']>;
+}>;
+
+
+export type AllFlashcardsQuery = (
+  { __typename?: 'Query' }
+  & { allFlashcards?: Maybe<(
+    { __typename?: 'FlashcardsConnection' }
+    & { nodes: Array<(
+      { __typename?: 'Flashcard' }
+      & Pick<Flashcard, 'id' | 'prompt' | 'answer' | 'topic'>
+    )> }
+  )> }
+);
+
+export type CreateFlashcardMutationVariables = Exact<{
+  answer: Scalars['String'];
+  prompt: Scalars['String'];
+  topic: Scalars['String'];
+}>;
+
+
+export type CreateFlashcardMutation = (
+  { __typename?: 'Mutation' }
+  & { createFlashcard?: Maybe<(
+    { __typename?: 'CreateFlashcardPayload' }
+    & { flashcard?: Maybe<(
+      { __typename?: 'Flashcard' }
+      & Pick<Flashcard, 'id' | 'answer' | 'prompt' | 'topic'>
+    )> }
+  )> }
+);
+
 export type CurrentUserQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -431,6 +643,121 @@ export type UpdatePersonByIdMutation = (
 );
 
 
+export const AllFlashcardsDocument = gql`
+    query AllFlashcards($topic: String) {
+  allFlashcards(condition: {topic: $topic}) {
+    nodes {
+      id
+      prompt
+      answer
+      topic
+    }
+  }
+}
+    `;
+export type AllFlashcardsComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<AllFlashcardsQuery, AllFlashcardsQueryVariables>, 'query'>;
+
+    export const AllFlashcardsComponent = (props: AllFlashcardsComponentProps) => (
+      <ApolloReactComponents.Query<AllFlashcardsQuery, AllFlashcardsQueryVariables> query={AllFlashcardsDocument} {...props} />
+    );
+    
+export type AllFlashcardsProps<TChildProps = {}, TDataName extends string = 'data'> = {
+      [key in TDataName]: ApolloReactHoc.DataValue<AllFlashcardsQuery, AllFlashcardsQueryVariables>
+    } & TChildProps;
+export function withAllFlashcards<TProps, TChildProps = {}, TDataName extends string = 'data'>(operationOptions?: ApolloReactHoc.OperationOption<
+  TProps,
+  AllFlashcardsQuery,
+  AllFlashcardsQueryVariables,
+  AllFlashcardsProps<TChildProps, TDataName>>) {
+    return ApolloReactHoc.withQuery<TProps, AllFlashcardsQuery, AllFlashcardsQueryVariables, AllFlashcardsProps<TChildProps, TDataName>>(AllFlashcardsDocument, {
+      alias: 'allFlashcards',
+      ...operationOptions
+    });
+};
+
+/**
+ * __useAllFlashcardsQuery__
+ *
+ * To run a query within a React component, call `useAllFlashcardsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAllFlashcardsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAllFlashcardsQuery({
+ *   variables: {
+ *      topic: // value for 'topic'
+ *   },
+ * });
+ */
+export function useAllFlashcardsQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<AllFlashcardsQuery, AllFlashcardsQueryVariables>) {
+        return ApolloReactHooks.useQuery<AllFlashcardsQuery, AllFlashcardsQueryVariables>(AllFlashcardsDocument, baseOptions);
+      }
+export function useAllFlashcardsLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<AllFlashcardsQuery, AllFlashcardsQueryVariables>) {
+          return ApolloReactHooks.useLazyQuery<AllFlashcardsQuery, AllFlashcardsQueryVariables>(AllFlashcardsDocument, baseOptions);
+        }
+export type AllFlashcardsQueryHookResult = ReturnType<typeof useAllFlashcardsQuery>;
+export type AllFlashcardsLazyQueryHookResult = ReturnType<typeof useAllFlashcardsLazyQuery>;
+export type AllFlashcardsQueryResult = ApolloReactCommon.QueryResult<AllFlashcardsQuery, AllFlashcardsQueryVariables>;
+export const CreateFlashcardDocument = gql`
+    mutation CreateFlashcard($answer: String!, $prompt: String!, $topic: String!) {
+  createFlashcard(input: {flashcard: {answer: $answer, prompt: $prompt, topic: $topic}}) {
+    flashcard {
+      id
+      answer
+      prompt
+      topic
+    }
+  }
+}
+    `;
+export type CreateFlashcardMutationFn = ApolloReactCommon.MutationFunction<CreateFlashcardMutation, CreateFlashcardMutationVariables>;
+export type CreateFlashcardComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<CreateFlashcardMutation, CreateFlashcardMutationVariables>, 'mutation'>;
+
+    export const CreateFlashcardComponent = (props: CreateFlashcardComponentProps) => (
+      <ApolloReactComponents.Mutation<CreateFlashcardMutation, CreateFlashcardMutationVariables> mutation={CreateFlashcardDocument} {...props} />
+    );
+    
+export type CreateFlashcardProps<TChildProps = {}, TDataName extends string = 'mutate'> = {
+      [key in TDataName]: ApolloReactCommon.MutationFunction<CreateFlashcardMutation, CreateFlashcardMutationVariables>
+    } & TChildProps;
+export function withCreateFlashcard<TProps, TChildProps = {}, TDataName extends string = 'mutate'>(operationOptions?: ApolloReactHoc.OperationOption<
+  TProps,
+  CreateFlashcardMutation,
+  CreateFlashcardMutationVariables,
+  CreateFlashcardProps<TChildProps, TDataName>>) {
+    return ApolloReactHoc.withMutation<TProps, CreateFlashcardMutation, CreateFlashcardMutationVariables, CreateFlashcardProps<TChildProps, TDataName>>(CreateFlashcardDocument, {
+      alias: 'createFlashcard',
+      ...operationOptions
+    });
+};
+
+/**
+ * __useCreateFlashcardMutation__
+ *
+ * To run a mutation, you first call `useCreateFlashcardMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateFlashcardMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createFlashcardMutation, { data, loading, error }] = useCreateFlashcardMutation({
+ *   variables: {
+ *      answer: // value for 'answer'
+ *      prompt: // value for 'prompt'
+ *      topic: // value for 'topic'
+ *   },
+ * });
+ */
+export function useCreateFlashcardMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<CreateFlashcardMutation, CreateFlashcardMutationVariables>) {
+        return ApolloReactHooks.useMutation<CreateFlashcardMutation, CreateFlashcardMutationVariables>(CreateFlashcardDocument, baseOptions);
+      }
+export type CreateFlashcardMutationHookResult = ReturnType<typeof useCreateFlashcardMutation>;
+export type CreateFlashcardMutationResult = ApolloReactCommon.MutationResult<CreateFlashcardMutation>;
+export type CreateFlashcardMutationOptions = ApolloReactCommon.BaseMutationOptions<CreateFlashcardMutation, CreateFlashcardMutationVariables>;
 export const CurrentUserDocument = gql`
     query CurrentUser {
   getCurrentUser {

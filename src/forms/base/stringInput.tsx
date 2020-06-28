@@ -15,7 +15,7 @@ export const StringInput = ({
   testId,
 }) => {
   return (
-    <FormControl isInvalid={errors && errors[name]}>
+    <FormControl isInvalid={errors[name]}>
       <FormLabel htmlFor="name">{label}</FormLabel>
       <Input
         data-testid={testId}
@@ -24,10 +24,11 @@ export const StringInput = ({
         placeholder={placeholder}
         borderColor="gray.300"
         _hover={{ borderColor: 'gray.500' }}
+        className="outline-bordered"
       />
       <FormErrorMessage>
         {errors && errors[name] && errors[name].message}
       </FormErrorMessage>
-    </FormControl>
+    </FormControl >
   );
 };
