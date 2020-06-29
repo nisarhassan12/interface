@@ -31,3 +31,12 @@ services:
       - SHOW_GRAPHIQL=true
     logging:
       driver: none
+
+  interface:
+    build:
+      context: ./
+      dockerfile: ./dev.Dockerfile
+    depends_on:
+      - logic
+    ports:
+      - 8000:8000
