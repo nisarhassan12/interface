@@ -20,6 +20,8 @@ import { graphql } from 'gatsby';
 
 const shortcodes = { Link };
 import { publicClient } from '@utils/authenticationContext';
+import Img from "gatsby-image"
+
 
 const BlogLayout = ({ data: { mdx } }) => {
   return (
@@ -50,6 +52,14 @@ const BlogLayout = ({ data: { mdx } }) => {
                           </Heading>
                           <EditOnGithub path={mdx.frontmatter.slug} />
                         </Flex>
+                        <Box
+                          borderWidth="1px"
+                          rounded="lg"
+                          overflow="hidden"
+                        >
+                          {mdx.frontmatter.featuredImage ? <Img fluid={mdx.frontmatter.featuredImage.childImageSharp.fluid} /> : null}
+
+                        </Box>
                         <MDXProvider components={shortcodes}>
                           <MDXRenderer>{mdx.body}</MDXRenderer>
                         </MDXProvider>
@@ -80,6 +90,14 @@ const BlogLayout = ({ data: { mdx } }) => {
                         </Heading>
                         <EditOnGithub path={mdx.frontmatter.slug} />
                       </Flex>
+                      <Box
+                        borderWidth="1px"
+                        rounded="lg"
+                        overflow="hidden"
+                      >
+                        {mdx.frontmatter.featuredImage ? <Img fluid={mdx.frontmatter.featuredImage.childImageSharp.fluid} /> : null}
+
+                      </Box>
                       <MDXProvider components={shortcodes}>
                         <MDXRenderer>{mdx.body}</MDXRenderer>
                       </MDXProvider>
@@ -108,6 +126,13 @@ export const pageQuery = graphql`
       frontmatter {
         title
         slug
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 800, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
