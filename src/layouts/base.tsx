@@ -25,9 +25,6 @@ export const BaseLayout: React.FC<{
       };
     }, []);
 
-    console.log('This is the data');
-    console.log(data);
-
     const frontmatter = data ? (data.mdx ? data.mdx.frontmatter : null) : null;
     const image = frontmatter ?
       (frontmatter.featuredImage ?
