@@ -17,17 +17,21 @@ export const Seo: React.FC<SeoProps> = (
     lang = 'en',
     meta = [],
     title,
-    image = 'https://www.neonlaw.com/images/logo.png'
+    image
   }
 ) => {
   const {
     title: metaTitle,
     description: metaDescription,
     author: metaAuthor,
+    siteUrl: siteUrl
   } = useSiteMetadata();
 
   description = description || metaDescription;
   title = title || metaTitle;
+  image = (image === undefined) ?
+    siteUrl + '/images/logo.png' :
+    siteUrl + image;
 
   return (
     <Location>

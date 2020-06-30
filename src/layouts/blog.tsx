@@ -9,6 +9,7 @@ import { Breadcrumbs } from '@components/breadcrumbs';
 import { Container } from '@components/container';
 import { EditOnGithub } from '@components/editOnGithub';
 import { Footer } from '@components/footer';
+import Img from 'gatsby-image';
 import { Link } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
@@ -20,10 +21,10 @@ import { graphql } from 'gatsby';
 
 const shortcodes = { Link };
 import { publicClient } from '@utils/authenticationContext';
-import Img from "gatsby-image"
 
 
 const BlogLayout = ({ data: { mdx } }) => {
+  const featuredImage = mdx.frontmatter.featuredImage;
   return (
     <Flex
       minHeight="100vh"
@@ -31,6 +32,8 @@ const BlogLayout = ({ data: { mdx } }) => {
     >
       <AuthenticationContext.Consumer>
         {({ isLoading, apolloClient }) => {
+
+
           if (isLoading) {
             return (
               <ApolloProvider client={publicClient}>
@@ -57,7 +60,13 @@ const BlogLayout = ({ data: { mdx } }) => {
                           rounded="lg"
                           overflow="hidden"
                         >
-                          {mdx.frontmatter.featuredImage ? <Img fluid={mdx.frontmatter.featuredImage.childImageSharp.fluid} /> : null}
+                          {
+                            featuredImage ?
+                              <Img fluid={
+                                featuredImage.childImageSharp.fluid
+                              } />
+                              : null
+                          }
 
                         </Box>
                         <MDXProvider components={shortcodes}>
@@ -95,7 +104,11 @@ const BlogLayout = ({ data: { mdx } }) => {
                         rounded="lg"
                         overflow="hidden"
                       >
-                        {mdx.frontmatter.featuredImage ? <Img fluid={mdx.frontmatter.featuredImage.childImageSharp.fluid} /> : null}
+                        {featuredImage ?
+                          <Img fluid={
+                            featuredImage.childImageSharp.fluid
+                          } />
+                          : null}
 
                       </Box>
                       <MDXProvider components={shortcodes}>
