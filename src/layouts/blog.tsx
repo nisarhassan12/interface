@@ -3,37 +3,50 @@ import {
   Flex,
   Heading,
 } from '@chakra-ui/core';
+import React, { ReactChildren } from 'react';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { AuthenticationContext } from '@utils/authenticationContext';
 import { Breadcrumbs } from '@components/breadcrumbs';
 import { Container } from '@components/container';
 import { EditOnGithub } from '@components/editOnGithub';
 import { Footer } from '@components/footer';
-import Img from 'gatsby-image';
+import { Image } from '@components/image';
 import { Link } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { PrivacyDisclaimer } from '@components/privacyDisclaimer';
 import { PublicNavigationBar } from '@components/navigationBars/public';
-import React from 'react';
+import { Seo } from '@components/seo';
 
 import { graphql } from 'gatsby';
 
 const shortcodes = { Link };
 import { publicClient } from '@utils/authenticationContext';
 
+const BlogLayout: React.FC<{
+  data: {
+    mdx: {
+      body: string,
+      frontmatter: {
+        title: string,
+        featuredImage?: any,
+        slug: string,
+      }
+    }
+  },
+  chlidren: ReactChildren
+}> = ({ data }) => {
+  const { body, frontmatter } = data.mdx;
+  const { title, slug, featuredImage } = frontmatter;
 
-const BlogLayout = ({ data: { mdx } }) => {
-  const featuredImage = mdx.frontmatter.featuredImage;
   return (
     <Flex
       minHeight="100vh"
       direction="column"
     >
+      <Seo title={title} image={featuredImage} />
       <AuthenticationContext.Consumer>
         {({ isLoading, apolloClient }) => {
-
-
           if (isLoading) {
             return (
               <ApolloProvider client={publicClient}>
@@ -45,34 +58,31 @@ const BlogLayout = ({ data: { mdx } }) => {
                   >
                     <Container>
                       <Breadcrumbs />
-                      <div>
-                        <Flex
-                          alignItems="center"
-                          justifyContent="space-between"
-                        >
-                          <Heading>
-                            {mdx.frontmatter.title}
-                          </Heading>
-                          <EditOnGithub path={mdx.frontmatter.slug} />
-                        </Flex>
-                        <Box
+                      <Flex
+                        alignItems="center"
+                        justifyContent="space-between"
+                      >
+                        <Heading>
+                          {title}
+                        </Heading>
+                        <EditOnGithub path={slug} />
+                      </Flex>
+                      {featuredImage &&
+                        (<Box
                           borderWidth="1px"
                           rounded="lg"
                           overflow="hidden"
                         >
-                          {
-                            featuredImage ?
-                              <Img fluid={
-                                featuredImage.childImageSharp.fluid
-                              } />
-                              : null
-                          }
-
-                        </Box>
-                        <MDXProvider components={shortcodes}>
-                          <MDXRenderer>{mdx.body}</MDXRenderer>
-                        </MDXProvider>
-                      </div>
+                          <Image
+                            src={featuredImage}
+                            alt={title}
+                            aspectRatio={16 / 9}
+                          />
+                        </Box>)
+                      }
+                      <MDXProvider components={shortcodes}>
+                        <MDXRenderer>{body}</MDXRenderer>
+                      </MDXProvider>
                     </Container>
                   </Box>
                 </>
@@ -95,24 +105,21 @@ const BlogLayout = ({ data: { mdx } }) => {
                         justifyContent="space-between"
                       >
                         <Heading>
-                          {mdx.frontmatter.title}
+                          {title}
                         </Heading>
-                        <EditOnGithub path={mdx.frontmatter.slug} />
+                        <EditOnGithub path={slug} />
                       </Flex>
-                      <Box
-                        borderWidth="1px"
-                        rounded="lg"
-                        overflow="hidden"
-                      >
-                        {featuredImage ?
-                          <Img fluid={
-                            featuredImage.childImageSharp.fluid
-                          } />
-                          : null}
-
-                      </Box>
+                      {featuredImage &&
+                        (<Box
+                          borderWidth="1px"
+                          rounded="lg"
+                          overflow="hidden"
+                        >
+                          <Image src={featuredImage} alt={title} aspectRatio={16 / 9} />
+                        </Box>)
+                      }
                       <MDXProvider components={shortcodes}>
-                        <MDXRenderer>{mdx.body}</MDXRenderer>
+                        <MDXRenderer>{body}</MDXRenderer>
                       </MDXProvider>
                     </div>
                   </Container>
@@ -130,7 +137,6 @@ const BlogLayout = ({ data: { mdx } }) => {
 
 export default BlogLayout;
 
-
 export const pageQuery = graphql`
   query BlogPostQuery($id: String) {
     mdx(id: { eq: $id }) {
@@ -139,13 +145,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         slug
-        featuredImage {
-          childImageSharp {
-            fluid(maxWidth: 800, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
+        featuredImage
       }
     }
   }

@@ -9,23 +9,24 @@ interface ImageInterface {
 }
 
 export const Image = ({ src, alt, aspectRatio }: ImageInterface) => {
-  const data = useStaticQuery(graphql`
-    query {
-      images: allFile {
-        edges {
-          node {
-            relativePath
-            name
-            childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid
+  const data = useStaticQuery(
+    graphql`
+      query {
+        images: allFile(filter: {absolutePath: {regex: "/images/"}}) {
+          edges {
+            node {
+              relativePath
+              name
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
               }
             }
           }
         }
       }
-    }
-  `
+    `
   );
   const image = data.images.edges.find(n => {
     const filename = n.node.relativePath;
