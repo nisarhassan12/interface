@@ -4,6 +4,7 @@ interface SiteMedataInterface {
   title: string;
   description: string;
   author: string;
+  siteUrl: string;
 }
 
 export const useSiteMetadata = (): SiteMedataInterface => {
@@ -19,6 +20,7 @@ export const useSiteMetadata = (): SiteMedataInterface => {
             title
             description
             author
+            siteUrl
           }
         }
       }

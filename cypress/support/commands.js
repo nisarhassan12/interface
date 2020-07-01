@@ -37,7 +37,6 @@ Cypress.Commands.add(
     const scope = 'openid profile email';
     const jwt_decode = require('jwt-decode');
 
-
     const options = {
       body: {
         'audience': audience,
@@ -52,6 +51,7 @@ Cypress.Commands.add(
       method: 'POST',
       url: Cypress.env('AUTH_URL'),
     };
+
     cy.request(options).then(({ body }) => {
       const { access_token, expires_in, id_token } = body;
       const key = `@@auth0spajs@@::${clientId}::${audience}::${scope}`;

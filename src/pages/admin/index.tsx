@@ -3,7 +3,7 @@ import {
   Heading,
   Text,
 } from '@chakra-ui/core';
-import { AdminLayout } from '@layouts/admin';
+import { AdminLayout } from '@layouts/adminLayout';
 import React from 'react';
 import { useIntl } from 'gatsby-plugin-intl';
 
