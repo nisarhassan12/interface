@@ -115,7 +115,11 @@ const BlogLayout: React.FC<{
                           rounded="lg"
                           overflow="hidden"
                         >
-                          <Image src={featuredImage} alt={title} aspectRatio={16 / 9} />
+                          <Image
+                            src={featuredImage}
+                            alt={title}
+                            aspectRatio={16 / 9}
+                          />
                         </Box>)
                       }
                       <MDXProvider components={shortcodes}>
