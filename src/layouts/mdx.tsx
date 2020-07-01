@@ -23,7 +23,7 @@ import { graphql } from 'gatsby';
 const shortcodes = { Link };
 import { publicClient } from '@utils/authenticationContext';
 
-const BlogLayout: React.FC<{
+const MdxLayout: React.FC<{
   data: {
     mdx: {
       body: string,
@@ -139,7 +139,7 @@ const BlogLayout: React.FC<{
   );
 };
 
-export default BlogLayout;
+export default MdxLayout;
 
 export const pageQuery = graphql`
   query BlogPostQuery($id: String) {

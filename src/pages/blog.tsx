@@ -36,7 +36,7 @@ const BlogIndex = ({ data }) => {
 export const pageQuery = graphql`
   query blogIndex {
     allMdx(
-      filter: { fileAbsolutePath: { regex: "/posts/" } }
+      filter: { fileAbsolutePath: { regex: "/posts\//" } }
       sort: { fields: frontmatter___updatedAt, order: DESC }
     ) {
       edges {
