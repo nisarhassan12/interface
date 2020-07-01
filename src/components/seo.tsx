@@ -16,7 +16,6 @@ export const Seo: React.FC<SeoProps> = (
   {
     description = '',
     lang = 'en',
-    rtl = 'false',
     meta = [],
     title,
     image
@@ -66,7 +65,6 @@ export const Seo: React.FC<SeoProps> = (
         <Helmet
           htmlAttributes={{
             lang,
-            rtl,
           }}
           title={title}
           titleTemplate={`%s | ${metaTitle}`}
