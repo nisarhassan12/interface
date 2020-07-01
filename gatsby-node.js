@@ -12,9 +12,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Destructure the createPage function from the actions object
   const { createPage } = actions;
 
+  /* eslint-disable no-useless-escape */
   const result = await graphql(`
     query {
-      allMdx {
+      allMdx(
+        filter: { fileAbsolutePath: { regex: "/posts\//" } }
+      ) {
         edges {
           node {
             id
@@ -26,6 +29,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
     }
   `);
+  /* eslint-enable no-useless-escape */
 
   if (result.errors) {
     reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
@@ -36,7 +40,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   posts.forEach(({ node }) => {
     createPage({
-      component: path.resolve('./src/layouts/blog.tsx'),
+      component: path.resolve('./src/layouts/mdx.tsx'),
       context: { id: node.id },
       path: `/blog${node.frontmatter.slug}`,
     });
