@@ -4,7 +4,7 @@ import {
   Heading,
   useDisclosure,
 } from '@chakra-ui/core';
-import { AdminLayout } from '@layouts/admin';
+import { AdminLayout } from '@layouts/adminLayout';
 import { CreateFlashcardModal } from '@components/modals/createFlashcardModal';
 import { FlashcardTable } from '@components/tables/flashcardTable';
 import React from 'react';

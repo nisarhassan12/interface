@@ -1,3 +1,4 @@
+import { graphql, useStaticQuery } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import { Location } from '@reach/router';
 import React from 'react';
@@ -17,17 +18,46 @@ export const Seo: React.FC<SeoProps> = (
     lang = 'en',
     meta = [],
     title,
-    image = 'https://www.neonlaw.com/images/logo.png'
+    image
   }
 ) => {
   const {
     title: metaTitle,
     description: metaDescription,
-    author: metaAuthor,
+    siteUrl
   } = useSiteMetadata();
 
   description = description || metaDescription;
   title = title || metaTitle;
+  const data = useStaticQuery(
+    graphql`
+      query {
+        images: allFile(filter: {absolutePath: {regex: "/images/"}}) {
+          edges {
+            node {
+              relativePath
+              name
+              childImageSharp {
+                fixed {
+                  src
+                }
+              }
+            }
+          }
+        }
+      }
+    `
+  );
+
+  // Find the fixed URL for the image
+  image = data.images.edges.find(n => {
+    const filename = n.node.relativePath;
+    return filename == image;
+  })?.node.childImageSharp.fixed.src;
+
+  image = (image === undefined) ?
+    siteUrl + '/images/logo.png' :
+    siteUrl + image;
 
   return (
     <Location>
@@ -66,14 +96,6 @@ export const Seo: React.FC<SeoProps> = (
             {
               content: image,
               property: 'og:image',
-            },
-            {
-              content: 'image/png',
-              property: 'og:image:type',
-            },
-            {
-              content: metaAuthor,
-              name: 'twitter:creator',
             },
             {
               content: '@NeonLaw',
