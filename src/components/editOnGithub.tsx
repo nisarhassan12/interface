@@ -9,7 +9,7 @@ interface EditOnGithubInterface {
 export const EditOnGithub = ({ path }: EditOnGithubInterface) => {
   const githubPath =
     'https://github.com/NeonLaw/interface/blob' +
-    `/development/src/posts${path}.mdx`;
+    `/development/src/content${path}.mdx`;
 
   return (
     <Box

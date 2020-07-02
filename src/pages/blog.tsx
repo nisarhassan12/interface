@@ -15,7 +15,7 @@ const BlogIndex = ({ data }) => {
         <List spacing="0.5rem">
           {edges.map(({ node: post }) => (
             <ListItem key={post.id}>
-              <Link to={'/blog' + post.frontmatter.slug}>
+              <Link to={post.frontmatter.slug}>
                 <Flex alignItems="center" justifyContent="space-between">
                   <Heading size="md">{post.frontmatter.title}</Heading>
                   <Text>
@@ -36,7 +36,7 @@ const BlogIndex = ({ data }) => {
 export const pageQuery = graphql`
   query blogIndex {
     allMdx(
-      filter: { fileAbsolutePath: { regex: "/posts\//" } }
+      filter: { frontmatter: { slug: { regex: "/blog\/" } } }
       sort: { fields: frontmatter___updatedAt, order: DESC }
     ) {
       edges {
