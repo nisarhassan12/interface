@@ -12,9 +12,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Destructure the createPage function from the actions object
   const { createPage } = actions;
 
-  const result = await graphql(`
+  /* eslint-disable no-useless-escape */
+  const mdxFiles = await graphql(`
     query {
-      allMdx {
+      allMdx(
+        filter: { fileAbsolutePath: { regex: "/content\//" } }
+      ) {
         edges {
           node {
             id
@@ -26,19 +29,20 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
     }
   `);
+  /* eslint-enable no-useless-escape */
 
-  if (result.errors) {
+  if (mdxFiles.errors) {
     reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
   }
 
   // Create blog post pages.
-  const posts = result.data.allMdx.edges;
+  const pages = mdxFiles.data.allMdx.edges;
 
-  posts.forEach(({ node }) => {
+  pages.forEach(({ node }) => {
     createPage({
-      component: path.resolve('./src/layouts/blog.tsx'),
+      component: path.resolve('./src/layouts/mdx.tsx'),
       context: { id: node.id },
-      path: `/blog${node.frontmatter.slug}`,
+      path: node.frontmatter.slug,
     });
   });
 };
