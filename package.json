@@ -3,7 +3,7 @@
   "description": "Website for Neon Law",
   "version": "0.1.0",
   "author": "@neonlaw",
-  "license": "Apache-2.0",
+  "license": "PolyForm-Noncommercial-1.0.0",
   "dependencies": {
     "@apollo/react-components": "^3.1.5",
     "@apollo/react-hoc": "^3.1.5",
