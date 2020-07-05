@@ -8,13 +8,14 @@
         "spanish": "Español"
     },
     "footer": {
+        "bar_prep": "Bar Prep",
         "heading": "Bufete de abogados de la movilidad ascendente",
         "text": "El contenido que aquí se muestra es exclusivamente informativo. No se debe interpretar como asesoramiento legal. Esta información, aquí expuesta, no pretende crear (ni constituye) un vínculo abogado-cliente con los abogados de esta plataforma. Tampoco se crea el secreto profesional entre abogado-cliente de nada que nos haya comunicado a través de este foro. Antes de actuar en base a cualquier información aquí encontrada, busque asesoramiento legal.",
         "about": "Sobre nosotros",
-        "probono": "Pro bono",
+        "pro_bono": "Pro bono",
         "support": "Soporte",
         "practice_areas": "Áreas de práctica",
-        "privacy_Policy": "Política de privacidad",
+        "privacy_policy": "Política de privacidad",
         "terms": "Términos y condiciones",
         "switch": "Cambiar a modo ",
         "mode": " ",

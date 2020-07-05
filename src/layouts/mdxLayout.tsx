@@ -28,20 +28,21 @@ const MdxLayout: React.FC<{
         title: string,
         featuredImage?: any,
         slug: string,
+        description?: string,
       }
     }
   },
   chlidren: ReactChildren
 }> = ({ data }) => {
   const { body, frontmatter } = data.mdx;
-  const { title, slug, featuredImage } = frontmatter;
+  const { title, slug, featuredImage, description } = frontmatter;
 
   return (
     <Flex
       minHeight="100vh"
       direction="column"
     >
-      <Seo title={title} image={featuredImage} />
+      <Seo title={title} image={featuredImage} description={description} />
       <AuthenticationContext.Consumer>
         {({ isLoading, apolloClient }) => {
           return (
@@ -100,6 +101,7 @@ export const pageQuery = graphql`
         title
         slug
         featuredImage
+        description
       }
     }
   }

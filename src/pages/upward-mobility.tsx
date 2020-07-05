@@ -1,6 +1,6 @@
 import { Heading, Text } from '@chakra-ui/core';
 import { Button } from '@components/button';
-import { PublicLayout } from '@layouts/public';
+import { PublicLayout } from '@layouts/publicLayout';
 import React from 'react';
 import { Router } from '@reach/router';
 import { Seo } from '@components/seo';
