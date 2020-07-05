@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+/* eslint-enable */
 import { Box, Flex } from '@chakra-ui/core';
 import { FaPencilAlt } from 'react-icons/fa';
 import React from 'react';
