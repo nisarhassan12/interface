@@ -63,7 +63,7 @@ export const Footer = () => {
             {intl.formatMessage({ id: 'footer.practice_areas' })}
           </Box>
           <Box as={Link} to="/pro-bono" padding="7px 0">
-            {intl.formatMessage({ id: 'footer.probono' })}
+            {intl.formatMessage({ id: 'footer.pro_bono' })}
           </Box>
           <Box as={Link} to="/bar-prep" padding="7px 0">
             {intl.formatMessage({ id: 'footer.bar_prep' })}
