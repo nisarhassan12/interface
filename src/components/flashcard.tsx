@@ -25,6 +25,7 @@ export const Flashcard = ({ topic }: FlashcardProps) => {
         (<>
           {prompt}
           <Textarea
+            value={userAnswer}
             onChange={(event) => { changeUserAnswer(event.target.value); }}
           />
           <Button

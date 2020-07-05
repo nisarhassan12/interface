@@ -7,15 +7,20 @@ interface EditOnGithubInterface {
 }
 
 export const EditOnGithub = ({ path }: EditOnGithubInterface) => {
+  const contentPath = path.replace(/\/.*?\//, '');
+
   const githubPath =
     'https://github.com/NeonLaw/interface/blob' +
-    `/development/src/content${path}.mdx`;
+    `/development/src/content/${contentPath}.mdx`;
 
   return (
     <Flex
       alignItems="center"
       cursor="pointer"
-      onClick={() => window.open(githubPath, '_blank')}
+      as="a"
+      href={githubPath}
+      target="_blank"
+      rel="noopener noreferrer"
       data-cy="edit-on-github"
     >
       Edit this page on GitHub
