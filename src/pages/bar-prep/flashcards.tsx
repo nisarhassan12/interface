@@ -1,7 +1,7 @@
 import { Button, Heading } from '@chakra-ui/core';
 import { Flashcard } from '@components/flashcard';
 import { Location } from '@reach/router';
-import { PublicLayout } from '@layouts/public';
+import { PublicLayout } from '@layouts/publicLayout';
 import React from 'react';
 import { Seo } from '@components/seo';
 import { navigate } from 'gatsby-plugin-intl';

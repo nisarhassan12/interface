@@ -1,6 +1,6 @@
 import { AuthenticationContext } from '@utils/authenticationContext';
 import { LoadingPage } from '@components/loadingPage';
-import { PublicLayout } from '@layouts/public';
+import { PublicLayout } from '@layouts/publicLayout';
 import React from 'react';
 import { navigate } from 'gatsby';
 

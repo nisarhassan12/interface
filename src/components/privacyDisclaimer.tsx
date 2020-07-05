@@ -19,7 +19,7 @@ export const PrivacyDisclaimer = () => {
     localStorage.setItem('acceptPrivacyDisclaimer', 'true');
     accept(true);
   };
-  
+
 
   return (
     <Box
@@ -42,7 +42,7 @@ export const PrivacyDisclaimer = () => {
           {intl.formatMessage({ id: 'privacyDisclaimer.text1' })}
           <Box as="span" textDecoration="underline">
             <Link to="/privacy-policy">
-              {intl.formatMessage({ id: 'footer.privacy_Policy' })}
+              {intl.formatMessage({ id: 'footer.privacy_policy' })}
             </Link>
           </Box>.
           {intl.formatMessage({ id: 'privacyDisclaimer.text2' })}

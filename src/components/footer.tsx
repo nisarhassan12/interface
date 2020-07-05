@@ -59,9 +59,17 @@ export const Footer = () => {
           <Box as={Link} to="/about-us" padding="7px 0">
             {intl.formatMessage({ id: 'footer.about' })}
           </Box>
-          <Box as={Link} to="/pro-bono" padding="7px 0">
-            {intl.formatMessage({ id: 'footer.probono' })}
+          <Box as={Link} to="/practice-areas" padding="7px 0">
+            {intl.formatMessage({ id: 'footer.practice_areas' })}
           </Box>
+          <Box as={Link} to="/pro-bono" padding="7px 0">
+            {intl.formatMessage({ id: 'footer.pro_bono' })}
+          </Box>
+          <Box as={Link} to="/bar-prep" padding="7px 0">
+            {intl.formatMessage({ id: 'footer.bar_prep' })}
+          </Box>
+        </Flex>
+        <Flex direction="column">
           <Box
             as="a"
             href="https://neonlaw.zendesk.com/"
@@ -69,49 +77,33 @@ export const Footer = () => {
             rel="noopener noreferrer"
             padding="7px 0"
           >
-            {intl.formatMessage({ id: 'footer.support' })} 
-          </Box>
-          <Box
-            display={['none', 'none', 'block']}
-            padding="7px 0"
-            as={Link}
-            to="/"
-          >
-            Copyright &copy; {new Date().getFullYear()} Shook Law PLLC
-          </Box>
-        </Flex>
-        <Flex direction="column">
-          <Box as={Link} to="/practice-areas" padding="7px 0">
-            {intl.formatMessage({ id: 'footer.practice_areas' })}
+            {intl.formatMessage({ id: 'footer.support' })}
           </Box>
           <Box as={Link} to="/privacy-policy" padding="7px 0">
-            {intl.formatMessage({ id: 'footer.privacy_Policy' })}
+            {intl.formatMessage({ id: 'footer.privacy_policy' })}
           </Box>
           <Box as={Link} to="/terms-of-service" padding="7px 0">
             {intl.formatMessage({ id: 'footer.terms' })}
           </Box>
         </Flex>
         <Flex direction="column">
+          <SocialMediaIcons display={['none', 'none', 'block']} />
           <LanguageDropdown />
           <Text onClick={toggleColorMode} cursor="pointer" padding="7px 0">
             {intl.formatMessage({ id: 'footer.switch' })}
-            {`${colorMode=== 'dark' ? 
-              intl.formatMessage({ id: 'footer.light' })  : 
-              intl.formatMessage({ id: 'footer.dark' }) }`} 
+            {`${colorMode === 'dark' ?
+              intl.formatMessage({ id: 'footer.light' }) :
+              intl.formatMessage({ id: 'footer.dark' })}`}
             {intl.formatMessage({ id: 'footer.mode' })}
           </Text>
-          <SocialMediaIcons display={['none', 'none', 'block']} />
-          <Box
-            display={['block', 'block', 'none']}
-            as={Link}
-            to="/"
-            padding="7px 0"
-          >
-            Copyright &copy; {new Date().getFullYear()} Shook Law PLLC
-          </Box>
         </Flex>
         <Box display={['none', 'none', 'flex']} />
       </Flex>
+      <Box paddingBottom="1em" bg={bg[colorMode]}>
+        <Text textAlign="center">
+          Copyright &copy; {new Date().getFullYear()} Shook Law PLLC
+        </Text>
+      </Box>
     </Box>
   );
 };

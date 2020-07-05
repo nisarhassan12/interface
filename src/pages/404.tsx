@@ -1,4 +1,4 @@
-import { PublicLayout } from '@layouts/public';
+import { PublicLayout } from '@layouts/publicLayout';
 import React from 'react';
 
 const notFoundText =

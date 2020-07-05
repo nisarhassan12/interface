@@ -18,7 +18,7 @@ import {
   DesktopHalfMobileFullCard
 } from '@components/desktopHalfMobileFullCard';
 import { Link } from '@components/link';
-import { PublicLayout } from '@layouts/public';
+import { PublicLayout } from '@layouts/publicLayout';
 import React from 'react';
 import { colors } from '@themes/neonLaw';
 import { navigate } from 'gatsby-plugin-intl';
