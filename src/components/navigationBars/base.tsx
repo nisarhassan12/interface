@@ -18,6 +18,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/core';
 import React, { useState } from 'react';
+
 import { AuthenticatedDropdown } from './authenticatedDropdown';
 import { AuthenticationContext } from '@utils/authenticationContext';
 import { Link } from '@components/link';
@@ -61,7 +62,7 @@ export const BaseNavigationBar = ({
         width="full"
         height="4em"
       >
-        <Flex size="100%" px="6" align="center">
+        <Flex size="100%" px="6" align="center" className="row">
           <Box
             mr={5}
             as={Link}

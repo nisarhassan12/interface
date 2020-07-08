@@ -3,13 +3,14 @@ import React, { ReactChildren, useEffect } from 'react';
 
 import { AuthenticationProvider } from '@utils/authenticationContext';
 import { Background } from '@components/background';
+import GlobalStyles from '../styles/GlobalStyles';
 import { MDXComponents } from '@utils/mdxComponents';
 import { MDXProvider } from '@mdx-js/react';
 import { handleFirstTab } from '../utils/accessibility';
 import { theme } from '@themes/neonLaw';
 
 export const BaseLayout: React.FC<{
-  children: ReactChildren
+  children: ReactChildren;
 }> = ({ children }) => {
   useEffect(() => {
     window.addEventListener('keydown', handleFirstTab);
@@ -23,6 +24,7 @@ export const BaseLayout: React.FC<{
     <AuthenticationProvider>
       <ThemeProvider theme={theme}>
         <CSSReset />
+        <GlobalStyles />
         <ColorModeProvider>
           <MDXProvider components={MDXComponents}>
             <Background>{children}</Background>
