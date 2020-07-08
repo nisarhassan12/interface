@@ -1,5 +1,3 @@
-import './aestetico.css';
-import './accessibility.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import { theme as chakraTheme } from '@chakra-ui/core';
