@@ -64,25 +64,29 @@ const BaseStyles = () => (
         outline: var(--outline);
       }
 
-      body:not(.user-is-tabbing) button:focus,
-      body:not(.user-is-tabbing) input:focus,
-      body:not(.user-is-tabbing) select:focus,
-      body:not(.user-is-tabbing) textarea:focus,
-      body:not(.user-is-tabbing) a:focus {
-        outline: none;
+      body:not(.user-is-tabbing) {
+        button:focus,
+        input:focus,
+        select:focus,
+        textarea:focus,
+        a:focus {
+          outline: none;
+        }
       }
 
       .outline-bordered {
         border: 2px solid transparent;
       }
 
-      body.user-is-tabbing .outline-bordered:focus {
-        outline: none;
-        border: var(--outline);
-      }
+      body.user-is-tabbing {
+        .outline-bordered:focus {
+          outline: none;
+          border: var(--outline);
+        }
 
-      body.user-is-tabbing .breadcrumb:focus {
-        box-shadow: none;
+        .breadcrumb:focus {
+          box-shadow: none;
+        }
       }
     `}
   />
