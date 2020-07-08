@@ -32,16 +32,7 @@ const BaseStyles = () => (
       }
 
       body {
-        font-family: 'Aestetico';
-      }
-
-      /* ---------------------------------- */
-      /* ----- Layout Helpers ----- */
-      /* ---------------------------------- */
-
-      .row {
-        max-width: var(--grid-max-width);
-        margin: 0 auto;
+        font-family: 'Aestetico', sans-serif;
       }
 
       /* ---------------------------------- */
