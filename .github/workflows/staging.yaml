@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - development
+      - no-robots-on-staging
 
 jobs:
   deploy_staging:
