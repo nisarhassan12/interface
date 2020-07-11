@@ -39,14 +39,14 @@ module.exports = {
     {
       options: {
         aliases: {
-          '@components': './components',
-          '@containers': './containers',
-          '@forms': './forms',
-          '@layouts': './layouts',
-          '@themes': './themes',
-          '@utils': './utils',
+          '@components': '../shared/src/components',
+          '@containers': '../shared/src/containers',
+          '@forms': '../shared/src/forms',
+          '@layouts': '../shared/src/layouts',
+          '@themes': '../shared/src/themes',
+          '@utils': '../shared/src/utils',
         },
-        root: './src',
+        root: './',
       },
       resolve: 'gatsby-plugin-module-resolver',
     },
