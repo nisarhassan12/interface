@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "src",
+    "baseUrl": "packages",
     "declaration": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
@@ -24,31 +24,29 @@
     "strict": true,
     "target": "esnext",
     "paths": {
-      "@containers/*": [
-        "containers/*"
-      ],
       "@components/*": [
-        "components/*"
+        "shared/src/components/*"
       ],
       "@forms/*": [
-        "forms/*"
+        "shared/src/forms/*"
       ],
       "@layouts/*": [
-        "layouts/*"
+        "shared/src/layouts/*"
       ],
       "@themes/*": [
-        "themes/*"
+        "shared/src/themes/*"
       ],
       "@utils/*": [
-        "packages/shared/src/utils/*"
+        "shared/src/utils/*"
       ]
     }
   },
   "include": [
-    "src"
+    "packages"
   ],
   "exclude": [
     "node_modules",
-    "build"
+    "build",
+    "packages/neon-law/cypress"
   ],
 }

@@ -36,20 +36,6 @@ module.exports = {
       },
       resolve: 'gatsby-plugin-csp',
     },
-    {
-      options: {
-        aliases: {
-          '@components': './components',
-          '@containers': './containers',
-          '@forms': './forms',
-          '@layouts': './layouts',
-          '@themes': './themes',
-          '@utils': './utils',
-        },
-        root: './src',
-      },
-      resolve: 'gatsby-plugin-module-resolver',
-    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
