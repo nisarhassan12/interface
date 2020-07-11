@@ -1,0 +1,20 @@
+{
+  "name": "neon-law",
+  "description": "Website for Neon Law",
+  "version": "0.1.0",
+  "author": "@neonlaw",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "scripts": {
+    "build": "gatsby build",
+    "cy:open": "cypress open",
+    "dev": "yarn run develop",
+    "develop": "gatsby develop -H 127.0.0.1",
+    "start": "yarn run develop",
+    "serve": "gatsby serve",
+    "e2e-test": "start-server-and-test develop http://127.0.0.1:8000 'cypress open'",
+    "test": "jest --coverage"
+  },
+  "packages": {
+    "neon-law-shared": "1.0.0"
+  }
+}

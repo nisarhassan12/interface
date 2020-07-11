@@ -1,9 +1,8 @@
 {
-  "name": "neon-law",
-  "description": "Website for Neon Law",
-  "version": "0.1.0",
-  "author": "@neonlaw",
-  "license": "PolyForm-Noncommercial-1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "dependencies": {
     "@apollo/react-components": "^3.1.5",
     "@apollo/react-hoc": "^3.1.5",
@@ -102,15 +101,8 @@
     "ts-jest": "^26.1.1"
   },
   "scripts": {
-    "build": "gatsby build",
     "check-types": "tsc -p .",
-    "cy:open": "cypress open",
-    "dev": "yarn run develop",
-    "develop": "gatsby develop -H 127.0.0.1",
-    "start": "yarn run develop",
     "lint": "eslint './**/*.{js,jsx,ts,tsx}'",
-    "serve": "gatsby serve",
-    "e2e-test": "start-server-and-test develop http://127.0.0.1:8000 'cypress open'",
     "test": "jest --coverage"
   }
 }

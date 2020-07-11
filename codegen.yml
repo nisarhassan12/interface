@@ -9,7 +9,7 @@ config:
   withHooks: true
 generates:
   src/utils/api.tsx:
-    documents: src/graphql/*.graphql
+    documents: packages/shared/src/graphql/*.graphql
     plugins:
       - typescript
       - typescript-operations

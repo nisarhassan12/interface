@@ -1,0 +1,7 @@
+{
+  "name": "neon-law-shared",
+  "description": "Shared logic for Neon Law Interfaces",
+  "version": "1.0.0",
+  "author": "@neonlaw",
+  "license": "PolyForm-Noncommercial-1.0.0",
+}
