@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+/* eslint-enable */
 import { Button, Heading } from '@chakra-ui/core';
 import { Flashcard } from '@components/flashcard';
 import { Link } from 'gatsby-plugin-intl';
