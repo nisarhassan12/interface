@@ -1,11 +1,14 @@
+/* eslint-disable */
+// @ts-nocheck
+/* eslint-enable */
 import { Button, Heading } from '@chakra-ui/core';
 import { Flashcard } from '@components/flashcard';
+import { Link } from 'gatsby-plugin-intl';
 import { Location } from '@reach/router';
 import { PublicLayout } from '@layouts/publicLayout';
 import React from 'react';
 import { Seo } from '@components/seo';
 import { flashcardTopics } from '@forms/options/flashcardTopics';
-import { navigate } from 'gatsby-plugin-intl';
 import queryString from 'query-string';
 
 const Flashcards = () => {
@@ -29,9 +32,9 @@ const Flashcards = () => {
             {flashcardTopics.map((topic, i) => (
               <Button
                 key={i}
-                onClick={() => {
-                  navigate(`${location.pathname}?topic=${topic.value}`);
-                }}
+                as={Link}
+                to={`${location.pathname}?topic=${topic.value}`}
+                activeLink={{ backgroundColor: 'red' }}
               >
                 {topic.label}
               </Button>
@@ -40,7 +43,7 @@ const Flashcards = () => {
           </PublicLayout>
         );
       }}
-    </Location>
+    </Location >
   );
 };
 

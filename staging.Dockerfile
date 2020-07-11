@@ -13,6 +13,5 @@ RUN yarn build
 FROM nginx
 COPY --from=build /app/public /usr/share/nginx/html
 COPY staging.nginx.conf /etc/nginx/nginx.conf
-COPY staging_htpasswd /etc/nginx/.htpasswd
 
 EXPOSE 80

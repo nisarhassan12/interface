@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - development
+      - staging-nginx-changes
 
 jobs:
   deploy_staging:
@@ -12,11 +13,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Create staging_htpasswd file
-        run: echo "$STAGING_HTPASSWD" > staging_htpasswd
-        env:
-          STAGING_HTPASSWD: ${{ secrets.STAGING_HTPASSWD }}
 
       - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
