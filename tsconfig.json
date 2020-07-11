@@ -40,7 +40,7 @@
         "themes/*"
       ],
       "@utils/*": [
-        "utils/*"
+        "packages/shared/src/utils/*"
       ]
     }
   },
