@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - development
-      - no-robots-on-staging
+      - staging-nginx-changes
 
 jobs:
   deploy_staging:
