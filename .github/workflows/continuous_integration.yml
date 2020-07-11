@@ -11,7 +11,7 @@ on:
       - development
 
 jobs:
-  shared_test_suite:
+  global_test_suite:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -25,6 +25,12 @@ jobs:
         run: |
           yarn graphql-codegen
           git diff --exit-code
+      - name: Test & publish code coverage
+        uses: paambaati/codeclimate-action@v2.5.5
+        env:
+          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
+        with:
+          coverageCommand: yarn test
   neon_law_test_suite:
     runs-on: ubuntu-latest
     env:
@@ -39,12 +45,6 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: "3.x"
-      - name: Test & publish code coverage
-        uses: paambaati/codeclimate-action@v2.5.5
-        env:
-          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
-        with:
-          coverageCommand: yarn test
       - name: Run Yarn Build.
         run: yarn build
         env:
