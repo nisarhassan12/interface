@@ -1,5 +1,5 @@
 overwrite: true
-schema: https://api.neonlaw.com/graphql
+schema: https://www.neonlaw.com/api/graphql
 config:
   scalars:
     Datetime: "string"
