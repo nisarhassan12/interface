@@ -31,7 +31,6 @@
     "gatsby-cypress": "^0.4.9",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.1.0",
-    "neon-law-shared": "1.0.0",
     "start-server-and-test": "^1.11.1",
     "ts-jest": "^26.1.1"
   },
