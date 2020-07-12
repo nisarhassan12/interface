@@ -28,6 +28,7 @@ import { graphql } from 'gatsby';
 import {
   publicClient
 } from '@neonlaw/shared-ui/src/utils/authenticationContext';
+import { useSiteMetadata } from '../components/hooks';
 
 const MdxLayout: React.FC<{
   data: {
@@ -45,6 +46,7 @@ const MdxLayout: React.FC<{
 }> = ({ data }) => {
   const { body, frontmatter } = data.mdx;
   const { title, slug, featuredImage, description } = frontmatter;
+  const { siteUrl } = useSiteMetadata();
 
   return (
     <Flex
@@ -83,7 +85,7 @@ const MdxLayout: React.FC<{
                     <MDXRenderer>{body}</MDXRenderer>
                     <Divider margin="1em 0" />
                     <Flex width="100%" justifyContent="space-between">
-                      <ShareButtons slug={slug} />
+                      <ShareButtons slug={slug} siteUrl={siteUrl} />
                       <EditOnGithub path={slug} />
                     </Flex>
                   </Container>
