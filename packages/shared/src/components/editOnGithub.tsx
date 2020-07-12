@@ -11,8 +11,6 @@ interface EditOnGithubInterface {
 }
 
 export const EditOnGithub = ({ app, path }: EditOnGithubInterface) => {
-  const contentPath = path.replace(/\/.*?\//, '');
-
   const githubPath =
     'https://github.com/NeonLaw/interface/blob' +
     `/development/packages/${app}/src/content/${contentPath}.mdx`;
