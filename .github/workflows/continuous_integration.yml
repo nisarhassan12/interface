@@ -67,6 +67,7 @@ jobs:
         with:
           start: |
             docker-compose -d -f ../../cypress-docker-compose.yml up &&\
+            sleep 120 &&\
             yarn serve -p 8000
           wait-on: "http://127.0.0.1:8000"
           wait-on-timeout: 1200
