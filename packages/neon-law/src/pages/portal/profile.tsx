@@ -3,7 +3,9 @@ import { PortalLayout } from '@neonlaw/shared-ui/src/layouts/portalLayout';
 import {
   PortalProfileCard
 } from '@neonlaw/shared-ui/src/components/cards/portalProfileCard';
-import { PortalProfileForm } from '@neonlaw/shared-ui/src/forms/portalProfileForm';
+import {
+  PortalProfileForm
+} from '@neonlaw/shared-ui/src/forms/portalProfileForm';
 import React from 'react';
 
 const PortalProfilePage = () => {
