@@ -6,15 +6,16 @@ import { FaPencilAlt } from 'react-icons/fa';
 import React from 'react';
 
 interface EditOnGithubInterface {
+  app: string;
   path: string;
 }
 
-export const EditOnGithub = ({ path }: EditOnGithubInterface) => {
+export const EditOnGithub = ({ app, path }: EditOnGithubInterface) => {
   const contentPath = path.replace(/\/.*?\//, '');
 
   const githubPath =
     'https://github.com/NeonLaw/interface/blob' +
-    `/development/src/content/${contentPath}.mdx`;
+    `/development/packages/${app}/src/content/${contentPath}.mdx`;
 
   return (
     <Flex

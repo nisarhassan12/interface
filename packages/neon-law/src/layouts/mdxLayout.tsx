@@ -86,7 +86,7 @@ const MdxLayout: React.FC<{
                     <Divider margin="1em 0" />
                     <Flex width="100%" justifyContent="space-between">
                       <ShareButtons slug={slug} siteUrl={siteUrl} />
-                      <EditOnGithub path={slug} />
+                      <EditOnGithub app="neon-law" path={slug} />
                     </Flex>
                   </Container>
                 </Box>
