@@ -46,9 +46,6 @@ jobs:
     env:
       AUTH0_CLIENT_ID: ${{ secrets.LOGIC_AUTH0_CLIENT_ID }}
       AUTH0_CLIENT_SECRET: ${{ secrets.LOGIC_AUTH0_CLIENT_SECRET }}
-    defaults:
-      run:
-        working-directory: ./packages/neon-law
     steps:
       - uses: actions/checkout@v2
       - name: Install Dependencies.
@@ -59,6 +56,7 @@ jobs:
           python-version: "3.x"
       - name: Run Yarn Build.
         run: yarn build
+        working-directory: ./packages/neon-law
         env:
           GATSBY_ACTIVE_ENV: staging
       - name: Cypress run
@@ -67,6 +65,7 @@ jobs:
           start: docker-compose -f cypress-docker-compose.yml up
           wait-on: "http://127.0.0.1:8000"
           wait-on-timeout: 1200
+          working-directory: ./packages/neon-law
         env:
           CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
           CYPRESS_AUTH_CLIENT_ID: ${{ secrets.CYPRESS_AUTH_CLIENT_ID }}

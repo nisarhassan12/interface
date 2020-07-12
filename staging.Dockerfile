@@ -9,7 +9,7 @@ ARG APP_NAME
 WORKDIR /app
 ADD . ./
 RUN yarn install --ignore-optional --silent
-RUN cd $APP_NAME && yarn build
+RUN cd packages/$APP_NAME && yarn build
 
 FROM nginx
 COPY --from=build /app/packages/$APP_NAME/public /usr/share/nginx/html
