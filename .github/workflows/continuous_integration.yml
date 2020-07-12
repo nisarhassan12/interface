@@ -57,10 +57,7 @@ jobs:
       - name: Run Cypress tests with built application
         uses: cypress-io/github-action@v1
         with:
-          start: |
-            docker-compose -f ../../cypress-docker-compose.yml up -d
-            GATSBY_ACTIVE_ENV="development" GATSBY_API_URL="http://127.0.0.1:3000/graphql" yarn build
-            yarn serve -p 8000
+          start: docker-compose -f ./cypress-docker-compose.yml up
           wait-on: "http://127.0.0.1:8000"
           wait-on-timeout: 1200
           working-directory: ./packages/neon-law
