@@ -16,6 +16,7 @@ import {
 import { Seo } from '../components/seo';
 import { ShareButtons } from '@neonlaw/shared-ui/src/components/shareButtons';
 import { graphql } from 'gatsby';
+import { useSiteMetadata } from '../components/hooks';
 
 const MdxLayout: React.FC<{
   data: {
@@ -32,6 +33,7 @@ const MdxLayout: React.FC<{
 }> = ({ data }) => {
   const { body, frontmatter } = data.mdx;
   const { title, slug, description } = frontmatter;
+  const { siteUrl } = useSiteMetadata();
 
   return (
     <Flex
@@ -53,7 +55,7 @@ const MdxLayout: React.FC<{
             <MDXRenderer>{body}</MDXRenderer>
             <Divider margin="1em 0" />
             <Flex width="100%" justifyContent="space-between">
-              <ShareButtons slug={slug} />
+              <ShareButtons siteUrl={siteUrl} slug={slug} />
               <EditOnGithub app="law-job-resources" path={slug} />
             </Flex>
           </Container>
