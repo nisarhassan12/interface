@@ -10,9 +10,9 @@ import {
   Text,
 } from '@chakra-ui/core';
 import React, { useState } from 'react';
-import { Select, StringInput, Textarea } from '@forms/base';
-import { flashcardTopics } from '@forms/options/flashcardTopics';
-import { useCreateFlashcardMutation } from '@utils/api';
+import { Select, StringInput, Textarea } from '../../forms/base';
+import { flashcardTopics } from '../../forms/options/flashcardTopics';
+import { useCreateFlashcardMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
 

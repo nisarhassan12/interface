@@ -5,8 +5,8 @@ import {
   Text,
   Textarea
 } from '@chakra-ui/core';
-import { Button } from '@components/button';
-import { PublicLayout } from '@layouts/publicLayout';
+import { Button } from 'neon-law-shared/src/components/button';
+import { PublicLayout } from 'neon-law-shared/src/layouts/publicLayout';
 import React from 'react';
 import { useIntl } from 'gatsby-plugin-intl';
 

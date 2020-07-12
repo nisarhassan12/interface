@@ -1,4 +1,4 @@
-import { PublicLayout } from '@layouts/publicLayout';
+import { PublicLayout } from 'neon-law-shared/src/layouts/publicLayout';
 import React from 'react';
 
 const notFoundText =

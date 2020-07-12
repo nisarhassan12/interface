@@ -1,7 +1,7 @@
 import { Box, Flex } from '@chakra-ui/core';
 import React, { useEffect, useState } from 'react';
-import { Button } from '@components/button';
-import { Link } from '@components/link';
+import { Button } from '../components/button';
+import { Link } from '../components/link';
 import { useIntl } from 'gatsby-plugin-intl';
 
 export const PrivacyDisclaimer = () => {

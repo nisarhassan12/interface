@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAllFlashcardsQuery } from '@utils/api';
+import { useAllFlashcardsQuery } from '../../utils/api';
 
 export const FlashcardTable = () => {
   const { loading, data, error } = useAllFlashcardsQuery();

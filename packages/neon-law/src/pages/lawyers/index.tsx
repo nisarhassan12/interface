@@ -3,7 +3,7 @@ import {
   Heading,
   Text,
 } from '@chakra-ui/core';
-import { PortalLayout } from '@layouts/portalLayout';
+import { PortalLayout } from 'neon-law-shared/src/layouts/portalLayout';
 import React from 'react';
 import { useIntl } from 'gatsby-plugin-intl';
 

@@ -1,6 +1,6 @@
 import { Heading, Radio, RadioGroup } from '@chakra-ui/core';
 import React, { useState } from 'react';
-import { Button } from '@components/button';
+import { Button } from '../../components/button';
 import { navigate } from 'gatsby';
 import { useIntl } from 'gatsby-plugin-intl';
 

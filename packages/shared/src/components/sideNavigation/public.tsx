@@ -1,7 +1,7 @@
-import { PublicLinks } from '@components/navigation/publicLinks';
+import { PublicLinks } from '../../components/navigation/publicLinks';
 import React from 'react';
-import { SideNavContainer } from '@components/sideNavigation/sideNavContainer';
-import { SideNavContent } from '@components/sideNavigation/base';
+import { SideNavContainer } from '../../components/sideNavigation/sideNavContainer';
+import { SideNavContent } from '../../components/sideNavigation/base';
 
 export const PublicSideNavContent = () => {
   const publicLinks = PublicLinks();

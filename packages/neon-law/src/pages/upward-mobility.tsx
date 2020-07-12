@@ -1,12 +1,12 @@
 import { Heading, Text } from '@chakra-ui/core';
-import { Button } from '@components/button';
-import { PublicLayout } from '@layouts/publicLayout';
+import { Button } from 'neon-law-shared/src/components/button';
+import { PublicLayout } from 'neon-law-shared/src/layouts/publicLayout';
 import React from 'react';
 import { Router } from '@reach/router';
-import { Seo } from '@components/seo';
+import { Seo } from 'neon-law-shared/src/components/seo';
 import {
   UpwardMobilityQuestionnaire
-} from '@components/upwardMobilityQuestionnaire';
+} from 'neon-law-shared/src/components/upwardMobilityQuestionnaire';
 import { navigate } from 'gatsby-plugin-intl';
 import { useIntl } from 'gatsby-plugin-intl';
 

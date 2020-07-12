@@ -1,8 +1,8 @@
 import { Heading, Text } from '@chakra-ui/core';
-import { Button } from '@components/button';
+import { Button } from '../components/button';
 import React from 'react';
-import { Seo } from '@components/seo';
-import { decisionTree } from '@components/upwardMobilityQuestions';
+import { Seo } from '../components/seo';
+import { decisionTree } from '../components/upwardMobilityQuestions';
 import { navigate } from 'gatsby';
 import { useIntl } from 'gatsby-plugin-intl';
 

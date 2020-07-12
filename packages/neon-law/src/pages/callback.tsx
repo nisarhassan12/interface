@@ -1,6 +1,6 @@
-import { AuthenticationContext } from '@utils/authenticationContext';
-import { LoadingPage } from '@components/loadingPage';
-import { PublicLayout } from '@layouts/publicLayout';
+import { AuthenticationContext } from 'neon-law-shared/src/utils/authenticationContext';
+import { LoadingPage } from 'neon-law-shared/src/components/loadingPage';
+import { PublicLayout } from 'neon-law-shared/src/layouts/publicLayout';
 import React from 'react';
 import { navigate } from 'gatsby';
 

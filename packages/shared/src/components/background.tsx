@@ -1,6 +1,6 @@
 import { Box, useColorMode } from '@chakra-ui/core';
 import React from 'react';
-import { colors } from '@themes/neonLaw';
+import { colors } from '../themes/neonLaw';
 
 export const Background = ({ children }) => {
   const { colorMode } = useColorMode();

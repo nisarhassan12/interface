@@ -6,7 +6,7 @@ import {
   FaFacebookF, FaLinkedinIn, FaTwitter
 } from 'react-icons/fa';
 import React from 'react';
-import { useSiteMetadata } from '@utils/hooks';
+import { useSiteMetadata } from '../utils/hooks';
 
 export const ShareButtons = ({ slug }) => {
   const { siteUrl } = useSiteMetadata();

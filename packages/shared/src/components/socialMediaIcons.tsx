@@ -5,7 +5,7 @@ import {
   FaFacebookF, FaGithub, FaLinkedinIn, FaMailchimp, FaTwitter
 } from 'react-icons/fa';
 import { Box } from '@chakra-ui/core';
-import { Button } from '@components/button';
+import { Button } from '../components/button';
 import React from 'react';
 
 export const SocialMediaIcons = ({ display }) => (

@@ -4,7 +4,7 @@
 import { Box, Button, Text, Textarea, useColorMode } from '@chakra-ui/core';
 import React, { useState } from 'react';
 import ReactDiffViewer from 'react-diff-viewer';
-import { useAllFlashcardsQuery } from '@utils/api';
+import { useAllFlashcardsQuery } from '../utils/api';
 
 interface FlashcardProps {
   topic: string;

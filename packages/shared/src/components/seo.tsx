@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import { Location } from '@reach/router';
 import React from 'react';
-import { useSiteMetadata } from '@utils/hooks';
+import { useSiteMetadata } from '../utils/hooks';
 
 interface SeoProps {
   description?: string;

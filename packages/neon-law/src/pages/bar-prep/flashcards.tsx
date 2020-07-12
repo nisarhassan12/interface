@@ -2,13 +2,13 @@
 // @ts-nocheck
 /* eslint-enable */
 import { Button, Heading } from '@chakra-ui/core';
-import { Flashcard } from '@components/flashcard';
+import { Flashcard } from 'neon-law-shared/src/components/flashcard';
 import { Link } from 'gatsby-plugin-intl';
 import { Location } from '@reach/router';
-import { PublicLayout } from '@layouts/publicLayout';
+import { PublicLayout } from 'neon-law-shared/src/layouts/publicLayout';
 import React from 'react';
-import { Seo } from '@components/seo';
-import { flashcardTopics } from '@forms/options/flashcardTopics';
+import { Seo } from 'neon-law-shared/src/components/seo';
+import { flashcardTopics } from 'neon-law-shared/src/forms/options/flashcardTopics';
 import queryString from 'query-string';
 
 const Flashcards = () => {

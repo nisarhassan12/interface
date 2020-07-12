@@ -2,7 +2,7 @@ import {
   GoogleReCaptchaProvider,
   useGoogleReCaptcha
 } from 'react-google-recaptcha-v3';
-import { Button } from '@components/button';
+import { Button } from '../../components/button';
 import React from 'react';
 
 export const ReCaptchaButton = ({ onVerifyCaptcha, children, ...props }) => {

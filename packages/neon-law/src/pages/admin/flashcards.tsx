@@ -4,9 +4,9 @@ import {
   Heading,
   useDisclosure,
 } from '@chakra-ui/core';
-import { CreateFlashcardModal } from '@components/modals/createFlashcardModal';
-import { FlashcardTable } from '@components/tables/flashcardTable';
-import { PortalLayout } from '@layouts/portalLayout';
+import { CreateFlashcardModal } from 'neon-law-shared/src/components/modals/createFlashcardModal';
+import { FlashcardTable } from 'neon-law-shared/src/components/tables/flashcardTable';
+import { PortalLayout } from 'neon-law-shared/src/layouts/portalLayout';
 import React from 'react';
 
 const AdminFlashcards = () => {

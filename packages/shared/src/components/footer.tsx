@@ -8,10 +8,10 @@ import {
   Text,
   useColorMode,
 } from '@chakra-ui/core';
-import { LanguageDropdown } from '@components/languageDropdown';
-import { Link } from '@components/link';
+import { LanguageDropdown } from '../components/languageDropdown';
+import { Link } from '../components/link';
 import React from 'react';
-import { SocialMediaIcons } from '@components/socialMediaIcons';
+import { SocialMediaIcons } from '../components/socialMediaIcons';
 import { useIntl } from 'gatsby-plugin-intl';
 
 export const Footer = () => {

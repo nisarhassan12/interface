@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Button } from '@chakra-ui/core';
-import { StringInput } from '@forms/base';
-import { useCurrentUserQuery } from '@utils/api';
+import { StringInput } from '../forms/base';
+import { useCurrentUserQuery } from '../utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
-import { useUpdatePersonByIdMutation } from '@utils/api';
+import { useUpdatePersonByIdMutation } from '../utils/api';
 
 
 export const PortalProfileForm = () => {

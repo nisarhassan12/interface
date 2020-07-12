@@ -3,12 +3,12 @@ import {
   Flex,
 } from '@chakra-ui/core';
 import { ApolloProvider } from '@apollo/react-hooks';
-import { AuthenticationContext } from '@utils/authenticationContext';
-import { Container } from '@components/container';
-import { Footer } from '@components/footer';
-import { LoadingPage } from '@components/loadingPage';
-import { PortalNavigationBar } from '@components/navigationBars/portal';
-import { PortalSideNav } from '@components/sideNavigation/portal';
+import { AuthenticationContext } from '../utils/authenticationContext';
+import { Container } from '../components/container';
+import { Footer } from '../components/footer';
+import { LoadingPage } from '../components/loadingPage';
+import { PortalNavigationBar } from '../components/navigationBars/portal';
+import { PortalSideNav } from '../components/sideNavigation/portal';
 import React from 'react';
 import { Redirect } from '@reach/router';
 

@@ -6,19 +6,19 @@ import {
 } from '@chakra-ui/core';
 import React, { ReactChildren } from 'react';
 import { ApolloProvider } from '@apollo/react-hooks';
-import { AuthenticationContext } from '@utils/authenticationContext';
-import { Breadcrumbs } from '@components/breadcrumbs';
-import { Container } from '@components/container';
-import { EditOnGithub } from '@components/editOnGithub';
-import { Footer } from '@components/footer';
-import { Image } from '@components/image';
+import { AuthenticationContext } from '../utils/authenticationContext';
+import { Breadcrumbs } from '../components/breadcrumbs';
+import { Container } from '../components/container';
+import { EditOnGithub } from '../components/editOnGithub';
+import { Footer } from '../components/footer';
+import { Image } from '../components/image';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { PrivacyDisclaimer } from '@components/privacyDisclaimer';
-import { PublicNavigationBar } from '@components/navigationBars/public';
-import { Seo } from '@components/seo';
-import { ShareButtons } from '@components/shareButtons';
+import { PrivacyDisclaimer } from '../components/privacyDisclaimer';
+import { PublicNavigationBar } from '../components/navigationBars/public';
+import { Seo } from '../components/seo';
+import { ShareButtons } from '../components/shareButtons';
 import { graphql } from 'gatsby';
-import { publicClient } from '@utils/authenticationContext';
+import { publicClient } from '../utils/authenticationContext';
 
 const MdxLayout: React.FC<{
   data: {

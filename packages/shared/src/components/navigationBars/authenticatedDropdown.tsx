@@ -10,10 +10,10 @@ import {
   MenuList,
   useColorMode
 } from '@chakra-ui/core';
-import { AuthenticationContext } from '@utils/authenticationContext';
-import { Link } from '@components/link';
+import { AuthenticationContext } from '../../utils/authenticationContext';
+import { Link } from '../../components/link';
 import React from 'react';
-import { useCurrentUserQuery } from '@utils/api';
+import { useCurrentUserQuery } from '../../utils/api';
 import { useIntl } from 'gatsby-plugin-intl';
 
 const UserAvatar = () => {

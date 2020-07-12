@@ -1,6 +1,6 @@
 import { Button as ChakraButton, useColorMode } from '@chakra-ui/core';
 import React from 'react';
-import { colors } from '@themes/neonLaw';
+import { colors } from '../themes/neonLaw';
 
 export const Button = ({ children, ...props }) => {
   const { colorMode } = useColorMode();

@@ -13,14 +13,14 @@ import {
   Text,
   useColorMode,
 } from '@chakra-ui/core';
-import { CodeBlock } from '@components/codeBlock';
+import { CodeBlock } from '../components/codeBlock';
 import {
   DesktopHalfMobileFullCard
-} from '@components/desktopHalfMobileFullCard';
-import { Link } from '@components/link';
-import { PublicLayout } from '@layouts/publicLayout';
+} from '../components/desktopHalfMobileFullCard';
+import { Link } from '../components/link';
+import { PublicLayout } from '../layouts/publicLayout';
 import React from 'react';
-import { colors } from '@themes/neonLaw';
+import { colors } from '../themes/neonLaw';
 import { navigate } from 'gatsby-plugin-intl';
 
 const Pre = props => <Box my="2em" rounded="sm" {...props} />;

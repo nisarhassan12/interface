@@ -1,6 +1,6 @@
 import { Box, Text } from '@chakra-ui/core';
 import React from 'react';
-import { useCurrentUserQuery } from '@utils/api';
+import { useCurrentUserQuery } from '../../utils/api';
 
 export const PortalProfileCard = () => {
   const { data } = useCurrentUserQuery();

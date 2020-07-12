@@ -2,7 +2,7 @@
 // @ts-nocheck
 /* eslint-enable */
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/core';
-import { Link } from '@components/link';
+import { Link } from '../components/link';
 import { Location } from '@reach/router';
 import React from 'react';
 import { useIntl } from 'gatsby-plugin-intl';

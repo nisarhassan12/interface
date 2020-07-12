@@ -19,8 +19,8 @@ import {
 } from '@chakra-ui/core';
 import React, { useState } from 'react';
 import { AuthenticatedDropdown } from './authenticatedDropdown';
-import { AuthenticationContext } from '@utils/authenticationContext';
-import { Link } from '@components/link';
+import { AuthenticationContext } from '../../utils/authenticationContext';
+import { Link } from '../../components/link';
 import { MdDehaze } from 'react-icons/md';
 import { useIntl } from 'gatsby-plugin-intl';
 
