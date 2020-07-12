@@ -37,6 +37,8 @@ jobs:
         working-directory: ./packages/neon-law
     steps:
       - uses: actions/checkout@v2
+      - name: Install Dependencies.
+        run: yarn install --ignore-optional
       - name: Set up Python 3.x
         uses: actions/setup-python@v1
         with:
