@@ -1,7 +1,7 @@
 import { Flex, Heading, List, ListItem, Text } from '@chakra-ui/core';
 import { Link, graphql } from 'gatsby';
 import { FormattedDate } from 'gatsby-plugin-intl';
-import { PublicLayout } from 'neon-law-shared/src/layouts/publicLayout';
+import { PublicLayout } from '@neonlaw/shared-ui/src/layouts/publicLayout';
 import React from 'react';
 
 const BlogIndex = ({ data }) => {

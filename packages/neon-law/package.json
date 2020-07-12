@@ -1,5 +1,5 @@
 {
-  "name": "neon-law",
+  "name": "@neonlaw/interface",
   "description": "Website for Neon Law",
   "version": "0.1.0",
   "author": "@neonlaw",
@@ -78,6 +78,6 @@
     "test": "jest --coverage"
   },
   "packages": {
-    "neon-law-shared": "1.0.0"
+    "@neonlaw/shared-ui": "1.0.0"
   }
 }

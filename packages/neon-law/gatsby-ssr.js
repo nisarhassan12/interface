@@ -1,4 +1,4 @@
-import { BaseLayout } from 'neon-law-shared/src/layouts/base';
+import { BaseLayout } from '@neonlaw/shared-ui/src/layouts/base';
 import React from 'react';
 
 export const wrapPageElement = ({ element, props }) => {

@@ -6,11 +6,11 @@ import {
 } from '@chakra-ui/core';
 import {
   CreateFlashcardModal
-} from 'neon-law-shared/src/components/modals/createFlashcardModal';
+} from '@neonlaw/shared-ui/src/components/modals/createFlashcardModal';
 import {
   FlashcardTable
-} from 'neon-law-shared/src/components/tables/flashcardTable';
-import { PortalLayout } from 'neon-law-shared/src/layouts/portalLayout';
+} from '@neonlaw/shared-ui/src/components/tables/flashcardTable';
+import { PortalLayout } from '@neonlaw/shared-ui/src/layouts/portalLayout';
 import React from 'react';
 
 const AdminFlashcards = () => {
