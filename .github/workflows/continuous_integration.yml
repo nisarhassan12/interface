@@ -67,6 +67,9 @@ jobs:
       AUTH0_CLIENT_SECRET: ${{ secrets.LOGIC_AUTH0_CLIENT_SECRET }}
     steps:
       - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: yarn
+        working-directory: ./packages/law-job-resources
       - name: Build application
         run: yarn build
         working-directory: ./packages/law-job-resources
