@@ -58,7 +58,7 @@ jobs:
         uses: cypress-io/github-action@v1
         with:
           start: |
-            docker-compose -d -f ../../cypress-docker-compose.yml up &&\
+            docker-compose -f ../../cypress-docker-compose.yml up -d &&\
             GATSBY_ACTIVE_ENV="development" \
             GATSBY_API_URL="http://127.0.0.1:3000/graphql" \
             yarn build &&\
