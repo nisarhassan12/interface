@@ -8,7 +8,9 @@ import { Location } from '@reach/router';
 import { PublicLayout } from 'neon-law-shared/src/layouts/publicLayout';
 import React from 'react';
 import { Seo } from 'neon-law-shared/src/components/seo';
-import { flashcardTopics } from 'neon-law-shared/src/forms/options/flashcardTopics';
+import {
+  flashcardTopics
+} from 'neon-law-shared/src/forms/options/flashcardTopics';
 import queryString from 'query-string';
 
 const Flashcards = () => {

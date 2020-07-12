@@ -1,6 +1,8 @@
 import { Box, Heading } from '@chakra-ui/core';
 import { PortalLayout } from 'neon-law-shared/src/layouts/portalLayout';
-import { PortalProfileCard } from 'neon-law-shared/src/components/cards/portalProfileCard';
+import {
+  PortalProfileCard
+} from 'neon-law-shared/src/components/cards/portalProfileCard';
 import { PortalProfileForm } from 'neon-law-shared/src/forms/portalProfileForm';
 import React from 'react';
 

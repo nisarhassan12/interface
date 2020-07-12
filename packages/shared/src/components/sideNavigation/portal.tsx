@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { SideNavContainer } from '../../components/sideNavigation/sideNavContainer';
+import {
+  SideNavContainer
+} from '../../components/sideNavigation/sideNavContainer';
 import { SideNavContent } from '../../components/sideNavigation/base';
 
 export const PortalSideNavContent = () => {

@@ -1,4 +1,6 @@
-import { AuthenticationContext } from 'neon-law-shared/src/utils/authenticationContext';
+import {
+  AuthenticationContext
+} from 'neon-law-shared/src/utils/authenticationContext';
 import { LoadingPage } from 'neon-law-shared/src/components/loadingPage';
 import { PublicLayout } from 'neon-law-shared/src/layouts/publicLayout';
 import React from 'react';
