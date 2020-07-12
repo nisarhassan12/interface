@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import { Location } from '@reach/router';
 import React from 'react';
-import { useSiteMetadata } from '../utils/hooks';
+import { useSiteMetadata } from './hooks';
 
 interface SeoProps {
   description?: string;
@@ -78,7 +78,7 @@ export const Seo: React.FC<SeoProps> = (
               property: 'og:title',
             },
             {
-              content: `${process.env.SITE_URL}${location.pathname}`,
+              content: `${siteUrl}${location.pathname}`,
               property: 'og:url',
             },
             {

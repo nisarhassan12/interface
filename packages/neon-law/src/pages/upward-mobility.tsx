@@ -3,7 +3,7 @@ import { Button } from '@neonlaw/shared-ui/src/components/button';
 import { PublicLayout } from '@neonlaw/shared-ui/src/layouts/publicLayout';
 import React from 'react';
 import { Router } from '@reach/router';
-import { Seo } from '@neonlaw/shared-ui/src/components/seo';
+import { Seo } from '../components/seo';
 import {
   UpwardMobilityQuestionnaire
 } from '@neonlaw/shared-ui/src/components/upwardMobilityQuestionnaire';

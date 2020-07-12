@@ -7,7 +7,6 @@ import {
   FinishUpwardMobilityQuestionnaire
 } from '../components/finishUpwardMobilityQuestionnaire';
 import React from 'react';
-import { Seo } from '../components/seo';
 import {
   SingleChoiceQuestion
 } from '../components/questions/singleChoiceQuestion';
@@ -91,8 +90,6 @@ export const UpwardMobilityQuestionnaire = (props: any) => {
 
   return (
     <>
-
-      <Seo title="Upward Mobility Questionnaire" />
       <Box borderWidth="1px" rounded="lg">
         <Progress value={calculateProgress(question.id, decisionTree)} />
         <Box padding="1em 3em">

@@ -1,6 +1,5 @@
 import { Heading, List, ListItem, Text } from '@chakra-ui/core';
 import React from 'react';
-import { Seo } from '../components/seo';
 import { questions } from '../components/upwardMobilityQuestions';
 import { useIntl } from 'gatsby-plugin-intl';
 
@@ -25,8 +24,6 @@ export const FinishUpwardMobilityQuestionnaire = () => {
 
   return (
     <>
-      <Seo title="Upward Mobility Questionnaire" />
-
       <Heading textAlign="center">
         {intl.formatMessage({ id: 'finishUpwardMQ.heading' })}
       </Heading>

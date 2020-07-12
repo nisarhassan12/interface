@@ -6,11 +6,8 @@ import {
   FaFacebookF, FaLinkedinIn, FaTwitter
 } from 'react-icons/fa';
 import React from 'react';
-import { useSiteMetadata } from '../utils/hooks';
 
-export const ShareButtons = ({ slug }) => {
-  const { siteUrl } = useSiteMetadata();
-
+export const ShareButtons = ({ siteUrl, slug }) => {
   const url = `${siteUrl}${slug}`;
 
   const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;

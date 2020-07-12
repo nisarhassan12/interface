@@ -7,7 +7,7 @@ import { Link } from 'gatsby-plugin-intl';
 import { Location } from '@reach/router';
 import { PublicLayout } from '@neonlaw/shared-ui/src/layouts/publicLayout';
 import React from 'react';
-import { Seo } from '@neonlaw/shared-ui/src/components/seo';
+import { Seo } from '../../components/seo';
 import {
   flashcardTopics
 } from '@neonlaw/shared-ui/src/forms/options/flashcardTopics';
