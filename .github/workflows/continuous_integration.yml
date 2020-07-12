@@ -54,20 +54,14 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: "3.x"
-      - name: Run Yarn Build.
-        run: |
-          GATSBY_ACTIVE_ENV="development" \
-          GATSBY_API_URL="http://127.0.0.1:3000/graphql" \
-          yarn build
-        working-directory: ./packages/neon-law
-        env:
-          GATSBY_ACTIVE_ENV: staging
-      - name: Cypress run
+      - name: Run Cypress tests with built application
         uses: cypress-io/github-action@v1
         with:
           start: |
             docker-compose -d -f ../../cypress-docker-compose.yml up &&\
-            sleep 120 &&\
+            GATSBY_ACTIVE_ENV="development" \
+            GATSBY_API_URL="http://127.0.0.1:3000/graphql" \
+            yarn build &&\
             yarn serve -p 8000
           wait-on: "http://127.0.0.1:8000"
           wait-on-timeout: 1200
