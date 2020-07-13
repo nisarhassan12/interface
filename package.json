@@ -6,9 +6,9 @@
     "packages/shared"
   ],
   "devDependencies": {
-    "@graphql-codegen/cli": "^1.16.3",
-    "@graphql-codegen/typescript-operations": "^1.16.3",
-    "@graphql-codegen/typescript-react-apollo": "^1.16.3",
+    "@graphql-codegen/cli": "^1.17.0",
+    "@graphql-codegen/typescript-operations": "^1.17.0",
+    "@graphql-codegen/typescript-react-apollo": "^1.17.0",
     "@graphql-codegen/typescript": "^1.16.3",
     "@testing-library/cypress": "^6.0.0",
     "@testing-library/jest-dom": "^5.11.0",
@@ -29,10 +29,10 @@
     "eslint": "^7.4.0",
     "faker": "^4.1.0",
     "gatsby-cli": "^2.12.54",
-    "gatsby-cypress": "^0.4.9",
+    "gatsby-cypress": "^0.4.10",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.1.0",
-    "start-server-and-test": "^1.11.1",
+    "start-server-and-test": "^1.11.2",
     "ts-jest": "^26.1.1"
   },
   "scripts": {
