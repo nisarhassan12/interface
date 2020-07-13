@@ -7,7 +7,16 @@
 [![Staging](https://github.com/neonlaw/interface/workflows/staging/badge.svg)](https://github.com/NeonLaw/interface/actions?query=workflow%3Astaging)
 [![Production](https://github.com/neonlaw/interface/workflows/production/badge.svg)](https://github.com/NeonLaw/interface/actions?query=workflow%3Aproduction)
 
-> Served at https://www.neonlaw.com (neonlaw.net for staging)
+This repository contains code for the following websites:
+
+* Deployed from the `development` branch
+  * www.neonlaw.net
+  * www.lawjobresources.net
+  * www.deleteyourdata.info
+* Deployed from the `production` branch
+  * www.neonlaw.com
+  * www.lawjobresources.com
+  * www.deleteyourdata.com
 
 ## Running Locally
 
