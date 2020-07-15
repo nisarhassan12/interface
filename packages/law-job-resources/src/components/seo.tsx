@@ -86,7 +86,7 @@ export const Seo: React.FC<SeoProps> = (
               property: 'og:description',
             },
             {
-              content: 'Neon Law',
+              content: 'Law Job Resources',
               property: 'og:site_name',
             },
             {
