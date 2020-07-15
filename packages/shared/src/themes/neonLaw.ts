@@ -1,4 +1,4 @@
-import './aestetico.css';
+import './fonts.css';
 import './accessibility.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -6,8 +6,8 @@ import { theme as chakraTheme } from '@chakra-ui/core';
 
 export const theme = Object.assign(chakraTheme, {
   fonts: {
-    body: '"Aestetico",, sans-serif',
-    heading: '"Aestetico", sans-serif',
+    body: '"HK Grotesk",, sans-serif',
+    heading: '"HK Grotesk", sans-serif',
     mono: 'Menlo, monospace',
   },
 });

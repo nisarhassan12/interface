@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'HK Grotesk';
+  src: url("/fonts/hk-grotesk/HKGrotesk-Regular.ttf") format("ttf");
+  font-style: normal;
+  font-weight: 400;
+}
+
+body {
+  font-family: 'HK Grotesk';
+}
