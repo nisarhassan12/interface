@@ -68,3 +68,9 @@ coverage/
 *.mdx.txt
 
 staging_htpasswd
+
+# Fonts
+packages/neon-law/static/fonts/
+packages/law-job-resources/static/fonts/
+packages/delete-your-data/static/fonts/
+packages/justice-for-rickie-slaughter/static/fonts/
