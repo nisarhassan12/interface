@@ -48,7 +48,7 @@
   "scripts": {
     "check-types": "tsc -p .",
     "lint": "eslint './**/*.{js,jsx,ts,tsx}'",
-    "markdown-lint": "remark -i -e mdx -e md .remarkignore .",
+    "markdown-lint": "remark -i -e mdx,md .remarkignore .",
     "test": "jest --coverage"
   }
 }
