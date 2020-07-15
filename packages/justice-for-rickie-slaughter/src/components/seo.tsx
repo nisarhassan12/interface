@@ -86,7 +86,7 @@ export const Seo: React.FC<SeoProps> = (
               property: 'og:description',
             },
             {
-              content: 'Law Job Resources',
+              content: 'Justice For Rickie Slaughter',
               property: 'og:site_name',
             },
             {

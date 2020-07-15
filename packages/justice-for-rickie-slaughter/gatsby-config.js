@@ -57,8 +57,8 @@ module.exports = {
         background_color: '#000',
         display: 'standalone',
         icon: 'src/images/logo.png',
-        name: 'Law Job Resources',
-        short_name: 'Law Job Resources',
+        name: 'Justice For Rickie Slaughter',
+        short_name: 'Justice For Rickie Slaughter',
         start_url: '/',
         theme_color: '#3B27BA',
       },
@@ -97,8 +97,8 @@ module.exports = {
   ],
   siteMetadata: {
     author: '@neonlaw',
-    description: 'Law Job Resources',
+    description: 'Justice For Rickie Slaughter',
     siteUrl: process.env.SITE_URL,
-    title: 'Law Job Resources',
+    title: 'Justice For Rickie Slaughter',
   },
 };

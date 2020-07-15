@@ -17,6 +17,7 @@ This repository contains code for the following websites:
   * www.neonlaw.com
   * www.lawjobresources.com
   * www.deleteyourdata.com
+  * www.justiceforrickieslaughter.com
 
 ## Running Locally
 
@@ -73,7 +74,6 @@ yarn graphql-codegen
 This application uses:
 
 * Zendesk Chat to host chat with visitors
-* Google Analytics for data collection
 * Google Maps JavaScript API
 
 ## Staging Environment
