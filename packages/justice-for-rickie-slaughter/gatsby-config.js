@@ -57,8 +57,8 @@ module.exports = {
         background_color: '#000',
         display: 'standalone',
         icon: 'src/images/logo.png',
-        name: 'Neon Law',
-        short_name: 'Neon Law',
+        name: 'Justice For Rickie Slaughter',
+        short_name: 'Justice For Rickie Slaughter',
         start_url: '/',
         theme_color: '#3B27BA',
       },
@@ -97,8 +97,8 @@ module.exports = {
   ],
   siteMetadata: {
     author: '@neonlaw',
-    description: 'Neon Law. The Upward Mobility Law Firm.',
+    description: 'Justice For Rickie Slaughter',
     siteUrl: process.env.SITE_URL,
-    title: 'Neon Law',
+    title: 'Justice For Rickie Slaughter',
   },
 };
