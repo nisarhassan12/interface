@@ -20,8 +20,8 @@ export const Footer = () => {
       padding="2em"
       as="footer"
     >
-      Justice For Rickie Slaughter is a collection of resources provided by Professor
-      Joe Regalia at UNLV Law.
+      Justice For Rickie Slaughter is made and curated by friends of Rickie
+      Slaughter
       <br />
       This site was built by&nbsp;
       <a href="https://www.neonlaw.com" target="_blank" rel="noreferrer">
