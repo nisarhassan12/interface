@@ -4,6 +4,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/a9de7883f94a89b722a5/maintainability)](https://codeclimate.com/github/NeonLaw/interface/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/a9de7883f94a89b722a5/test_coverage)](https://codeclimate.com/github/NeonLaw/interface/test_coverage)
 [![Continuous Integration](https://github.com/NeonLaw/interface/workflows/continuous_integration/badge.svg)](https://github.com/NeonLaw/interface/actions?query=workflow%3Acontinuous_integration)
+[![Docker Hub](https://github.com/neonlaw/interface/workflows/docker_hub/badge.svg)](https://github.com/NeonLaw/interface/actions?query=workflow%3Adocker_hub)
 [![Staging](https://github.com/neonlaw/interface/workflows/staging/badge.svg)](https://github.com/NeonLaw/interface/actions?query=workflow%3Astaging)
 [![Production](https://github.com/neonlaw/interface/workflows/production/badge.svg)](https://github.com/NeonLaw/interface/actions?query=workflow%3Aproduction)
 
