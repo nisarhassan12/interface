@@ -36,6 +36,7 @@ jobs:
             --build-arg GATSBY_AUTH0_CLIENT_ID="$GATSBY_AUTH0_CLIENT_ID" \
             --build-arg GATSBY_ACTIVE_ENV=staging \
             --build-arg APP_NAME=neon-law \
+            --build-arg DOMAIN_NAME=www.neonlaw.net \
             -f staging.Dockerfile \
             .
         env:
@@ -85,6 +86,7 @@ jobs:
             --build-arg GATSBY_AUTH0_DOMAIN="$GATSBY_AUTH0_DOMAIN" \
             --build-arg GATSBY_AUTH0_CLIENT_ID="$GATSBY_AUTH0_CLIENT_ID" \
             --build-arg GATSBY_ACTIVE_ENV=staging \
+            --build-arg DOMAIN_NAME=www.lawjobresources.net \
             --build-arg APP_NAME=law-job-resources \
             -f staging.Dockerfile \
             .
@@ -136,6 +138,7 @@ jobs:
             --build-arg GATSBY_AUTH0_CLIENT_ID="$GATSBY_AUTH0_CLIENT_ID" \
             --build-arg GATSBY_ACTIVE_ENV=staging \
             --build-arg APP_NAME=delete-your-data \
+            --build-arg DOMAIN_NAME=www.deleteyourdata.info \
             -f staging.Dockerfile \
             .
         env:
