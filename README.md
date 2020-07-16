@@ -93,6 +93,10 @@ a localized development environment, you can set `GATSBY_API_URL` to
 `http://localhost:3000/graphql` and start a localized version of the API
 environment via `docker-compose up`.
 
+## Project Management
+
+Is tracked on GitHub
+
 ## Legal
 
 Copyright 2020 Neon Law. Licensed under the [Polyform Noncommercial License
