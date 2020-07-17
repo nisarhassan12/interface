@@ -8,9 +8,33 @@
 
 @font-face {
   font-family: 'HK Grotesk';
+  src: url("/fonts/hk-grotesk/HKGrotesk-RegularItalic.ttf") format("ttf"),
+    url("/fonts/hk-grotesk/HKGrotesk-RegularItalic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'HK Grotesk';
   src: url("/fonts/hk-grotesk/HKGrotesk-Medium.ttf") format("ttf"),
     url("/fonts/hk-grotesk/HKGrotesk-Medium.woff2") format("woff2");
   font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'CharisSIL';
+  src: url("/fonts/charis/CharisSil-R.tff") format("ttf"),
+    url("/fonts/charis/CharisSil-R.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'CharisSIL';
+  src: url("/fonts/charis/CharisSil-I.tff") format("ttf"),
+    url("/fonts/charis/CharisSil-I.woff2") format("woff2");
+  font-style: italic;
   font-weight: 400;
 }
 
