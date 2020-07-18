@@ -9,6 +9,7 @@ import { Breadcrumbs } from '@neonlaw/shared-ui/src/components/breadcrumbs';
 import { Container } from '@neonlaw/shared-ui/src/components/container';
 import { EditOnGithub } from '@neonlaw/shared-ui/src/components/editOnGithub';
 import { Footer } from '../components/footer';
+import { Image } from '../components/image';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import {
   PublicNavigationBar
@@ -24,6 +25,7 @@ const MdxLayout: React.FC<{
       body: string,
       frontmatter: {
         title: string,
+        featuredImage?: any,
         slug: string,
         description?: string,
       }
@@ -32,7 +34,7 @@ const MdxLayout: React.FC<{
   chlidren: ReactChildren
 }> = ({ data }) => {
   const { body, frontmatter } = data.mdx;
-  const { title, slug, description } = frontmatter;
+  const { title, slug, description, featuredImage } = frontmatter;
   const { siteUrl } = useSiteMetadata();
 
   return (
@@ -52,6 +54,19 @@ const MdxLayout: React.FC<{
             <Heading textAlign="center">
               {title}
             </Heading>
+            {featuredImage &&
+              (<Box
+                borderWidth="1px"
+                rounded="lg"
+                overflow="hidden"
+              >
+                <Image
+                  src={featuredImage}
+                  alt={title}
+                  aspectRatio={16 / 9}
+                />
+              </Box>)
+            }
             <MDXRenderer>{body}</MDXRenderer>
             <Divider margin="1em 0" />
             <Flex width="100%" justifyContent="space-between">
