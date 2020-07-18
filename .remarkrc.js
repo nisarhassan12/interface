@@ -5,6 +5,6 @@ exports.plugins = [
   'comment-config',
   ['github', { repository: 'NeonLaw/interface' }],
   'validate-links',
-  'lint-write-good',
-  'preset-lint-markdown-style-guide'
+  ['lint-write-good', true],
+  ['file-extension', false]
 ]
