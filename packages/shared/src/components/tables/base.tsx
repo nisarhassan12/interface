@@ -97,11 +97,11 @@ export const Table = <D extends {}>({
                     column.isSortedDesc ? (
                       <ChevronDown size={20} />
                     ) : (
-                        <ChevronUp size={20} />
-                      )
+                      <ChevronUp size={20} />
+                    )
                   ) : (
-                      ''
-                    )}
+                    ''
+                  )}
                 </TableCell>
               ))}
             </Flex>
