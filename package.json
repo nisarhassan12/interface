@@ -50,8 +50,7 @@
   "scripts": {
     "check-types": "tsc -p .",
     "lint": "eslint './**/*.{js,jsx,ts,tsx}'",
-    "markdown-lint-with-exit": "remark -i -e mdx,md --frail .remarkignore .",
-    "markdown-lint": "remark -i -e mdx,md .remarkignore .",
+    "markdown-lint": "remark -i -e mdx,md --frail .remarkignore .",
     "test": "jest --coverage"
   }
 }
