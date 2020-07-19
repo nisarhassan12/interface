@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
 /* eslint-enable */
-import { Button, Heading } from '@chakra-ui/core';
+import { Box, Button, Heading } from '@chakra-ui/core';
 import { Flashcard } from '@neonlaw/shared-ui/src/components/flashcard';
 import { Link } from 'gatsby-plugin-intl';
 import { Location } from '@reach/router';
@@ -31,16 +31,18 @@ const Flashcards = () => {
             <Heading textAlign="center">
               Choose a category
             </Heading>
-            {flashcardTopics.map((topic, i) => (
-              <Button
-                key={i}
-                as={Link}
-                to={`${location.pathname}?topic=${topic.value}`}
-                activeLink={{ backgroundColor: 'red' }}
-              >
-                {topic.label}
-              </Button>
-            ))}
+            <Box marginTop="1em" marginBottom="1em">
+              {flashcardTopics.map((topic, i) => (
+                <Button
+                  key={i}
+                  as={Link}
+                  to={`${location.pathname}?topic=${topic.value}`}
+                  activeLink={{ backgroundColor: 'red' }}
+                >
+                  {topic.label}
+                </Button>
+              ))}
+            </Box>
             <Flashcard topic={topic} />
           </PublicLayout>
         );
