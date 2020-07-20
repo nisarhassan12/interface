@@ -1,48 +1,31 @@
-import { Flex, Text } from '@chakra-ui/core';
-import React from 'react';
+import { Flex, Icon, Text } from '@chakra-ui/core';
 import {
-  ChevronDown,
-  ChevronLeft,
-  ChevronRight,
-  ChevronUp,
-  ChevronsLeft,
-  ChevronsRight
-} from 'react-feather';
+  StyledTable,
+  TableCell,
+  TableHead,
+  TableIconButton,
+  TableRow
+} from './styles';
+import { usePagination, useSortBy, useTable } from 'react-table';
+import { Card } from '../cards/base';
+import { CardFooter } from '../cards/cardFooter';
+import React from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { Column, Row, usePagination, useSortBy, useTable } from 'react-table';
-import Card from '../Card';
-import BottomSection from '../Card/CardFooter';
-import TopSection from '../Card/CardHeader/index';
-import { StyledTable, TableCell, TableHead, TableIconButton, TableRow } from './styles';
 
-// Use declaration merging to extend types https://github.com/tannerlinsley/react-table/commit/7ab63858391ebb2ff621fa71411157df19d916ba
-declare module 'react-table' {
-  export interface TableOptions<D extends object>
-    extends UsePaginationOptions<D>,
-    UseFiltersOptions<D> { }
-
-  export type TableInstance<D extends object = {}> = UsePaginationInstanceProps<D>
-
-  export type TableState<D extends object = {}> = UsePaginationState<D>
-
-  export type ColumnInstance<D extends object = {}> = UseSortByColumnProps<D>
+interface TableInterface {
+  columns: any;
+  data: any;
+  tableHeading?: string;
+  pageSize?: string;
+  onRowClick?(): void;
 }
 
-type TableProps<D extends object = {}> = {
-  data: any
-  pageSize?: number
-  tableHeading?: React.ReactNode
-  columns: Column<D>[]
-  onRowClick?: (row: Row<D>) => void
-}
-
-export const Table = <D extends {}>({
+export const Table = ({
   columns,
   data,
-  tableHeading,
   pageSize: initialPageSize,
   onRowClick
-}: TableProps<D>) => {
+}: TableInterface) => {
   const tableColumns = React.useMemo(() => columns, [columns]);
 
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 40em)' });
@@ -61,7 +44,7 @@ export const Table = <D extends {}>({
     previousPage,
     setPageSize,
     state: { pageIndex, pageSize }
-  } = useTable<D>(
+  } = useTable(
     {
       columns: tableColumns,
       data,
@@ -73,7 +56,6 @@ export const Table = <D extends {}>({
 
   return (
     <Card flexDirection="column" flex={1} maxWidth="100%" width="100%">
-      {!!tableHeading && <TopSection>{tableHeading}</TopSection>}
       <StyledTable {...getTableProps()}>
         <TableHead>
           {headerGroups.map((headerGroup) => (
@@ -95,13 +77,13 @@ export const Table = <D extends {}>({
                   <Text fontWeight="bold">{column.render('Header')}</Text>
                   {column.isSorted ? (
                     column.isSortedDesc ? (
-                      <ChevronDown size={20} />
+                      <Icon name="chevron-up" size={20} />
                     ) : (
-                      <ChevronUp size={20} />
-                    )
+                        <Icon name="chevron-down" size={20} />
+                      )
                   ) : (
-                    ''
-                  )}
+                      ''
+                    )}
                 </TableCell>
               ))}
             </Flex>
@@ -110,7 +92,6 @@ export const Table = <D extends {}>({
         <Flex flexDirection="column">
           {page.map(
             (row, key) =>
-              // @ts-ignore
               prepareRow(row) || (
                 <TableRow
                   onClick={() => onRowClick && onRowClick(row)}
@@ -136,19 +117,19 @@ export const Table = <D extends {}>({
           )}
         </Flex>
       </StyledTable>
-      <BottomSection justifyContent="space-between" flexDirection="row">
+      <CardFooter justifyContent="space-between" flexDirection="row">
         <Flex flexDirection="row">
           <TableIconButton
             mr={2}
             onClick={() => gotoPage(0)}
             isDisabled={!canPreviousPage}
-            icon={() => <ChevronsLeft size={20} />}
+            icon={() => <Icon name="chevron-left" />}
           />
           <TableIconButton
             mr={2}
             isDisabled={!canPreviousPage}
             onClick={() => previousPage()}
-            icon={() => <ChevronLeft size={20} />}
+            icon={() => <Icon name="chevron-left" />}
           />
         </Flex>
         <Flex justifyContent="center" alignItems="center">
@@ -178,16 +159,16 @@ export const Table = <D extends {}>({
             ml={2}
             isDisabled={!canNextPage}
             onClick={() => nextPage()}
-            icon={() => <ChevronRight size={20} />}
+            icon={() => <Icon name="chevron-right" />}
           />
           <TableIconButton
             ml={2}
             onClick={() => gotoPage(pageCount ? pageCount - 1 : 1)}
             isDisabled={!canNextPage}
-            icon={() => <ChevronsRight size={20} />}
+            icon={() => <Icon name="chevron-right" />}
           />
         </Flex>
-      </BottomSection>
+      </CardFooter>
     </Card>
   );
 };
