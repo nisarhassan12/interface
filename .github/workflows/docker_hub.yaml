@@ -20,6 +20,7 @@ jobs:
             --build-arg GATSBY_ACTIVE_ENV=development \
             --build-arg GATSBY_API_URL="$GATSBY_API_URL" \
             --build-arg APP_NAME=neon-law \
+            --build-arg DOMAIN_NAME=www.neonlaw.com \
             -f Dockerfile \
             .
         env:
