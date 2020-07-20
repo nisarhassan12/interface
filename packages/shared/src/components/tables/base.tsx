@@ -75,11 +75,11 @@ export const Table = ({
                     column.isSortedDesc ? (
                       <Icon name="chevron-up" />
                     ) : (
-                        <Icon name="chevron-down" />
-                      )
+                      <Icon name="chevron-down" />
+                    )
                   ) : (
-                      ''
-                    )}
+                    ''
+                  )}
                 </TableCell>
               ))}
             </Flex>
