@@ -23,7 +23,6 @@ interface TableInterface {
 export const Table = ({
   columns,
   data,
-  pageSize: initialPageSize,
   onRowClick
 }: TableInterface) => {
   const tableColumns = React.useMemo(() => columns, [columns]);
@@ -48,7 +47,6 @@ export const Table = ({
     {
       columns: tableColumns,
       data,
-      initialState: { pageIndex: 0, pageSize: initialPageSize }
     },
     useSortBy,
     usePagination
@@ -79,11 +77,11 @@ export const Table = ({
                     column.isSortedDesc ? (
                       <Icon name="chevron-up" size={20} />
                     ) : (
-                        <Icon name="chevron-down" size={20} />
-                      )
+                      <Icon name="chevron-down" size={20} />
+                    )
                   ) : (
-                      ''
-                    )}
+                    ''
+                  )}
                 </TableCell>
               ))}
             </Flex>

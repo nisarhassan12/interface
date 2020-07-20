@@ -14,16 +14,16 @@ export const FlashcardTable = () => {
 
   const columns = [
     {
-      accessor: 'id',
       Header: 'ID',
+      accessor: 'id',
     },
     {
-      accessor: 'topic',
       Header: 'Topic',
+      accessor: 'topic',
     },
     {
-      accessor: 'prompt',
       Header: 'Prompt',
+      accessor: 'prompt',
     },
   ];
   const nodes = data?.allFlashcards?.nodes;
