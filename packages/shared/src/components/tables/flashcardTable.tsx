@@ -1,4 +1,5 @@
 import React from 'react';
+import { Table } from './base';
 import { useAllFlashcardsQuery } from '../../utils/api';
 
 export const FlashcardTable = () => {
@@ -11,30 +12,23 @@ export const FlashcardTable = () => {
     return (<h1>{error}</h1>);
   }
 
+  const columns = [
+    {
+      Header: 'ID',
+      accessor: 'id',
+    },
+    {
+      Header: 'Topic',
+      accessor: 'topic',
+    },
+    {
+      Header: 'Prompt',
+      accessor: 'prompt',
+    },
+  ];
+  const nodes = data?.allFlashcards?.nodes;
+
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>
-            Topic
-          </th>
-          <th>
-            Prompt
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        {data?.allFlashcards?.nodes.map((flashcard, i) => (
-          <tr key={i}>
-            <td>
-              {flashcard.topic}
-            </td>
-            <td>
-              {flashcard.prompt}
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <Table columns={columns} data={nodes} />
   );
 };
