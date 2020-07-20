@@ -17,13 +17,11 @@ interface TableInterface {
   data: any;
   tableHeading?: string;
   pageSize?: string;
-  onRowClick?(): void;
 }
 
 export const Table = ({
   columns,
-  data,
-  onRowClick
+  data
 }: TableInterface) => {
   const tableColumns = React.useMemo(() => columns, [columns]);
 
@@ -75,13 +73,13 @@ export const Table = ({
                   <Text fontWeight="bold">{column.render('Header')}</Text>
                   {column.isSorted ? (
                     column.isSortedDesc ? (
-                      <Icon name="chevron-up" size={20} />
+                      <Icon name="chevron-up" />
                     ) : (
-                      <Icon name="chevron-down" size={20} />
-                    )
+                        <Icon name="chevron-down" />
+                      )
                   ) : (
-                    ''
-                  )}
+                      ''
+                    )}
                 </TableCell>
               ))}
             </Flex>
@@ -92,7 +90,6 @@ export const Table = ({
             (row, key) =>
               prepareRow(row) || (
                 <TableRow
-                  onClick={() => onRowClick && onRowClick(row)}
                   key={key}
                   flexDirection="row"
                   {...row.getRowProps()}

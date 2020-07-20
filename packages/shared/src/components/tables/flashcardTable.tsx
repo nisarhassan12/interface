@@ -28,9 +28,7 @@ export const FlashcardTable = () => {
   ];
   const nodes = data?.allFlashcards?.nodes;
 
-  if (nodes) {
-    return (
-      <Table columns={columns} data={nodes} />
-    );
-  }
+  return (
+    <Table columns={columns} data={nodes} />
+  );
 };

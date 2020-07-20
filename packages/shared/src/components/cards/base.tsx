@@ -5,10 +5,10 @@ import { useFadeUp } from '../../utils/useFadeUp';
 
 const AnimatedFlex = animated(Flex);
 
-export const Card = ({ onClick, children, ...rest }) => {
+export const Card = ({ children, ...rest }) => {
   const fade = useFadeUp();
   return (
-    <AnimatedFlex style={fade} onClick={onClick} {...rest}>
+    <AnimatedFlex style={fade} {...rest}>
       {children}
     </AnimatedFlex>
   );
