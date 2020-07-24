@@ -11,6 +11,10 @@ export const Footer = () => {
   const { colorMode } = useColorMode();
   const color = { dark: 'white', light: 'black' };
   const lighterBg = { dark: 'gray.700', light: 'gray.200' };
+
+  const fathomLink =
+    'https://app.usefathom.com/share/aokzddgf/www.deleteyourdata.com';
+
   return (
     <Box
       bg={lighterBg[colorMode]}
@@ -26,6 +30,15 @@ export const Footer = () => {
       This site was built by&nbsp;
       <a href="https://www.neonlaw.com" target="_blank" rel="noreferrer">
         Neon Law, the Upward Mobility Law Firm
+      </a>.
+      <br />
+      This website is monitored with&nbsp;
+      <a
+        href={fathomLink}
+        target="_blank"
+        rel="noreferrer"
+      >
+        Fathom Analytics
       </a>.
     </Box>
   );
