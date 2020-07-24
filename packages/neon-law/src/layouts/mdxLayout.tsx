@@ -16,10 +16,6 @@ import { Footer } from '@neonlaw/shared-ui/src/components/footer';
 import { Image } from '../components/image';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import {
-  PrivacyDisclaimer
-}
-  from '@neonlaw/shared-ui/src/components/privacyDisclaimer';
-import {
   PublicNavigationBar
 } from '@neonlaw/shared-ui/src/components/navigationBars/public';
 import { Seo } from '../components/seo';
@@ -95,7 +91,6 @@ const MdxLayout: React.FC<{
           );
         }}
       </AuthenticationContext.Consumer>
-      <PrivacyDisclaimer />
       <Footer />
     </Flex>
   );

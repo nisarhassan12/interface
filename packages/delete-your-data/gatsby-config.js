@@ -10,6 +10,12 @@ module.exports = {
     'gatsby-plugin-typescript',
     {
       options: {
+        siteUrl: 'https://www.deleteyourdata.com',
+      },
+      resolve: 'gatsby-plugin-canonical-urls',
+    },
+    {
+      options: {
         defaultLanguage: 'en',
         languages: ['en', 'es'],
         path: `${__dirname}/src/intl`,
