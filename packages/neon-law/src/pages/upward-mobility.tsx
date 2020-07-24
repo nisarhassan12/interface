@@ -11,7 +11,7 @@ import { navigate } from 'gatsby-plugin-intl';
 import { useIntl } from 'gatsby-plugin-intl';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
-const UpwardMobilityHome = (props) => {
+const UpwardMobilityHome = () => {
   /* eslint-enable @typescript-eslint/no-unused-vars */
   const intl = useIntl();
   return (
