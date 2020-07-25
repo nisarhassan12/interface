@@ -127,6 +127,9 @@ export const Footer = () => {
           <Box as={Link} to="/terms-of-service" padding="7px 0">
             {intl.formatMessage({ id: 'footer.terms' })}
           </Box>
+          <Box as={Link} to="/modern-slavery-statement" padding="7px 0">
+            Modern Slavery Statement
+          </Box>
         </Flex>
         <Box display={['none', 'none', 'flex']} />
       </Flex>
