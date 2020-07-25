@@ -15,7 +15,7 @@
     ],
     "module": "commonjs",
     "moduleResolution": "node",
-    "outDir": "build",
+    "outDir": "./build",
     "skipLibCheck": true,
     "sourceMap": false,
     "noImplicitAny": false,
@@ -24,11 +24,12 @@
     "target": "esnext",
   },
   "include": [
-    "packages"
+    "packages/**/*"
   ],
   "exclude": [
     "node_modules",
     "build",
+    "**/*.test.tsx",
     "packages/neon-law/cypress"
   ],
 }
