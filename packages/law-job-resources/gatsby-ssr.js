@@ -19,4 +19,4 @@ export const onRenderBody = ({ setPostBodyComponents }) => {
       defer
     />
   ]);
-});
+};
