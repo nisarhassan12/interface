@@ -5,7 +5,7 @@ import {
   Heading,
 } from '@chakra-ui/core';
 import React, { ReactChildren } from 'react';
-import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloProvider } from '@apollo/client';
 import {
   AuthenticationContext
 } from '@neonlaw/shared-ui/src/utils/authenticationContext';
