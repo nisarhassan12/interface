@@ -1,10 +1,12 @@
+import {
+  ApolloClient,
+  InMemoryCache,
+  createHttpLink
+} from '@apollo/client';
 import React, { Component, createContext } from 'react';
-import { ApolloClient } from 'apollo-boost';
-import { InMemoryCache } from 'apollo-cache-inmemory';
 import createAuth0Client from '@auth0/auth0-spa-js';
-import { createHttpLink } from 'apollo-link-http';
 import fetch from 'isomorphic-fetch';
-import { setContext } from 'apollo-link-context';
+import { setContext } from '@apollo/client/link/context';
 
 
 const link = createHttpLink({

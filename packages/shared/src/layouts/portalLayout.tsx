@@ -2,7 +2,7 @@ import {
   Box,
   Flex,
 } from '@chakra-ui/core';
-import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloProvider } from '@apollo/client';
 import { AuthenticationContext } from '../utils/authenticationContext';
 import { Container } from '../components/container';
 import { Footer } from '../components/footer';

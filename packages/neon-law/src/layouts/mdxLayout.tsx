@@ -5,7 +5,7 @@ import {
   Heading,
 } from '@chakra-ui/core';
 import React, { ReactChildren } from 'react';
-import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloProvider } from '@apollo/client';
 import {
   AuthenticationContext
 } from '@neonlaw/shared-ui/src/utils/authenticationContext';
@@ -15,10 +15,6 @@ import { EditOnGithub } from '@neonlaw/shared-ui/src/components/editOnGithub';
 import { Footer } from '@neonlaw/shared-ui/src/components/footer';
 import { Image } from '../components/image';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import {
-  PrivacyDisclaimer
-}
-  from '@neonlaw/shared-ui/src/components/privacyDisclaimer';
 import {
   PublicNavigationBar
 } from '@neonlaw/shared-ui/src/components/navigationBars/public';
@@ -95,7 +91,6 @@ const MdxLayout: React.FC<{
           );
         }}
       </AuthenticationContext.Consumer>
-      <PrivacyDisclaimer />
       <Footer />
     </Flex>
   );

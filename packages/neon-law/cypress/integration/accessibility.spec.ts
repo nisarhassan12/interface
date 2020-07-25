@@ -29,7 +29,6 @@ describe('Accessibility tests', () => {
     cy.injectAxe();
   });
   it('Has no detectable accessibility violations on load', () => {
-    cy.contains('I Accept').click();
     cy.checkA11y(null, {
       rules: {
         'color-contrast': { enabled: false },

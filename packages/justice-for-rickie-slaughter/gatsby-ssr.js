@@ -5,18 +5,17 @@ export const wrapPageElement = ({ element, props }) => {
   return <BaseLayout {...props}>{element}</BaseLayout>;
 };
 
-export const onPreRenderHTML = (
-  { getHeadComponents, replaceHeadComponents }
-) => {
-  const headComponents = getHeadComponents();
+export const onRenderBody = ({ setPostBodyComponents }) => {
+  if (process.env.NODE_ENV == 'development') {
+    return;
+  }
 
-  headComponents.push(
+  setPostBodyComponents([
     <script
+      key="fathom"
       src="https://anglerfish.neonlaw.com/script.js"
       site="POAUYJMQ"
       defer
     />
-  );
-
-  replaceHeadComponents(headComponents);
+  ]);
 };

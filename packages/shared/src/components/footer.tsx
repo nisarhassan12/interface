@@ -20,6 +20,10 @@ export const Footer = () => {
   const bg = { dark: 'black', light: 'gray.300' };
   const lighterBg = { dark: 'gray.700', light: 'gray.200' };
   const intl = useIntl();
+
+  const fathomLink =
+    'https://app.usefathom.com/share/dublghdj/www.neonlaw.com';
+
   return (
     <Box
       bg={lighterBg[colorMode]}
@@ -102,6 +106,16 @@ export const Footer = () => {
       <Box paddingBottom="1em" bg={bg[colorMode]}>
         <Text textAlign="center">
           Copyright &copy; {new Date().getFullYear()} Shook Law PLLC
+        </Text>
+        <Text textAlign="center">
+          This website is monitored with&nbsp;
+          <a
+            href={fathomLink}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Fathom Analytics
+          </a>.
         </Text>
       </Box>
     </Box>
