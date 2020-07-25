@@ -208,4 +208,4 @@ jobs:
       - name: Deploy latest container with kubectl
         run: |-
           kubectl set image deployment delete-your-data \
-             delete-your-data=us.gcr.io/neon-law-production/law-job-resources:$GITHUB_SHA
+            delete-your-data=us.gcr.io/neon-law-production/law-job-resources:$GITHUB_SHA

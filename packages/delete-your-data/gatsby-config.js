@@ -63,8 +63,8 @@ module.exports = {
         background_color: '#000',
         display: 'standalone',
         icon: 'src/images/logo.png',
-        name: 'Justice For Rickie Slaughter',
-        short_name: 'Justice For Rickie Slaughter',
+        name: 'Delete Your Data',
+        short_name: 'Delete Your Data',
         start_url: '/',
         theme_color: '#3B27BA',
       },
@@ -103,8 +103,8 @@ module.exports = {
   ],
   siteMetadata: {
     author: '@neonlaw',
-    description: 'Justice For Rickie Slaughter',
+    description: 'Delete Your Data',
     siteUrl: process.env.SITE_URL,
-    title: 'Justice For Rickie Slaughter',
+    title: 'Delete Your Data',
   },
 };

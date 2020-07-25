@@ -70,7 +70,7 @@
     "build": "cp -vr ../shared/src/fonts ./static && gatsby build",
     "cy:open": "cypress open",
     "dev": "yarn run develop",
-    "develop": "gatsby develop -H 127.0.0.1 -p 4000",
+    "develop": "cp -vr ../shared/src/fonts ./static && gatsby develop -H 127.0.0.1 -p 4000",
     "start": "cp -vr ../shared/src/fonts ./static && yarn run develop",
     "serve": "gatsby serve",
     "e2e-test": "start-server-and-test develop http://127.0.0.1:8000 'cypress open'",
