@@ -35,6 +35,7 @@ export const Footer = () => {
       This website is monitored with&nbsp;
       <a
         href={fathomLink}
+        style={{ cursor: 'pointer', textDecoration: 'underline' }}
         target="_blank"
         rel="noreferrer"
       >

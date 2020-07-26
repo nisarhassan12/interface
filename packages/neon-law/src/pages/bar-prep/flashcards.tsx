@@ -2,7 +2,9 @@
 // @ts-nocheck
 /* eslint-enable */
 import { Box, Button, Heading } from '@chakra-ui/core';
-import { Flashcard } from '@neonlaw/shared-ui/src/components/flashcard';
+import {
+  FlashcardContainer
+} from '@neonlaw/shared-ui/src/components/flashcardContainer';
 import { Link } from 'gatsby-plugin-intl';
 import { Location } from '@reach/router';
 import { PublicLayout } from '@neonlaw/shared-ui/src/layouts/publicLayout';
@@ -43,7 +45,7 @@ const Flashcards = () => {
                 </Button>
               ))}
             </Box>
-            <Flashcard topic={topic} />
+            <FlashcardContainer topic={topic} />
           </PublicLayout>
         );
       }}
