@@ -72,8 +72,6 @@ export const Footer = () => {
           <Box as={Link} to="/bar-prep" padding="7px 0">
             {intl.formatMessage({ id: 'footer.bar_prep' })}
           </Box>
-        </Flex>
-        <Flex direction="column">
           <Box
             as="a"
             href="https://neonlaw.zendesk.com/"
@@ -83,16 +81,39 @@ export const Footer = () => {
           >
             {intl.formatMessage({ id: 'footer.support' })}
           </Box>
-          <Box as={Link} to="/privacy-policy" padding="7px 0">
-            {intl.formatMessage({ id: 'footer.privacy_policy' })}
+        </Flex>
+        <Flex direction="column">
+          <LanguageDropdown />
+          <Box
+            as="a"
+            href="https://www.deleteyourdata.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            padding="7px 0"
+          >
+            Delete Your Data
           </Box>
-          <Box as={Link} to="/terms-of-service" padding="7px 0">
-            {intl.formatMessage({ id: 'footer.terms' })}
+          <Box
+            as="a"
+            href="https://www.lawjobresources.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            padding="7px 0"
+          >
+            Law Job Resources
+          </Box>
+          <Box
+            as="a"
+            href="https://www.justiceforrickieslaughter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            padding="7px 0"
+          >
+            Justice For Rickie Slaughter
           </Box>
         </Flex>
         <Flex direction="column">
           <SocialMediaIcons display={['none', 'none', 'block']} />
-          <LanguageDropdown />
           <Text onClick={toggleColorMode} cursor="pointer" padding="7px 0">
             {intl.formatMessage({ id: 'footer.switch' })}
             {`${colorMode === 'dark' ?
@@ -100,6 +121,15 @@ export const Footer = () => {
               intl.formatMessage({ id: 'footer.dark' })}`}
             {intl.formatMessage({ id: 'footer.mode' })}
           </Text>
+          <Box as={Link} to="/privacy-policy" padding="7px 0">
+            {intl.formatMessage({ id: 'footer.privacy_policy' })}
+          </Box>
+          <Box as={Link} to="/terms-of-service" padding="7px 0">
+            {intl.formatMessage({ id: 'footer.terms' })}
+          </Box>
+          <Box as={Link} to="/modern-slavery-statement" padding="7px 0">
+            Modern Slavery Statement
+          </Box>
         </Flex>
         <Box display={['none', 'none', 'flex']} />
       </Flex>
@@ -110,6 +140,7 @@ export const Footer = () => {
         <Text textAlign="center">
           This website is monitored with&nbsp;
           <a
+            style={{ cursor: 'pointer', textDecoration: 'underline' }}
             href={fathomLink}
             target="_blank"
             rel="noreferrer"
