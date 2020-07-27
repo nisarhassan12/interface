@@ -44,7 +44,7 @@ export const BaseNavigationBar = ({
             aria-label="Justice For Rickie Slaughter, Back to homepage"
             minWidth="3em"
           >
-            Justice For Rickie Slaughter
+            Delete Your Data
           </Box>
 
           <Flex
