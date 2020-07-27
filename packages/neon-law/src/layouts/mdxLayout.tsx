@@ -37,13 +37,14 @@ const MdxLayout: React.FC<{
         featuredImage?: any,
         slug: string,
         description?: string,
+        widescreen?: string;
       }
     }
   },
   chlidren: ReactChildren
 }> = ({ data }) => {
   const { body, frontmatter } = data.mdx;
-  const { title, slug, featuredImage, description } = frontmatter;
+  const { title, slug, featuredImage, description, widescreen } = frontmatter;
   const { siteUrl } = useSiteMetadata();
 
   return (
@@ -79,7 +80,7 @@ const MdxLayout: React.FC<{
                         <Image
                           src={featuredImage}
                           alt={title}
-                          aspectRatio={16 / 9}
+                          aspectRatio={widescreen ? 2 : 16 / 9}
                         />
                       </Box>)
                     }
@@ -115,6 +116,7 @@ export const pageQuery = graphql`
         slug
         featuredImage
         description
+        widescreen
       }
     }
   }

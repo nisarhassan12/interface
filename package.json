@@ -2,6 +2,7 @@
   "private": true,
   "workspaces": [
     "packages/law-job-resources",
+    "packages/legal-layouts",
     "packages/justice-for-rickie-slaughter",
     "packages/delete-your-data",
     "packages/neon-law",
