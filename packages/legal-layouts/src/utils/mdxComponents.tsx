@@ -13,15 +13,9 @@ import {
   Text,
   useColorMode,
 } from '@chakra-ui/core';
-import { CodeBlock } from '../components/codeBlock';
-import {
-  DesktopHalfMobileFullCard
-} from '../components/desktopHalfMobileFullCard';
-import { Link } from '../components/link';
-import { PublicLayout } from '../layouts/publicLayout';
+import { CodeBlock } from '@neonlaw/shared-ui/src/components/codeBlock';
 import React from 'react';
-import { colors } from '../themes/neonLaw';
-import { navigate } from 'gatsby-plugin-intl';
+import { colors } from '@neonlaw/shared-ui/src/themes/neonLaw';
 
 const Pre = props => <Box my="2em" rounded="sm" {...props} />;
 
@@ -79,17 +73,13 @@ export const MDXComponents = {
   AlertIcon,
   AspectRatioBox,
   Box,
-  DesktopHalfMobileFullCard,
   Flex,
-  Link,
-  PublicLayout,
   Text,
   a: ({ href, ...props }) => {
     const outsideLink = new RegExp('(^http|/audio)');
     const telRegex = new RegExp('^tel');
     const mailRegex = new RegExp('^mail');
-    const pdfRegex = new RegExp('pdf$');
-    if (outsideLink.test(href) || pdfRegex.test(href)) {
+    if (outsideLink.test(href)) {
       return (
         <a href={href} target="_blank" rel="noopener noreferrer">
           <UnderlineLink {...props} />
@@ -165,7 +155,6 @@ export const MDXComponents = {
   ),
   kbd: Kbd,
   li: props => <Box as="li" pb="4px" {...props} />,
-  navigate,
   ol: props => <Box as="ol" pt="8px" pl="16px" {...props} />,
   p: props => (
     <Text as="p" mt={4} lineHeight="tall" {...props} />
