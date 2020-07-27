@@ -76,16 +76,8 @@ export const MDXComponents = {
   Flex,
   Text,
   a: ({ href, ...props }) => {
-    const outsideLink = new RegExp('(^http|/audio)');
     const telRegex = new RegExp('^tel');
     const mailRegex = new RegExp('^mail');
-    if (outsideLink.test(href)) {
-      return (
-        <a href={href} target="_blank" rel="noopener noreferrer">
-          <UnderlineLink {...props} />
-        </a>
-      );
-    }
     if (telRegex.test(href)) {
       return (
         <a href={href}>
@@ -101,9 +93,9 @@ export const MDXComponents = {
       );
     }
     return (
-      <Link to={href}>
+      <a href={href} target="_blank" rel="noopener noreferrer">
         <UnderlineLink {...props} />
-      </Link>
+      </a>
     );
   },
   blockquote: props => (
