@@ -1,14 +1,20 @@
 import { Box, Flex } from '@chakra-ui/core';
+
 import { ApolloProvider } from '@apollo/client';
 import { AuthenticationContext } from '../utils/authenticationContext';
 import { Breadcrumbs } from '../components/breadcrumbs';
-import { Container } from '../components/container';
 import { Footer } from '../components/footer';
 import { PublicNavigationBar } from '../components/navigationBars/public';
 import React from 'react';
 import { publicClient } from '../utils/authenticationContext';
 
-export const PublicLayout: React.FC = ({ children }) => {
+export const PublicLayout = ({
+  children,
+  isFooterWhite,
+}: {
+  children: JSX.Element | JSX.Element[];
+  isFooterWhite?: boolean;
+}) => {
   return (
     <Flex minHeight="100vh" direction="column">
       <AuthenticationContext.Consumer>
@@ -17,18 +23,18 @@ export const PublicLayout: React.FC = ({ children }) => {
             <ApolloProvider client={isLoading ? publicClient : apolloClient}>
               <>
                 <PublicNavigationBar />
-                <Box flex={1} padding="8em 0 4em 0">
-                  <Container>
-                    <Breadcrumbs />
+                <Box flex={1}>
+                  <Breadcrumbs />
+                  <main role="main">
                     {children}
-                  </Container>
+                  </main>
                 </Box>
               </>
             </ApolloProvider>
           );
         }}
       </AuthenticationContext.Consumer>
-      <Footer />
+      <Footer isWhite={isFooterWhite} />
     </Flex>
   );
 };

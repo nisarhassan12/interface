@@ -1,5 +1,6 @@
 import { Box, Progress } from '@chakra-ui/core';
 import { decisionTree, questions } from '../components/upwardMobilityQuestions';
+
 import {
   BeginUpwardMobilityQuestionnaire
 } from '../components/beginUpwardMobilityQuestionnaire';
@@ -16,9 +17,6 @@ import {
 import { useIntl } from 'gatsby-plugin-intl';
 import { useParams } from '@reach/router';
 
-
-
-
 /* eslint-disable @typescript-eslint/no-unused-vars */
 export const UpwardMobilityQuestionnaire = (props: any) => {
   /* eslint-enable @typescript-eslint/no-unused-vars */
@@ -33,7 +31,6 @@ export const UpwardMobilityQuestionnaire = (props: any) => {
   };
 
   const basePath = '/upward-mobility';
-
 
   const { questionId } = useParams();
 
@@ -51,9 +48,7 @@ export const UpwardMobilityQuestionnaire = (props: any) => {
 
   if (!question || !question.prompt) {
     return (
-      <span>
-        {intl.formatMessage({ id: 'upwardMQ.missing_question' })}
-      </span>
+      <span>{intl.formatMessage({ id: 'upwardMQ.missing_question' })}</span>
     );
   }
 

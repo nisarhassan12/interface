@@ -13,6 +13,7 @@ import {
   Text,
   useColorMode,
 } from '@chakra-ui/core';
+
 import { CodeBlock } from '../components/codeBlock';
 import {
   DesktopHalfMobileFullCard
@@ -23,13 +24,13 @@ import React from 'react';
 import { colors } from '../themes/neonLaw';
 import { navigate } from 'gatsby-plugin-intl';
 
-const Pre = props => <Box my="2em" rounded="sm" {...props} />;
+const Pre = (props) => <Box my="2em" rounded="sm" {...props} />;
 
-const Table = props => (
+const Table = (props) => (
   <Box as="table" textAlign="left" mt="32px" width="full" {...props} />
 );
 
-const THead = props => {
+const THead = (props) => {
   const { colorMode } = useColorMode();
   const bg = { dark: 'whicyanpha.100', light: 'gray.50' };
   return (
@@ -44,7 +45,7 @@ const THead = props => {
   );
 };
 
-const TData = props => (
+const TData = (props) => (
   <Box
     as="td"
     p={2}
@@ -56,12 +57,12 @@ const TData = props => (
   />
 );
 
-const UnderlineLink = (props) => {
+export const UnderlineLink = (props) => {
   const { colorMode } = useColorMode();
 
   return (
     <PseudoBox
-      as="span"
+      as={Link}
       color={colors.link[colorMode]}
       cursor="pointer"
       textDecoration="underline"
@@ -72,7 +73,6 @@ const UnderlineLink = (props) => {
     />
   );
 };
-
 
 export const MDXComponents = {
   Alert,
@@ -99,16 +99,12 @@ export const MDXComponents = {
     if (telRegex.test(href)) {
       return (
         <a href={href}>
-          <UnderlineLink  {...props} />
+          <UnderlineLink {...props} />
         </a>
       );
     }
     if (mailRegex.test(href)) {
-      return (
-        <a href={href}>
-          {props.children}
-        </a>
-      );
+      return <a href={href}>{props.children}</a>;
     }
     return (
       <Link to={href}>
@@ -116,7 +112,7 @@ export const MDXComponents = {
       </Link>
     );
   },
-  blockquote: props => (
+  blockquote: (props) => (
     <Callout
       mt={4}
       variant="left-accent"
@@ -125,55 +121,33 @@ export const MDXComponents = {
       {...props}
     />
   ),
-  br: props => <Box height="24px" {...props} />,
+  br: (props) => <Box height="24px" {...props} />,
   code: CodeBlock,
-  h1: props => (
-    <Heading
-      as="h1"
-      size="xl"
-      margin="1em 0"
-      textAlign="center"
-      {...props}
-    />),
-  h2: props => (
+  h1: (props) => <Heading as="h1" size="xl" margin="1em 0" {...props} />,
+  h2: (props) => (
     <Heading
       as="h2"
-      fontWeight="semibold"
-      size="lg"
-      margin="1em 0"
-      textAlign="center"
+      fontWeight="normal"
+      fontSize="xl1"
+      margin=".5em 0"
       {...props}
     />
   ),
-  h3: props => (
-    <Heading
-      as="h3"
-      size="md"
-      margin="1em 0"
-      textAlign="center"
-      fontWeight="medium"
-      {...props}
-    />
+  h3: (props) => (
+    <Heading as="h3" margin="1em 0" fontWeight="normal" {...props} />
   ),
-  hr: props => <Box as="hr" borderTopWidth="1px" my={8} {...props} />,
-  inlineCode: props => (
-    <Code
-      color="black"
-      backgroundColor="black"
-      fontSize="0.84em"
-      {...props} />
+  hr: (props) => <Box as="hr" borderTopWidth="1px" my={8} {...props} />,
+  inlineCode: (props) => (
+    <Code color="black" backgroundColor="black" fontSize="0.84em" {...props} />
   ),
   kbd: Kbd,
-  li: props => <Box as="li" pb="4px" {...props} />,
+  li: (props) => <Box as="li" pb="4px" {...props} />,
   navigate,
-  ol: props => <Box as="ol" pt="8px" pl="16px" {...props} />,
-  p: props => (
-    <Text as="p" mt={4} lineHeight="tall" {...props} />
-  ),
+  ol: (props) => <Box as="ol" pt="8px" pl="16px" {...props} />,
+  p: (props) => <Text as="p" mt={4} lineHeight="tall" {...props} />,
   pre: Pre,
   table: Table,
   td: TData,
   th: THead,
-  ul: props => <Box as="ul" pt="8px" pl="16px" {...props} />,
+  ul: (props) => <Box as="ul" pt="8px" pl="16px" {...props} />,
 };
-
