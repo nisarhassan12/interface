@@ -170,26 +170,26 @@
   "testimonials": {
     "title": "What People say about us?",
     "quote1": {
-      "author": "Jhon Doe",
+      "author": "Joe Tuan",
       "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ex adipisci blanditiis quis quidem ducimus providen."
     }
   },
   "in_action": {
     "title": "NeonLaw in Action",
-    "sub_text": "We have been reimagnig legal work for the past 00 Years. Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    "sub_text": "We have been reimaging legal work for the past 5 years."
   },
   "experience": {
     "client_engagements": {
-      "title": "0,000+",
-      "text": "client engagements Lorem, ipsum dolor sit amet dolor."
+      "title": "1,000+",
+      "text": "of client engagements."
     },
     "years": {
-      "title": "10+ Years",
-      "text": "of average experience among our lawyers, Lorem ipsum dolor."
+      "title": "20+ Years",
+      "text": "of combined experience among our lawyers."
     },
     "recommendation_percentage": {
       "title": "99%",
-      "text": "of clients say they would recommend NeonLaw. Lorem ipsum dolor."
+      "text": "of clients say they would recommend Neon Law."
     }
   },
   "pro_bono": {

@@ -15,22 +15,6 @@ export const Testimonials = () => {
   const intl = useIntl();
 
   const testimonails: TestimonialProps[] = [
-    {
-      author: intl.formatMessage({ id: 'testimonials.quote1.author' }),
-      quote: intl.formatMessage({ id: 'testimonials.quote1.text' }),
-    },
-    {
-      author: intl.formatMessage({ id: 'testimonials.quote1.author' }),
-      quote: intl.formatMessage({ id: 'testimonials.quote1.text' }),
-    },
-    {
-      author: intl.formatMessage({ id: 'testimonials.quote1.author' }),
-      quote: intl.formatMessage({ id: 'testimonials.quote1.text' }),
-    },
-    {
-      author: intl.formatMessage({ id: 'testimonials.quote1.author' }),
-      quote: intl.formatMessage({ id: 'testimonials.quote1.text' }),
-    },
   ];
 
   return (
