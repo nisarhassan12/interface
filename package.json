@@ -6,7 +6,8 @@
     "packages/justice-for-rickie-slaughter",
     "packages/delete-your-data",
     "packages/neon-law",
-    "packages/shared-ui"
+    "packages/shared-ui",
+    "packages/infrastructure"
   ],
   "devDependencies": {
     "@graphql-codegen/cli": "^1.17.6",

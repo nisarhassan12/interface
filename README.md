@@ -1,4 +1,4 @@
-# Neon Law Interface
+# Neon Law Codebase
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a9de7883f94a89b722a5/maintainability)](https://codeclimate.com/github/NeonLaw/interface/maintainability)
@@ -39,7 +39,7 @@ all actions should have a corresponding Cypress test.
 
 This application uses Auth0 with two tenants, one for staging/testing, and
 one for our production account. The staging account has the following
-accounts, please contact us at engineering@neonlaw.com should you need to
+accounts, please contact us at support@neonlaw.com should you need to
 access Neon Law as a user.
 
 * portal@neonlaw.com, a user with portal permissions
@@ -70,12 +70,17 @@ the terminal.
 yarn graphql-codegen
 ```
 
-## Third Party SaaS Services
+## Third-Party SaaS Services
 
-This application uses:
+We use these great services in our codebase.
 
-* Zendesk Chat to host chat with visitors
-* Google Maps JavaScript API
+* Zendesk Suite
+* Fathom Analytics
+* Transloadit
+* Auth0
+* Google Cloud Platform
+* SendGrid
+* Xero
 
 ## Staging Environment
 
