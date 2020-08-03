@@ -8,8 +8,8 @@ import { ProBono } from '../components/homepage/pro-bono';
 import { PublicLayout } from '@neonlaw/shared-ui/src/layouts/publicLayout';
 import React from 'react';
 import { Seo } from '../components/seo';
-import { SocialProofLogos } from '../components/homepage/social-proof-logos';
-import { Testimonials } from '../components/homepage/testimonials';
+// import { SocialProofLogos } from '../components/homepage/social-proof-logos';
+// import { Testimonials } from '../components/homepage/testimonials';
 import {
   WhatWeCanHelpWith
 } from '../components/homepage/what-we-can-help-with';
@@ -18,7 +18,7 @@ import { colors } from '@neonlaw/shared-ui/src/themes/neonLaw';
 import { useColorMode } from '@chakra-ui/core';
 import { useIntl } from 'gatsby-plugin-intl';
 
-const Home = () => {
+const Home = (): JSX.Element => {
   const { colorMode } = useColorMode();
   const intl = useIntl();
 
@@ -42,8 +42,8 @@ const Home = () => {
         />
         <WhyNeonLaw />
         <WhatWeCanHelpWith />
-        <SocialProofLogos />
-        <Testimonials />
+        {/* <SocialProofLogos />
+        <Testimonials /> */}
         <InAction />
         <Experience />
         <ProBono />
