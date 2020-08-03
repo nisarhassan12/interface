@@ -101,3 +101,38 @@ jobs:
       - name: Build application
         run: yarn build
         working-directory: ./packages/delete-your-data
+  api_test_suite:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+          POSTGRES_HOST: localhost
+          POSTGRES_DB: neon_law
+        ports:
+          - 5432:5432
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Dependencies.
+        run: yarn install
+      - name: Run Migrations
+        run: yarn migrate
+        env:
+          DATABASE_URL: postgres://postgres:password@localhost:5432/neon_law
+      - name: Run PGRita checks
+        uses: pgrita/action@main
+        env:
+          PGRITA_TOKEN: ${{ secrets.PGLINT_TOKEN }}
+          DATABASE_URL: postgres://postgres:password@127.0.0.1/postgres
+        with:
+          project: neonlaw/logic
+      - name: Test & publish code coverage
+        uses: paambaati/codeclimate-action@v2.5.5
+        env:
+          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
+          DATABASE_URL: postgres://postgres:password@localhost:5432/neon_law
+        with:
+          coverageCommand: yarn test
