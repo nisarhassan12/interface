@@ -2,13 +2,15 @@
   "private": true,
   "workspaces": [
     "packages/api",
-    "packages/law-job-resources",
-    "packages/legal-layouts",
-    "packages/justice-for-rickie-slaughter",
     "packages/delete-your-data",
+    "packages/infrastructure",
+    "packages/justice-for-rickie-slaughter",
+    "packages/law-job-resources",
+    "packages/legal-templates",
     "packages/neon-law",
-    "packages/shared-ui",
-    "packages/infrastructure"
+    "packages/print",
+    "packages/questions",
+    "packages/shared-ui"
   ],
   "devDependencies": {
     "@graphql-codegen/cli": "^1.17.6",

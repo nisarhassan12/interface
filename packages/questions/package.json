@@ -1,6 +1,6 @@
 {
-  "name": "@neonlaw/legal-layouts",
-  "description": "Shared logic for Neon Law Interfaces",
+  "name": "@neonlaw/legal-templates",
+  "description": "Questions and questionnaires to gather information. Not Legal Advice.",
   "version": "0.1.0",
   "author": "@neonlaw",
   "license": "PolyForm-Noncommercial-1.0.0",
