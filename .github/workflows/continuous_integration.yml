@@ -124,7 +124,6 @@ jobs:
           DATABASE_URL: postgres://postgres:password@localhost:5432/neon_law
         with:
           coverageCommand: yarn test
-          working-directory: ./packages/api
       - name: Run PGRita checks
         uses: pgrita/action@main
         env:
