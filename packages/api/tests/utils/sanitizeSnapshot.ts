@@ -17,7 +17,17 @@ beforeEach(() => {
  */
 
 export const sanitize = (json: any): any => {
-  /* This allows us to maintain stable references whilst dealing with variable values */
+  /*
+   * This allows us to maintain stable references whilst dealing with variable
+   * values
+   * @param value
+   * @param type
+   */
+
+  /**
+   * @param value
+   * @param type
+   */
   function mask(value: unknown, type: string) {
     if (!known[type]) {
       known[type] = { counter: 0, values: new Map() };

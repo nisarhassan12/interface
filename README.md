@@ -72,15 +72,18 @@ yarn graphql-codegen
 
 ## Third-Party SaaS Services
 
-We use these great services in our codebase.
+We use these great software vendors in our codebase.
 
-* Zendesk Suite
-* Fathom Analytics
-* Transloadit
 * Auth0
+* Fathom Analytics
+* GitHub
 * Google Cloud Platform
+* Code Climate
+* Postgraphile
 * SendGrid
+* Transloadit
 * Xero
+* Zendesk Suite
 
 ## Staging Environment
 
