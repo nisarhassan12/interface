@@ -90,7 +90,7 @@ export const UpwardMobilityQuestionnaire = (props: any) => {
     <>
       <Box borderWidth="1px" rounded="lg">
         <Progress value={calculateProgress(question.id, decisionTree)} />
-        <Box padding="1em 3em">
+        <Box>
           {question.questionType === 'single-choice' && (
             <SingleChoiceQuestion
               updateAnswers={updateAnswers}

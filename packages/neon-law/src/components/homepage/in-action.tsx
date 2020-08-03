@@ -5,12 +5,12 @@ import InActionBG from '../../images/in-action-bg.jpg';
 import React from 'react';
 import { useIntl } from 'gatsby-plugin-intl';
 
-export const InAction = () => {
+export const InAction = (): JSX.Element => {
   const intl = useIntl();
 
   return (
     <Box
-      as="section"
+      as="div"
       textAlign="center"
       background={`
         linear-gradient(rgba(0,0,0, .7), rgba(0,0,0, .9)),
