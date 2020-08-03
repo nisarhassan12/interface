@@ -72,15 +72,19 @@ yarn graphql-codegen
 
 ## Third-Party SaaS Services
 
-We use these great software vendors in our codebase.
+To help us write into this repository and run our business, we use these
+software:
 
 * Auth0
+* Casetext
+* Code Climate
 * Fathom Analytics
+* G Suite
 * GitHub
 * Google Cloud Platform
-* Code Climate
 * Postgraphile
 * SendGrid
+* Terraform Cloud
 * Transloadit
 * Xero
 * Zendesk Suite

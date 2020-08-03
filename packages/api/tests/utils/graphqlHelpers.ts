@@ -1,7 +1,10 @@
-import * as faker from 'faker';
+/* eslint-disable */
+// @ts-nocheck
+/* eslint-enable */
 import { afterAll, expect } from '@jest/globals';
 import { createPostGraphileSchema, withPostGraphQLContext } from 'postgraphile';
 import { Pool } from 'pg';
+import { default as faker } from 'faker';
 import { graphql } from 'graphql';
 import { postgraphileOptions } from './../../src/api/postgraphileOptions';
 import { postgresUrl } from './../../src/api/postgresUrl';
