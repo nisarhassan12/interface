@@ -2,6 +2,7 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "declaration": true,
+    "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
@@ -13,15 +14,17 @@
       "es6",
       "es2015.promise"
     ],
-    "module": "commonjs",
     "moduleResolution": "node",
+    "noImplicitAny": false,
     "outDir": "./build",
     "skipLibCheck": true,
-    "sourceMap": false,
-    "noImplicitAny": false,
-    "suppressImplicitAnyIndexErrors": true,
+    "sourceMap": true,
     "strict": true,
+    "suppressImplicitAnyIndexErrors": true,
     "target": "esnext",
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
   },
   "include": [
     "packages/**/*"
@@ -29,7 +32,6 @@
   "exclude": [
     "node_modules",
     "build",
-    "**/*.test.tsx",
     "packages/neon-law/cypress"
   ],
 }
