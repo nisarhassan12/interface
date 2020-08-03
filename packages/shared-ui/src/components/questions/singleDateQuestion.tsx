@@ -1,6 +1,8 @@
-import { Box, Button, Text } from '@chakra-ui/core';
+import { Box, Button, Heading } from '@chakra-ui/core';
 import React, { useState } from 'react';
+
 import DatePicker from 'react-datepicker';
+import { Section } from '../section';
 import { navigate } from 'gatsby-plugin-intl';
 import { useIntl } from 'gatsby-plugin-intl';
 
@@ -36,21 +38,26 @@ export const SingleDateQuestion = ({
 
   return (
     <Box>
-      <Text>{prompt}</Text>
-      <DatePicker
-        selected={chosenDate}
-        onChange={date => setChosenDate(date)}
-      />
-      <Button
-        margin="1em 0"
-        onClick={() => {
-          updateAnswers(id, chosenDate);
+      <Section>
+        <Heading as="h3" fontWeight="normal" margin="4.5rem 0 1rem">
+          {prompt}
+        </Heading>
+        <DatePicker
+          selected={chosenDate}
+          onChange={(date) => setChosenDate(date)}
+        />
+        <br />
+        <Button
+          margin="1em 0"
+          onClick={() => {
+            updateAnswers(id, chosenDate);
 
-          navigate(nextStepPath());
-        }}
-      >
-        {intl.formatMessage({ id: 'components_questions.submit' })}
-      </Button>
+            navigate(nextStepPath());
+          }}
+        >
+          {intl.formatMessage({ id: 'components_questions.submit' })}
+        </Button>
+      </Section>
     </Box>
   );
 };
