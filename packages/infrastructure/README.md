@@ -89,13 +89,3 @@ Not all of our infrastructure is in Terraform. This repo also has:
 * A script to delete old GCP Registry Images since that's not supported
   by GCP yet
 * Global IP Addresses, which are not currently supported in GCP.
-
-## Code of Conduct
-
-If you'd like to contribute to this repository, please read our [code of
-conduct](CODE_OF_CONDUCT.md) attached.
-
-## Legal
-
-Copyright 2020 Neon Law. Licensed under the [Polyform Noncommercial License
-1.0.0](LICENSE.md).
