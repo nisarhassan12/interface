@@ -81,3 +81,5 @@ packages/justice-for-rickie-slaughter/static/fonts/**
 
 *.tfstate
 *.tfstate.backup
+
+neon_law.egg-info/

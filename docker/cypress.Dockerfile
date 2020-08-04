@@ -8,7 +8,9 @@ RUN cd packages/neon-law && \
   GATSBY_API_URL="http://127.0.0.1:3000/graphql" \
   yarn build
 
-WORKDIR /app/packages/neon-law
+RUN cd packages/$APP_NAME && yarn build
+
+WORKDIR /app/packages/$APP_NAME
 
 EXPOSE 8000
 

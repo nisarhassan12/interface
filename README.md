@@ -8,67 +8,60 @@
 [![Staging](https://github.com/neonlaw/interface/workflows/staging/badge.svg)](https://github.com/NeonLaw/interface/actions?query=workflow%3Astaging)
 [![Production](https://github.com/neonlaw/interface/workflows/production/badge.svg)](https://github.com/NeonLaw/interface/actions?query=workflow%3Aproduction)
 
-This repository contains code for the following websites:
+This is a monorepo containing three, top-level packages:
 
-* Deployed from the `development` branch
-  * www.neonlaw.net
-  * www.lawjobresources.net
-  * www.deleteyourdata.info
-* Deployed from the `production` branch
-  * www.neonlaw.com
-  * www.lawjobresources.com
-  * www.deleteyourdata.com
-  * www.justiceforrickieslaughter.com
+* A Yarn Workspace, declared at `package.json` and with packages at
+  `./packages`, which contains the bulk of our code.
+* A collection of Terraform modules located in the `./infrastructure` folder,
+  for building out our Cloud Computing.
+* A Python module, declared at `pyproject.toml` and with code at `./neon_law`
+  and tests at `./tests`, which contains our NLP work and other tasks we feel
+  are well-suited for Python and its ecosystem.
+
+And build files, including a folder of `Dockerfile`s and `entrypoint` shell
+scripts, located at `./docker`, and `docker-compose` files for local
+development and CI located at the project root.
 
 ## Running Locally
 
-You must have node installed on your machine and yarn as a global node package.
+We recommend developing with a containerized setup that best mimic our staging
+and production process. If you have docker and docker-compose installed on
+your machine, you can follow these two steps to start developing.
+
+1. Ensure that you have the proper environment variables.
+
+2. Start Docker Compose
 
 ```bash
-yarn
-yarn e2e-test
+docker-compose up
 ```
 
-Then navigate to `http://127.0.0.1:8000` to see the website ran on your
-machine. We recommend starting the development server with `e2e-test` because
-all actions should have a corresponding Cypress test.
+This starts the following containers:
 
-> You must be connected to the Internet to work on this application.
+* A shell container that you can use via `docker exec -it shell /bin/bash`
+* Web Servers for:
+  * NeonLaw.com (http://127.0.0.1:8000)
+  * LawJobResources.com (http://127.0.0.1:5000)
+  * DeleteYourData.com (http://127.0.0.1:6000)
+  * JusticeForRickieSlaughter.com (http://127.0.0.1:7000)
+  * The NeonLaw API (http://127.0.0.1:3000)
+* A Language Tool server for grammar correction in your Editor. We recommend
+  VSCode and the Language Tool extension for VSCode.
 
 ## Authentication
 
-This application uses Auth0 with two tenants, one for staging/testing, and
+This application uses Auth0 with two tenants, one for staging/development, and
 one for our production account. The staging account has the following
-accounts, please contact us at support@neonlaw.com should you need to
-access Neon Law as a user.
+accounts, please contact us at support@neonlaw.com should you need these
+passwords to develop the authenticated portions of our application.
 
 * portal@neonlaw.com, a user with portal permissions
 * lawyer@neonlaw.com, a user with lawyer permissions
 * admin@neonlaw.com, a user with admin permissions
 
-## Working on this Repo
-
-We welcome any contributions to this repo and are humbled you would dedicate
-the time to improve this project. To create a PR to this repo, please do the
-following:
-
-* Fork this repo
-* Create a PR to the `development` branch
-
-By making a PR, you consent that all resultant code shall be open sourced
-under the same Apache License Version 2.0 that this repo is.
-
-## Autogenerating server methods
-
-We use `graphql-codegen` to generate automatic functions for I/O to our
-backend, api.neonlaw.com (or api.neonlaw.net) for Apollo Client.
-
-To update the latest API methods based off the server you can run this from
-the terminal.
-
-```
-yarn graphql-codegen
-```
+Read our blog post about
+[Authorization](https://www.neonlaw.com/blog/authorization) to learn more about
+these roles.
 
 ## Third-Party SaaS Services
 
@@ -89,27 +82,18 @@ software:
 * Xero
 * Zendesk Suite
 
-## Staging Environment
+## Continuous Integration and Deployment
 
-The staging environment is hosted at https://www.neonlaw.net has a layer of
-HTTP Basic authentication, to get those credentials, please contact us at
-support@neonlaw.com.
+Our app uses a series of GitHub Actions Workflows to run a suite of automated
+tests and linters. You can find these tests
+[here](https://github.com/neonlaw/codebase).
 
-Then enter in the password when prompted.
+On pushes to the `development` branch, our staging environment is updated.
 
-## Local Development
-
-By default, the local development environment is wired up to talk to the
-staging version of our API hosted at https://api.neonlaw.net. If you require
-a localized development environment, you can set `GATSBY_API_URL` to
-`http://localhost:3000/graphql` and start a localized version of the API
-environment via `docker-compose up`.
-
-## Project Management
-
-Is tracked on GitHub
+On pushes to the `production` branch, our production environment is updated.
 
 ## Legal
 
 Copyright 2020 Neon Law. Licensed under the [Polyform Noncommercial License
-1.0.0](LICENSE.md).
+1.0.0](LICENSE.md). Please contact us if you have any questions at
+support@neonlaw.com.

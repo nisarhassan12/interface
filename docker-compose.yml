@@ -1,6 +1,14 @@
 ---
 version: "3.8"
 
+x-common-variables: &shared-variables
+  DATABASE_URL: postgres://postgres:password@postgres:5432/neon_law
+  AUTH0_CLIENT_ID: $AUTH0_CLIENT_ID
+  AUTH0_CLIENT_SECRET: $AUTH0_CLIENT_SECRET
+  AUTH0_TENANT: neon-law-testing
+  NODE_ENV: production
+  SHOW_GRAPHIQL: "true"
+
 services:
   postgres:
     image: postgres:11
@@ -8,26 +16,51 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
-      POSTGRES_HOST: localhost
       POSTGRES_DB: neon_law
     restart: unless-stopped
     logging:
       driver: none
 
-  logic:
-    image: neonlaw/logic
-    container_name: logic
+  api:
+    build:
+      context: ./packages/api
+      dockerfile: ./dev.Dockerfile
     restart: unless-stopped
     ports:
       - 3000:3000
     depends_on:
       - postgres
     environment:
-      - DATABASE_URL=postgres://postgres:password@postgres:5432/neon_law
-      - AUTH0_CLIENT_ID=$AUTH0_CLIENT_ID
-      - AUTH0_CLIENT_SECRET=$AUTH0_CLIENT_SECRET
-      - AUTH0_TENANT=neon-law-testing
-      - NODE_ENV=production
-      - SHOW_GRAPHIQL=true
+      <<: *shared-variables
+
+  language-tool:
+    image: silviof/docker-languagetool
+    restart: unless-stopped
     logging:
       driver: none
+    ports:
+      - 8001:8010
+
+  shell:
+    build:
+      context: ./
+      dockerfile: ./dev.Dockerfile
+    container_name: shell
+    depends_on:
+      - postgres
+      - api
+    volumes:
+      - ./:/usr/src/app
+    environment:
+      <<: *shared-variables
+      NODE_ENV: test
+    restart: unless-stopped
+
+  neon_law_interface:
+    build:
+      context: ./
+      dockerfile: ./staging.Dockerfile
+    depends_on:
+      - api
+    ports:
+      - 8000:80
