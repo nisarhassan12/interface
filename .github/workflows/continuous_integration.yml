@@ -15,12 +15,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install Dependencies.
-        run: yarn install --ignore-optional
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12"
+      - uses: actions/setup-python@v1
+        with:
+          python-version: "3.8"
+      - uses: dschep/install-poetry-action@v1.3
+      - name: Install third-party dependencies.
+        run: |
+          yarn install --ignore-optional
+          poetry install
       - name: Run Markdown Linting.
         run: yarn markdown-lint
       - name: Run JavaScript Linting.
         run: yarn javascript-lint
+      - name: Run Python Linting.
+        run: poetry run black --check .
       # - name: Run TypeScript Type Checking.
       #   run: yarn check-types
       # - name: |
@@ -47,7 +58,7 @@ jobs:
       - name: Run Cypress tests with built application
         uses: cypress-io/github-action@v1
         with:
-          start: docker-compose -f ../../neon-law-cypress-docker-compose.yml up
+          start: docker-compose -f ../../cypress-docker-compose.yml up
           wait-on: "http://127.0.0.1:8000"
           wait-on-timeout: 1200
           working-directory: ./packages/neon-law

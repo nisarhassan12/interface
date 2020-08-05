@@ -35,7 +35,7 @@ services:
   interface:
     build:
       context: ./
-      dockerfile: ./neon-law-cypress.Dockerfile
+      dockerfile: ./docker/cypress.Dockerfile
     depends_on:
       - logic
     ports:

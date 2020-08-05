@@ -3,7 +3,6 @@
   "workspaces": [
     "packages/api",
     "packages/delete-your-data",
-    "packages/infrastructure",
     "packages/justice-for-rickie-slaughter",
     "packages/law-job-resources",
     "packages/legal-templates",
