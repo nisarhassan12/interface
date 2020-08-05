@@ -1,5 +1,7 @@
-.cache/
-build/
-node_modules/
-public/
+.cache
+build
+node_modules
+public
 README.md
+neon_law.egg-info
+yarn-error.log
