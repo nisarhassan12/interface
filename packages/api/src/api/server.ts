@@ -2,7 +2,7 @@ import 'dotenv/config';
 
 import cors from 'cors';
 import express from 'express';
-import jwksRsa from 'jwks-rsa';
+import { expressJwtSecret } from 'jwks-rsa';
 import jwt from 'express-jwt';
 import { postgraphile } from 'postgraphile';
 import { postgraphileOptions } from './postgraphileOptions';
@@ -13,7 +13,7 @@ const checkJwt = jwt({
   audience: 'https://api.neonlaw.com',
   credentialsRequired: false,
   issuer: `https://${process.env.AUTH0_TENANT}/`,
-  secret: jwksRsa.expressJwtSecret({
+  secret: expressJwtSecret({
     cache: true,
     jwksRequestsPerMinute: 5,
     jwksUri:
@@ -24,7 +24,6 @@ const checkJwt = jwt({
 
 const app = express();
 app.use(cors());
-
 
 app.get('/', function (_, res) {
   res.send('Neon Law API');

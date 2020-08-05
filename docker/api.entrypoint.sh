@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 if [ -d "/secrets" ]; then
   # Load secrets from Google K8 Secrets and wait for Google SQL Proxy to start
@@ -14,6 +15,9 @@ else
 fi
 
 yarn
+
+cd ./packages/api
+
 yarn migrate
 
 exec "$@"
