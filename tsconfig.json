@@ -39,6 +39,7 @@
     "./packages/**/*.test.ts",
     "./packages/api/tests/utils/dbHelpers.ts",
     "./packages/api/tests/utils/sanitizeSnapshot.ts",
-    "./packages/**/*.test.tsx"
+    "./packages/**/*.test.tsx",
+    "./packages/api/src/api/server.ts"
   ],
 }
