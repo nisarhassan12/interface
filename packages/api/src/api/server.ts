@@ -2,8 +2,8 @@ import 'dotenv/config';
 
 import cors from 'cors';
 import express from 'express';
-import jwt from 'express-jwt';
 import { expressJwtSecret } from 'jwks-rsa';
+import jwt from 'express-jwt';
 import { postgraphile } from 'postgraphile';
 import { postgraphileOptions } from './postgraphileOptions';
 import { postgresUrl } from './postgresUrl';
