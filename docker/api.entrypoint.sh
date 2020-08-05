@@ -15,8 +15,9 @@ else
 fi
 
 yarn
-yarn migrate
 
 cd ./packages/api
+
+yarn migrate
 
 exec "$@"

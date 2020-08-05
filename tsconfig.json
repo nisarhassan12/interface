@@ -28,13 +28,17 @@
     ]
   },
   "include": [
-    "packages/**/*"
+    "./packages/**/*"
   ],
   "exclude": [
-    "node_modules",
-    "build",
-    "packages/neon-law/cypress",
-    "packages/api/tests/utils/graphqlHelpers.ts",
-    "packages/shared-ui/src/utils/api.tsx"
+    "./node_modules",
+    "./build",
+    "./packages/neon-law/cypress",
+    "./packages/api/tests/utils/graphqlHelpers.ts",
+    "./packages/shared-ui/src/utils/api.tsx",
+    "./packages/**/*.test.ts",
+    "./packages/api/tests/utils/dbHelpers.ts",
+    "./packages/api/tests/utils/sanitizeSnapshot.ts",
+    "./packages/**/*.test.tsx"
   ],
 }
