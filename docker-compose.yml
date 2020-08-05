@@ -23,8 +23,8 @@ services:
 
   api:
     build:
-      context: ./packages/api
-      dockerfile: ./dev.Dockerfile
+      context: ./
+      dockerfile: ./docker/api.Dockerfile
     restart: unless-stopped
     ports:
       - 3000:3000
@@ -44,7 +44,7 @@ services:
   shell:
     build:
       context: ./
-      dockerfile: ./dev.Dockerfile
+      dockerfile: ./docker/shell.Dockerfile
     container_name: shell
     depends_on:
       - postgres
@@ -55,12 +55,3 @@ services:
       <<: *shared-variables
       NODE_ENV: test
     restart: unless-stopped
-
-  neon_law_interface:
-    build:
-      context: ./
-      dockerfile: ./staging.Dockerfile
-    depends_on:
-      - api
-    ports:
-      - 8000:80
