@@ -13,18 +13,14 @@ RUN \
   npm i -g npm@^6 && \
   rm -rf /var/lib/apt/lists/*
 
-ENV DATABASE_URL $DATABASE_URL
-ENV SHADOW_DATABASE_URL $SHADOW_DATABASE_URL
-ENV NODE_ENV $NODE_ENV
-ENV SHOW_GRAPHIQL $SHOW_GRAPHIQL
+ARG APP_NAME
 
 WORKDIR /app
+ADD . ./
+RUN yarn install --ignore-optional --silent
 
-COPY package.json .
-RUN yarn install
+EXPOSE 8000
 
-COPY . .
+ENTRYPOINT [ "./docker/interface.entrypoint.sh" ]
 
-EXPOSE 3000
-ENTRYPOINT [ "./docker/api.entrypoint.sh" ]
-CMD [ "yarn", "workspace", "@neonlaw/api", "start" ]
+CMD [ "yarn", "workspace", "@neonlaw/${APP_NAME}", "start" ]

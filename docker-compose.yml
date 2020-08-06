@@ -2,10 +2,10 @@
 version: "3.8"
 
 x-common-variables: &shared-variables
-  DATABASE_URL: postgres://postgres:password@postgres:5432/neon_law
   AUTH0_CLIENT_ID: $AUTH0_CLIENT_ID
   AUTH0_CLIENT_SECRET: $AUTH0_CLIENT_SECRET
   AUTH0_TENANT: neon-law-testing
+  DATABASE_URL: postgres://postgres:password@postgres:5432/neon_law
   GOOGLE_APPLICATION_CREDENTIALS: $GOOGLE_APPLICATION_CREDENTIALS
   NODE_ENV: production
   SHOW_GRAPHIQL: "true"
@@ -30,11 +30,67 @@ services:
     ports:
       - 3000:3000
     depends_on:
-      - postgres
+      - shell
     volumes:
-      - ./:/usr/src/app
+      - ./:/app:ro
     environment:
       <<: *shared-variables
+
+  neon_law:
+    build:
+      context: ./
+      dockerfile: ./docker/development.interface.Dockerfile
+      args:
+        APP_NAME: neon-law
+    restart: always
+    depends_on:
+      - shell
+    ports:
+      - 8000:8000
+    volumes:
+      - ./:/app:ro
+
+  law_job_resources:
+    build:
+      context: ./
+      dockerfile: ./docker/development.interface.Dockerfile
+      args:
+        APP_NAME: law-job-resources
+    restart: always
+    depends_on:
+      - shell
+    ports:
+      - 5000:8000
+    volumes:
+      - ./:/app:ro
+
+  justice_for_rickie_slaughter:
+    build:
+      context: ./
+      dockerfile: ./docker/development.interface.Dockerfile
+      args:
+        APP_NAME: justice-for-rickie-slaughter
+    restart: always
+    depends_on:
+      - shell
+    ports:
+      - 7000:8000
+    volumes:
+      - ./:/app:ro
+
+  delete_your_data:
+    build:
+      context: ./
+      dockerfile: ./docker/development.interface.Dockerfile
+      args:
+        APP_NAME: delete-your-data
+    restart: always
+    depends_on:
+      - shell
+    ports:
+      - 6000:8000
+    volumes:
+      - ./:/app:ro
 
   language-tool:
     image: silviof/docker-languagetool
@@ -51,10 +107,13 @@ services:
     container_name: shell
     depends_on:
       - postgres
-      - api
     volumes:
-      - ./:/usr/src/app
+      - ./:/app
     environment:
       <<: *shared-variables
       NODE_ENV: test
+      CYPRESS_AUTH_URL: $CYPRESS_AUTH_URL
+      CYPRESS_AUDIENCE_URL: $CYPRESS_AUDIENCE_URL
+      CYPRESS_AUTH_CLIENT_ID: $CYPRESS_AUTH_CLIENT_ID
+      CYPRESS_AUTH_CLIENT_SECRET: $CYPRESS_AUTH_CLIENT_SECRET
     restart: unless-stopped

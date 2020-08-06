@@ -40,7 +40,7 @@ docker exec -it api /bin/bash
 ```
 
 Once that command is executed, you should see a new bash session at
-`/usr/src/app`.
+`/app`.
 
 From there, you can run `yarn run graphile-migrate watch` and make changes to
 the `migrations/current.sql` file. At first, it may seem unusual to have a

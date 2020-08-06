@@ -16,10 +16,9 @@ RUN \
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
 ENV PATH "/root/.poetry/bin:/opt/venv/bin:${PATH}"
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY package.json .
-COPY yarn.lock .
 RUN yarn install
 
 COPY pyproject.toml .

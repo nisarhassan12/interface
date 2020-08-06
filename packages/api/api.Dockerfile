@@ -5,7 +5,7 @@ RUN apt-get update -qq &&\
   apt-get clean &&\
   rm -rf /var/lib/apt/lists/**
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Environment variables needed to run this API
 ENV DATABASE_URL $DATABASE_URL

@@ -22,7 +22,7 @@ services:
     depends_on:
       - postgres
     volumes:
-      - ./:/usr/src/app
+      - ./:/app
     ports:
       - 3000:3000
     environment:
@@ -54,7 +54,7 @@ services:
       - postgres
       - api
     volumes:
-      - ./:/usr/src/app
+      - ./:/app
     environment:
       - DATABASE_URL=postgres://postgres:password@postgres:5432/neon_law
       - SHADOW_DATABASE_URL=postgres://postgres:password@postgres:5432/neon_law_shadow
