@@ -7,7 +7,9 @@ if [ -d "/secrets" ]; then
   export AUTH0_CLIENT_SECRET=$(cat /secrets/AUTH0_CLIENT_SECRET) &&\
   export AUTH0_TENANT=$(cat /secrets/AUTH0_TENANT)
 
-  # Intentionally sleep
+  export GOOGLE_APPLICATION_CREDENTIALS="/credentials/credentials.json"
+
+  # Intentionally sleep for SQL Proxy to start
   sleep 2
 else
   # Wait for postgres to start

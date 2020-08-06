@@ -17,6 +17,9 @@ variable region {
 variable sql_proxy_secret_name {
 }
 
+variable logic_secret_name {
+}
+
 variable master_database_password {
 }
 

@@ -2,10 +2,10 @@
 
 ## Terraform
 
-This repository contains a series of Terraform modules to deploy our
-infrastructure on Google Cloud. On each
-push our private project on [Terraform Cloud](https://api.terraform.io)
-applies the changes to our GCP Projects.
+This folder contains a series of Terraform modules to deploy our
+infrastructure on Google Cloud. On each push our private project on
+[Terraform Cloud](https://api.terraform.io) applies the changes to our GCP
+Projects.
 
 ## Step 0 - Manual setup before creating Terraform modules.
 
@@ -23,6 +23,13 @@ perform the following steps using the GCP Console.
 * Create a service account for GitHub Actions with Project Editor permissions
   * Store the Credentials JSON file as the envvar `STAGING_GCP_CREDENTIALS` in
     our GitHub organization
+* Create a service account for our backend code with permissions to access the
+  speech-to-text api.
+  * Store the Credentials JSON file as the envvar `logic_gcp_credentials` in
+    the `staging-kubernetes` and `production-kubernetes` Terraform Cloud
+    workpsaces.
+* Create a global IP, named `neon-law`. Reserved global IPs are not supported
+  in GCP Terraform.
 * Enable the following APIs in the GCP Console
   * Google Cloud SQL Admin API
   * Cloud Resource Manager API
@@ -30,6 +37,7 @@ perform the following steps using the GCP Console.
   * Container Registry API
   * Service Networking API
   * Kubernetes Engine API
+  * Speech-to-Text API
 
 ## Step 1 - the Staging GCP Module
 
@@ -58,10 +66,6 @@ steps before proceeding to the next step:
 After creating the Staging GCP module and adding the necessary environment
 variables, you are now ready to create the `staging-kubernetes` workspace.
 
-After creating the Terraform workspace and queuing a job, you will need to
-change the healthcheck for the `interface-ingress` module to use `/health`
-instead of `/`.
-
 Additionally, you are now ready to make DNS entries to point records at
 neonlaw.net to the ingress IPs for the `interface` and `api` ingresses
 respectively. We use Google Domains as our DNS registrar/hosting service and
@@ -79,13 +83,3 @@ Terraform workspace.
 This is the same as step 2, instead now it is for the production instances
 using the `neon-law-production` GCP project. Ensure that after this is
 complete, you make the proper DNS entries
-
-## Non-Terraform Resources
-
-Not all of our infrastructure is in Terraform. This repo also has:
-
-* Custom Resource Definitions (at this time only supported in the alpha
-  version of the Terraform-K8 Provider)
-* A script to delete old GCP Registry Images since that's not supported
-  by GCP yet
-* Global IP Addresses, which are not currently supported in GCP.
