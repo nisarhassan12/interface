@@ -28,4 +28,4 @@ COPY . .
 
 EXPOSE 3000
 ENTRYPOINT [ "./docker/api.entrypoint.sh" ]
-CMD [ "yarn", "start" ]
+CMD [ "yarn", "workspace", "@neonlaw/api", "start" ]

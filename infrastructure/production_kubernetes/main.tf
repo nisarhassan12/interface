@@ -36,6 +36,12 @@ module "third_party_saas_kubernetes_secret" {
   auth0_tenant        = "auth.neonlaw.com"
 }
 
+module "logic_kubernetes_secret" {
+  source       = "../modules/kubernetes_secret"
+  secret_name  = "sql-proxy-service-account-token"
+  secret_value = var.sql_proxy_gcp_credentials
+}
+
 module "api_deployment" {
   source                       = "../modules/api_deployment"
   app_name                     = "api"

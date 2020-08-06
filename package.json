@@ -9,7 +9,8 @@
     "packages/neon-law",
     "packages/print",
     "packages/questions",
-    "packages/shared-ui"
+    "packages/shared-ui",
+    "packages/speech-to-text"
   ],
   "devDependencies": {
     "@graphql-codegen/cli": "^1.17.6",

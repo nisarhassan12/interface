@@ -15,9 +15,6 @@ else
 fi
 
 yarn
-
-cd ./packages/api
-
-yarn migrate
+yarn workspace @neonlaw/api migrate
 
 exec "$@"

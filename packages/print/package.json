@@ -1,6 +1,6 @@
 {
   "name": "@neonlaw/print",
-  "description": "Shared logic for Neon Law Interfaces",
+  "description": "Logic for printing Neon Law Legal Writing",
   "version": "0.1.0",
   "author": "@neonlaw",
   "license": "PolyForm-Noncommercial-1.0.0",
@@ -14,8 +14,6 @@
     "@mdx-js/mdx": "^1.6.16",
     "@mdx-js/react": "^1.6.14",
     "@reach/router": "^1.3.4",
-    "apollo-boost": "^0.4.9",
-    "apollo-link-context": "^1.0.20",
     "emotion-theming": "^10.0.27",
     "eslint-plugin-jsdoc": "^30.1.0",
     "graphql-tag": "^2.11.0",
