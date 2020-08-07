@@ -1,7 +1,7 @@
 import * as faker from 'faker';
 import { Pool } from 'pg';
 import { afterAll } from '@jest/globals';
-import { postgresUrl } from '../../src/api/postgresUrl';
+import { postgresUrl } from '../../src/postgresUrl';
 
 const pools: any = {};
 

@@ -7,17 +7,14 @@ if [ -d "/secrets" ]; then
   export AUTH0_CLIENT_SECRET=$(cat /secrets/AUTH0_CLIENT_SECRET) &&\
   export AUTH0_TENANT=$(cat /secrets/AUTH0_TENANT)
 
-  # Intentionally sleep
-  sleep 2
-else
-  # Wait for postgres to start
-  while ! nc -z postgres 5432; do sleep 1; done;
+  export GOOGLE_APPLICATION_CREDENTIALS="/credentials/credentials.json"
+
 fi
 
+# Intentionally sleep for SQL Proxy and/or Postgres to start
+sleep 2
+
 yarn
-
-cd ./packages/api
-
-yarn migrate
+yarn workspace @neonlaw/api migrate
 
 exec "$@"

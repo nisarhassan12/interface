@@ -36,6 +36,12 @@ module "third_party_saas_kubernetes_secret" {
   auth0_tenant        = "auth.neonlaw.com"
 }
 
+module "logic_kubernetes_secret" {
+  source       = "../modules/kubernetes_secret"
+  secret_name  = "logic"
+  secret_value = var.logic_gcp_credentials
+}
+
 module "api_deployment" {
   source                       = "../modules/api_deployment"
   app_name                     = "api"
@@ -46,6 +52,7 @@ module "api_deployment" {
   region                       = data.terraform_remote_state.production_gcp.outputs.region
   sql_proxy_secret_name        = module.sql_proxy_kubernetes_secret.name
   third_party_saas_secret_name = module.third_party_saas_kubernetes_secret.name
+  logic_secret_name            = module.logic_kubernetes_secret.name
   master_database_password     = var.master_database_password
 }
 

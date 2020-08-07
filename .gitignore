@@ -83,3 +83,5 @@ packages/justice-for-rickie-slaughter/static/fonts/**
 *.tfstate.backup
 
 neon_law.egg-info/
+pyproject.tmp
+setup.py

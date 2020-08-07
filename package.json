@@ -6,10 +6,11 @@
     "packages/justice-for-rickie-slaughter",
     "packages/law-job-resources",
     "packages/legal-templates",
-    "packages/neon-law",
+    "packages/interface",
     "packages/print",
     "packages/questions",
-    "packages/shared-ui"
+    "packages/shared-ui",
+    "packages/speech-to-text"
   ],
   "devDependencies": {
     "@graphql-codegen/cli": "^1.17.6",

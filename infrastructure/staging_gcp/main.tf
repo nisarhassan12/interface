@@ -41,12 +41,6 @@ module "kubernetes_cluster" {
   project_id = var.project_id
 }
 
-# THIS DOES NOT WORK FOR GLOBAL ADDRESSES YET
-# module "static_ip" {
-#   source    = "../modules/static_ip"
-#   name   = "neon-law"
-# }
-
 module "neon-law-ssl-certificate" {
   source           = "../modules/ssl_certificate"
   certificate_name = "neon-law"

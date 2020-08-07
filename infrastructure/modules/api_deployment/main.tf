@@ -60,6 +60,12 @@ resource "kubernetes_deployment" "api" {
             read_only  = true
             mount_path = "/secrets/"
           }
+
+          volume_mount {
+            name       = var.logic_secret_name
+            read_only  = true
+            mount_path = "/credentials/"
+          }
         }
 
         container {
