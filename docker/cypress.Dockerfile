@@ -3,12 +3,12 @@ FROM node:12
 WORKDIR /app
 ADD . ./
 RUN yarn install
-RUN cd packages/neon-law && \
+RUN cd packages/interface && \
   GATSBY_ACTIVE_ENV="development" \
   GATSBY_API_URL="http://127.0.0.1:3000/graphql" \
   yarn build
 
-WORKDIR /app/packages/neon-law
+WORKDIR /app/packages/interface
 
 EXPOSE 8000
 
