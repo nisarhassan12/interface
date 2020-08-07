@@ -5,4 +5,8 @@ export const transcribeAudio = async (
 ): Promise<string> => {
   const client = new speech.SpeechClient();
 
+  console.log(audioFilename);
+  console.log(client);
+
+  return 'true';
 };
