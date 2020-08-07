@@ -5,12 +5,10 @@ export const transcribeAudio = async (
 ): Promise<string> => {
   const client = new speech.SpeechClient();
 
-  const encoding = 'LINEAR16';
   const sampleRateHertz = 16000;
   const languageCode = 'en-US';
 
   const config = {
-    encoding: encoding,
     languageCode: languageCode,
     sampleRateHertz: sampleRateHertz,
   };
