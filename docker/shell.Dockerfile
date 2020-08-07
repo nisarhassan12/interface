@@ -6,6 +6,7 @@ ENV PATH "/root/.poetry/bin:/opt/venv/bin:${PATH}"
 WORKDIR /app
 
 COPY package.json .
+COPY yarn.lock .
 RUN yarn install
 
 COPY pyproject.toml .
