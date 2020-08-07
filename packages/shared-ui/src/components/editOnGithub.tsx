@@ -14,7 +14,7 @@ export const EditOnGithub = ({ app, path }: EditOnGithubInterface) => {
   const contentPath = path === '/' ? '/index' : path;
 
   const githubPath =
-    'https://github.com/NeonLaw/interface/blob' +
+    'https://github.com/NeonLaw/codebase/blob' +
     `/development/packages/${app}/src/content${contentPath}.mdx`;
 
   return (

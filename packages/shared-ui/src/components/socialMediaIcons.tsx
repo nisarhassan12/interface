@@ -2,7 +2,7 @@
 // @ts-nocheck
 /* eslint-enable */
 import {
-  FaFacebookF, FaGithub, FaLinkedinIn, FaMailchimp, FaTwitter
+  FaGithub, FaLinkedinIn, FaTwitter
 } from 'react-icons/fa';
 import { Box } from '@chakra-ui/core';
 import { Button } from '../components/button';
@@ -20,15 +20,6 @@ export const SocialMediaIcons = ({ display }) => (
       <FaTwitter style={{ display: 'inline' }} />
     </Button>
     <Button
-      aria-label="Visit the Neon Law Facebook page"
-      as="a"
-      href="https://www.facebook.com/neonlaw"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaFacebookF style={{ display: 'inline' }} />
-    </Button>
-    <Button
       aria-label="Visit the Neon Law LinkedIn page"
       as="a"
       href="https://www.linkedin.com/company/neon-law"
@@ -39,21 +30,12 @@ export const SocialMediaIcons = ({ display }) => (
     </Button>
     <Button
       as="a"
-      href="https://github.com/neonlaw"
+      href="https://github.com/neonlaw/codebase"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Neon Law GitHub page"
+      aria-label="Neon Law GitHub Repository"
     >
       <FaGithub style={{ display: 'inline' }} />
-    </Button>
-    <Button
-      as="a"
-      href="https://mailchi.mp/f364242f585f/neonlaw"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Neon Law Monthly - an Email Newsletter"
-    >
-      <FaMailchimp style={{ display: 'inline' }} />
     </Button>
   </Box >
 );
