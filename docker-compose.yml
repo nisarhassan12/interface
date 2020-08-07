@@ -1,14 +1,18 @@
 ---
 version: "3.8"
 
-x-common-variables: &shared-variables
+x-shared-variables: &shared-variables
   AUTH0_CLIENT_ID: $AUTH0_CLIENT_ID
   AUTH0_CLIENT_SECRET: $AUTH0_CLIENT_SECRET
   AUTH0_TENANT: neon-law-testing
   DATABASE_URL: postgres://postgres:password@postgres:5432/neon_law
   GOOGLE_APPLICATION_CREDENTIALS: $GOOGLE_APPLICATION_CREDENTIALS
-  NODE_ENV: production
+  NODE_ENV: development
   SHOW_GRAPHIQL: "true"
+
+x-javascript-volumes: &javascript-volumes
+  - ./:/app
+  - node_modules:/app/node_modules
 
 services:
   postgres:
@@ -31,66 +35,61 @@ services:
       - 3000:3000
     depends_on:
       - shell
-    volumes:
-      - ./:/app:ro
+    volumes: *javascript-volumes
     environment:
       <<: *shared-variables
 
-  neon_law:
+  interface:
     build:
       context: ./
       dockerfile: ./docker/development.interface.Dockerfile
-      args:
-        APP_NAME: neon-law
     restart: always
     depends_on:
       - shell
     ports:
       - 8000:8000
-    volumes:
-      - ./:/app:ro
+    volumes: *javascript-volumes
+    environment:
+      PACKAGE_NAME: interface
 
   law_job_resources:
     build:
       context: ./
       dockerfile: ./docker/development.interface.Dockerfile
-      args:
-        APP_NAME: law-job-resources
     restart: always
     depends_on:
       - shell
     ports:
       - 5000:8000
-    volumes:
-      - ./:/app:ro
+    volumes: *javascript-volumes
+    environment:
+      PACKAGE_NAME: law-job-resources
 
   justice_for_rickie_slaughter:
     build:
       context: ./
       dockerfile: ./docker/development.interface.Dockerfile
-      args:
-        APP_NAME: justice-for-rickie-slaughter
     restart: always
     depends_on:
       - shell
     ports:
       - 7000:8000
-    volumes:
-      - ./:/app:ro
+    volumes: *javascript-volumes
+    environment:
+      PACKAGE_NAME: justice-for-rickie-slaughter
 
   delete_your_data:
     build:
       context: ./
       dockerfile: ./docker/development.interface.Dockerfile
-      args:
-        APP_NAME: delete-your-data
     restart: always
     depends_on:
       - shell
     ports:
       - 6000:8000
-    volumes:
-      - ./:/app:ro
+    volumes: *javascript-volumes
+    environment:
+      PACKAGE_NAME: delete-your-data
 
   language-tool:
     image: silviof/docker-languagetool
@@ -109,6 +108,7 @@ services:
       - postgres
     volumes:
       - ./:/app
+      - node_modules:/app/node_modules
     environment:
       <<: *shared-variables
       NODE_ENV: test
@@ -117,3 +117,6 @@ services:
       CYPRESS_AUTH_CLIENT_ID: $CYPRESS_AUTH_CLIENT_ID
       CYPRESS_AUTH_CLIENT_SECRET: $CYPRESS_AUTH_CLIENT_SECRET
     restart: unless-stopped
+
+volumes:
+  node_modules:
