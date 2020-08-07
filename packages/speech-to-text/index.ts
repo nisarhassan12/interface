@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+/* eslint-enable */
 import speech from '@google-cloud/speech';
 
 export const transcribeAudio = async (
