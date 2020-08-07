@@ -11,16 +11,16 @@ export const transcribeAudio = async (
 
   const config = {
     encoding: encoding,
-    sampleRateHertz: sampleRateHertz,
     languageCode: languageCode,
+    sampleRateHertz: sampleRateHertz,
   };
   const audio = {
     uri: gcsUri,
   };
 
   const request = {
-    config: config,
-    audio: audio,
+    audio,
+    config,
   };
 
   // Detects speech in the audio file
