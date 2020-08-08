@@ -2,13 +2,13 @@
 version: "3.8"
 
 x-shared-variables: &shared-variables
-  AUTH0_CLIENT_ID: $AUTH0_CLIENT_ID
-  AUTH0_CLIENT_SECRET: $AUTH0_CLIENT_SECRET
-  AUTH0_TENANT: neon-law-testing
-  DATABASE_URL: postgres://postgres:password@postgres:5432/neon_law
-  GOOGLE_APPLICATION_CREDENTIALS: $GOOGLE_APPLICATION_CREDENTIALS
-  NODE_ENV: development
-  SHOW_GRAPHIQL: "true"
+  - AUTH0_CLIENT_ID=$AUTH0_CLIENT_ID
+  - AUTH0_CLIENT_SECRET=$AUTH0_CLIENT_SECRET
+  - AUTH0_TENANT=neon-law-testing
+  - DATABASE_URL=postgres://postgres:password@postgres:5432/neon_law
+  - GOOGLE_APPLICATION_CREDENTIALS=credentials.json
+  - NODE_ENV=development
+  - SHOW_GRAPHIQL="true"
 
 x-javascript-volumes: &javascript-volumes
   - ./:/app

@@ -28,7 +28,9 @@ We recommend developing with a containerized setup that best mimic our staging
 and production process. If you have docker and docker-compose installed on
 your machine, you can follow these two steps to start developing.
 
-1. Ensure that you have the proper environment variables.
+1. Ensure that you have the proper environment variables and GCP Credential.
+
+You should have these environment variables on your machine:
 
 * `AUTH0_CLIENT_ID`
 * `AUTH0_CLIENT_SECRET`
