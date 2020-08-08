@@ -4,7 +4,7 @@ version: "3.8"
 x-shared-variables: &shared-variables
   - AUTH0_CLIENT_ID=$AUTH0_CLIENT_ID
   - AUTH0_CLIENT_SECRET=$AUTH0_CLIENT_SECRET
-  - AUTH0_TENANT=neon-law-testing
+  - AUTH0_TENANT=neon-law-testing.auth0.com
   - DATABASE_URL=postgres://postgres:password@postgres:5432/neon_law
   - GOOGLE_APPLICATION_CREDENTIALS=credentials.json
   - NODE_ENV=development
@@ -13,6 +13,7 @@ x-shared-variables: &shared-variables
   - CYPRESS_AUDIENCE_URL=$CYPRESS_AUDIENCE_URL
   - CYPRESS_AUTH_CLIENT_ID=$CYPRESS_AUTH_CLIENT_ID
   - CYPRESS_AUTH_CLIENT_SECRET=$CYPRESS_AUTH_CLIENT_SECRET
+  - GATSBY_WEBPACK_PUBLICPATH=/
 
 x-javascript-volumes: &javascript-volumes
   - ./:/app
@@ -27,6 +28,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_DB: neon_law
+    ports:
+      - 5432:5432
     restart: unless-stopped
     logging:
       driver: none
@@ -36,6 +39,7 @@ services:
       context: ./
       dockerfile: ./docker/api.Dockerfile
     restart: always
+    container_name: api
     ports:
       - 3000:3000
     depends_on:
@@ -47,9 +51,9 @@ services:
     build:
       context: ./
       dockerfile: ./docker/development.interface.Dockerfile
+    container_name: interface
     restart: always
     depends_on:
-      - shell
       - api
     ports:
       - 8000:8000
@@ -62,8 +66,8 @@ services:
       context: ./
       dockerfile: ./docker/development.interface.Dockerfile
     restart: always
+    container_name: law_job_resources
     depends_on:
-      - shell
       - api
     ports:
       - 5000:8000
@@ -76,8 +80,8 @@ services:
       context: ./
       dockerfile: ./docker/development.interface.Dockerfile
     restart: always
+    container_name: justice_for_rickie_slaughter
     depends_on:
-      - shell
       - api
     ports:
       - 7000:8000
@@ -90,8 +94,8 @@ services:
       context: ./
       dockerfile: ./docker/development.interface.Dockerfile
     restart: always
+    container_name: delete_your_data
     depends_on:
-      - shell
       - api
     ports:
       - 6000:8000

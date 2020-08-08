@@ -17,11 +17,14 @@ describe('Visiting /portal', () => {
       cy.loginAsPortalUser().then(() => {
         cy.visit('/portal');
         cy.contains('Profile').click();
-        cy.url().should('include', '/portal/profile');
-        cy.get('[data-testid="portal-profile-form-name"]').type(name);
-
-        // wait for currentUser to populate form TODO - remove this
+        cy.wait(1000);
+        cy.reload();
         cy.wait(5000);
+        cy.url().should('include', '/portal/profile');
+        cy.get('[data-testid="portal-profile-form-name"]').
+          invoke('val').
+          should('not.contain', name);
+        cy.get('[data-testid="portal-profile-form-name"]').type(name);
 
         cy.get('[data-testid="portal-profile-form-submit"]').click();
 
