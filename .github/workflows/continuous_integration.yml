@@ -55,12 +55,12 @@ jobs:
         run: yarn migrate
         working-directory: ./packages/api
         env:
-          DATABASE_URL: postgres://postgres:password@localhost:5432/neon_law
+          DATABASE_URL: postgres://postgres:password@127.0.0.1:5432/neon_law
       - name: Run PGRita checks
         uses: pgrita/action@main
         env:
           PGRITA_TOKEN: ${{ secrets.PGRITA_TOKEN }}
-          DATABASE_URL: postgres://postgres:password@127.0.0.1/postgres
+          DATABASE_URL: postgres://postgres:password@127.0.0.1:5432/postgres
         with:
           project: neonlaw/codebase
       - name: Run Jest tests and publish coverage to Code Climate.
