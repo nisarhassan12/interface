@@ -1,7 +1,7 @@
 ---
-version: "3.8"
+version: "3.4"
 
-x-shared-variables: &shared-variables
+x-environment-variables: &environment-variables
   - AUTH0_CLIENT_ID=$AUTH0_CLIENT_ID
   - AUTH0_CLIENT_SECRET=$AUTH0_CLIENT_SECRET
   - AUTH0_TENANT=neon-law-testing.auth0.com
@@ -17,7 +17,7 @@ x-shared-variables: &shared-variables
   - CYPRESS_AUTH_CLIENT_SECRET=$CYPRESS_AUTH_CLIENT_SECRET
   - GATSBY_WEBPACK_PUBLICPATH=/
 
-x-javascript-volumes: &javascript-volumes
+x-node-volumes: &node-volumes
   - ./:/app
   - node_modules:/app/node_modules
   - ./yarn.lock:/app/yarn.lock:ro
@@ -47,8 +47,8 @@ services:
       - 3000:3000
     depends_on:
       - shell
-    environment: *shared-variables
-    volumes: *javascript-volumes
+    environment: *environment-variables
+    volumes: *node-volumes
 
   interface:
     build:
@@ -60,7 +60,7 @@ services:
       - api
     ports:
       - 8000:8000
-    volumes: *javascript-volumes
+    volumes: *node-volumes
     environment:
       PACKAGE_NAME: interface
       GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
@@ -75,7 +75,7 @@ services:
       - api
     ports:
       - 5000:8000
-    volumes: *javascript-volumes
+    volumes: *node-volumes
     environment:
       PACKAGE_NAME: law-job-resources
       GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
@@ -90,7 +90,7 @@ services:
       - api
     ports:
       - 7000:8000
-    volumes: *javascript-volumes
+    volumes: *node-volumes
     environment:
       GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
       PACKAGE_NAME: justice-for-rickie-slaughter
@@ -105,7 +105,7 @@ services:
       - api
     ports:
       - 6000:8000
-    volumes: *javascript-volumes
+    volumes: *node-volumes
     environment:
       PACKAGE_NAME: delete-your-data
       GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
@@ -128,7 +128,7 @@ services:
     volumes:
       - ./:/app
       - node_modules:/app/node_modules
-    environment: *shared-variables
+    environment: *environment-variables
     restart: unless-stopped
 
 volumes:
