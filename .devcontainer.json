@@ -1,7 +1,10 @@
 {
-  "dockerComposeFile": "./docker-compose.yml",
+  "dockerComposeFile": "docker-compose.yml",
   "service": "shell",
   "workspaceFolder": "/app",
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+  ],
   "remoteEnv": {
     "CYPRESS_AUTH_URL": "${localEnv:CYPRESS_AUTH_URL}"
   },
