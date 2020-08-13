@@ -1,5 +1,7 @@
 {
-  "dockerComposeFile": "docker-compose.yml",
+  "dockerComposeFile": [
+    "./docker-compose.yml"
+  ],
   "service": "shell",
   "mounts": [
     "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
@@ -12,5 +14,11 @@
     "CYPRESS_AUTH_CLIENT_ID": "${localEnv:CYPRESS_AUTH_URL}",
     "CYPRESS_AUTH_CLIENT_SECRET": "${localEnv:CYPRESS_AUTH_URL}"
   },
-  "shutdownAction": "stopCompose"
+  "shutdownAction": "stopCompose",
+  "workspaceFolder": "/app",
+  "forwardPorts": [
+    5432,
+    3000,
+    8000
+  ],
 }
