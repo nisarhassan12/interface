@@ -16,15 +16,38 @@ import { Select, StringInput, Textarea } from '../../forms/base';
 
 import { colors } from '../../themes/neonLaw';
 import { flashcardTopics } from '../../forms/options/flashcardTopics';
+import { gql } from '@apollo/client';
 import { useCreateFlashcardMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
 
 export const CreateFlashcardModal = ({ isOpen, onClose }) => {
   const intl = useIntl();
-  const [
-    createFlashcard
-  ] = useCreateFlashcardMutation();
+
+  const [createFlashcard] = useCreateFlashcardMutation({
+    update(cache, { data }) {
+      cache.modify({
+        fields: {
+          allFlashcards(existingFlashCards = []) {
+            const newFlashCardRef = cache.writeFragment({
+              data: data?.createFlashcard,
+              fragment: gql`
+                fragment NewFlashcard on Flashcard {
+                  flashcard {
+                    id
+                    answer
+                    prompt
+                    topic
+                  }
+                }
+              `
+            });
+            return [...existingFlashCards.nodes, newFlashCardRef];
+          }
+        }
+      });
+    }
+  });
 
   const {
     control,
@@ -60,25 +83,25 @@ export const CreateFlashcardModal = ({ isOpen, onClose }) => {
   const { colorMode } = useColorMode();
 
   return (
-    <Modal 
-      isOpen={isOpen} 
+    <Modal
+      isOpen={isOpen}
       onClose={onClose}
     >
       <ModalOverlay />
       <ModalContent>
         <Text>
         </Text>
-        <ModalHeader 
-          fontWeight="normal" 
+        <ModalHeader
+          fontWeight="normal"
           fontSize={theme.fontSizes['xl0']}
           color={colors.text[colorMode]}
         >
           Create a Flashcard
         </ModalHeader>
-        <ModalCloseButton style={{color: colors.text[colorMode]}} />
-        <form 
+        <ModalCloseButton style={{ color: colors.text[colorMode] }} />
+        <form
           onSubmit={handleSubmit(onSubmit as any)}
-          style={{color: colors.text[colorMode]}}
+          style={{ color: colors.text[colorMode] }}
         >
           <ModalBody>
             {formError}
