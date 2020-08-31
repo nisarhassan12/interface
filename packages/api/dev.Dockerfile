@@ -13,7 +13,7 @@ ENV SHADOW_DATABASE_URL $SHADOW_DATABASE_URL
 
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install
+RUN yarn install --ignore-optional --silent
 
 COPY . .
 

@@ -104,7 +104,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
-        run: yarn
+        run: yarn --ignore-optional
         working-directory: ./packages/law-job-resources
       - name: Build application
         run: yarn build
@@ -117,7 +117,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
-        run: yarn
+        run: yarn --ignore-optional
         working-directory: ./packages/justice-for-rickie-slaughter
       - name: Build application
         run: yarn build
@@ -130,7 +130,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
-        run: yarn
+        run: yarn --ignore-optional
         working-directory: ./packages/delete-your-data
       - name: Build application
         run: yarn build
