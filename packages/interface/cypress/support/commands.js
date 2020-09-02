@@ -32,16 +32,16 @@ Cypress.Commands.add(
   'loginAsPortalUser',
   () => {
     cy.log('Logging in as portal@neonlaw.com');
-    const clientId = Cypress.env('AUTH_CLIENT_ID');
+    const clientId = Cypress.env('AUTH0_CLIENT_ID');
     const audience = 'https://api.neonlaw.com';
     const scope = 'openid profile email';
-    const jwt_decode = require('jwt-decode');
+    const jwtDecode = require('jwt-decode');
 
     const options = {
       body: {
         'audience': audience,
         'client_id': clientId,
-        'client_secret': Cypress.env('AUTH_CLIENT_SECRET'),
+        'client_secret': Cypress.env('AUTH0_CLIENT_SECRET'),
         'grant_type': 'http://auth0.com/oauth/grant-type/password-realm',
         'password': Cypress.env('PORTAL_USER_PASSWORD'),
         realm: 'Username-Password-Authentication',
@@ -63,7 +63,7 @@ Cypress.Commands.add(
           access_token,
           client_id: clientId,
           decodedToken: {
-            user: jwt_decode(id_token),
+            user: jwtDecode(id_token),
           },
           expires_in,
           id_token,
@@ -80,21 +80,24 @@ Cypress.Commands.add(
   'loginAsAdminUser',
   () => {
     cy.log('Logging in as admin@neonlaw.com');
-    const clientId = Cypress.env('AUTH_CLIENT_ID');
+    const clientId = Cypress.env('AUTH0_CLIENT_ID');
     const audience = 'https://api.neonlaw.com';
     const scope = 'openid profile email';
-    const jwt_decode = require('jwt-decode');
+    const jwtDecode = require('jwt-decode');
 
     const options = {
       body: {
         'audience': audience,
         'client_id': clientId,
-        'client_secret': Cypress.env('AUTH_CLIENT_SECRET'),
+        'client_secret': Cypress.env('AUTH0_CLIENT_SECRET'),
         'grant_type': 'http://auth0.com/oauth/grant-type/password-realm',
         'password': Cypress.env('ADMIN_USER_PASSWORD'),
         realm: 'Username-Password-Authentication',
         'scope': scope,
         'username': 'admin@neonlaw.com',
+      },
+      headers: {
+        'Content-Type': 'application/json'
       },
       method: 'POST',
       url: Cypress.env('AUTH_URL'),
@@ -111,7 +114,7 @@ Cypress.Commands.add(
           access_token,
           client_id: clientId,
           decodedToken: {
-            user: jwt_decode(id_token),
+            user: jwtDecode(id_token),
           },
           expires_in,
           id_token,

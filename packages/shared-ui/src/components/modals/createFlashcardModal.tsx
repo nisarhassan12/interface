@@ -86,9 +86,10 @@ export const CreateFlashcardModal = ({ isOpen, onClose }) => {
     <Modal
       isOpen={isOpen}
       onClose={onClose}
+      size="960px"
     >
       <ModalOverlay>
-        <ModalContent>
+        <ModalContent data-testid="create-flashcard-modal">
           <Text>
           </Text>
           <ModalHeader
@@ -115,8 +116,8 @@ export const CreateFlashcardModal = ({ isOpen, onClose }) => {
                 )}
                 register={
                   register({
-                    required: intl.formatMessage({ 
-                      id: 'forms.prompt.required' 
+                    required: intl.formatMessage({
+                      id: 'forms.prompt.required'
                     })
                   })
                 }
@@ -131,8 +132,8 @@ export const CreateFlashcardModal = ({ isOpen, onClose }) => {
                 )}
                 register={
                   register({
-                    required: intl.formatMessage({ 
-                      id: 'forms.answer.required' 
+                    required: intl.formatMessage({
+                      id: 'forms.answer.required'
                     })
                   })
                 }
@@ -151,6 +152,7 @@ export const CreateFlashcardModal = ({ isOpen, onClose }) => {
                 type="submit"
                 data-testid="create-flashcard-modal-submit"
                 isDisabled={isSubmitting}
+                width="100%"
               >
                 Create Flashcard
               </Button>

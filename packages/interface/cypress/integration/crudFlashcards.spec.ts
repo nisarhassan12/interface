@@ -1,23 +1,35 @@
 /* eslint-disable no-undef */
 
+import * as faker from 'faker';
+
 describe('CRUDDing Bar Prep Flashcards', () => {
-  it('adds the flashcard to the flashcard table', () => {
+  it('creates a flashcard and adds that to the flashcard table', () => {
     cy.loginAsAdminUser().then(() => {
       cy.visit('/admin/flashcards');
 
       cy.contains('Create Flashcard').click();
 
+      cy.get('[data-testid="create-flashcard-modal"]')
+        .should('exist');
+
       cy
         .get('[data-testid="create-flashcard-modal-prompt"]')
-        .type('A question');
+        .type(faker.lorem.sentence());
 
       cy
         .get('[data-testid="create-flashcard-modal-answer"]')
-        .type('An answer');
+        .type(faker.lorem.paragraph());
 
       cy
         .get('[data-testid="create-flashcard-modal-submit"]')
         .click();
+
+      cy
+        .get('[data-testid="create-flashcard-modal-submit"]')
+        .click();
+
+      cy.get('[data-testid="create-flashcard-modal"]')
+        .should('not.exist');
     });
   });
 });
